@@ -2,7 +2,7 @@
 <?php
     class clsketnoi{
         function ketnoiDB(& $conn){
-            $conn = mysqli_connect("localhost", "root", "", "dbmypham");
+            $conn = mysqli_connect("localhost", "root", "", "mypham");
             if ($conn){
                 mysqli_set_charset($conn, "utf8");
                 return $conn;

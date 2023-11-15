@@ -9,7 +9,7 @@ require '../phpmailer/src/PHPMailer.php';
 require '../phpmailer/src/Exception.php';
 require '../phpmailer/src/SMTP.php';
 
-$con = mysqli_connect("localhost","root","","dbmypham") or die("Can not connect to MySQL");
+$con = mysqli_connect("localhost","root","","mypham") or die("Can not connect to MySQL");
 mysqli_set_charset($con,"UTF8");
 
 $emailDefault = '';

@@ -9,7 +9,7 @@ require '../../phpmailer/src/PHPMailer.php';
 require '../../phpmailer/src/Exception.php';
 require '../../phpmailer/src/SMTP.php';
 
-$con = mysqli_connect("localhost","root","","dbmypham") or die("Can not connect to MySQL");
+$con = mysqli_connect("localhost","root","","mypham") or die("Can not connect to MySQL");
 mysqli_set_charset($con,"UTF8");
 
 
@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="email" name="check" id="check">
+                        <input class="input100" type="email" name="check" id="check" placeholder="Nhập email của bạn">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>

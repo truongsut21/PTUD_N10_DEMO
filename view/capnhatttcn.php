@@ -2,7 +2,7 @@
     $server = "localhost";
     $username = "root";
     $password = "";
-    $database = "dbmypham";
+    $database = "mypham";
     $conn = mysqli_connect($server, $username, $password, $database);
     if (!$conn) {
         die("Kết nối không thành công: " . mysqli_connect_error());

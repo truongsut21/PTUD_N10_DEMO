@@ -15,92 +15,108 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/home.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/stylee.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/xemsanpham.css" type="text/css">
+</head>
 </head>
 
 <body>
+    
     <!-- Page Preloder -->
     <!-- <div id="preloder">
         <div class="loader"></div>
     </div> -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
-                                <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-
-                            <div class="header__top__right__auth">
-                                <a href="./view/dangnhap.php">Đăng nhập
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+<header class="header">
+    <div class="header__top">
         <div class="container">
             <div class="row">
-
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="../PTUD_N10/index.php"><img src="../PTUD_N10/img/logoha.png" alt=""></a>
+                <div class="col-lg-8 col-md-6">
+                    <div class="header__top__left">
+                        <ul>
+                            <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                            <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#" method="get">
-                            <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
-                        <button  class="site-btn" type="submit" name="timkiem" >  
-                            <i class="fa fa-search" value="Tìm kiếm"></i>
-                        </button>
-                        </form>
-                    </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-user"></i></a>
+                            <a href="#"><i class="fa fa-phone"></i></a>
+                            <a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i></a>
+                        </div>
+                        <div class="header__top__right__auth">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuHeader" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tài khoản của bạn
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="../view/capnhatttcn.php">Cập nhật thông tin</a>
+                                    <a class="dropdown-item" href="../view/doimatkhau.php">Đổi mật khẩu</a>
+                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="col-lg-12">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="#">Danh mục</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="../PTUD_N10/xemsanpham.php">Xem sản phẩm</a></li>
-                                    <li><a href="../PTUD_N10/dathang.php">Đặt hàng</a></li>
-                                    <li><a href="../PTUD_N10/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                    <li><a href="../PTUD_N10/huydon.html">Hủy đơn</a></li>
-                                    <li><a href="#">Khác</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="../PTUD_N10/shop.php">Shop</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Chính sách</a></li>
-                            <li><a href="#">Quản lý</a></li>
-                        </ul>
-                    </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="../PTUD_N10/index.php"><img src="../PTUD_N10/img/logoha.png" alt=""></a>
+                </div>
+            </div>
+
+            <div class="hero__search">
+                <div class="hero__search__form">
+                    <form action="#">
+                        <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
+                        <button type="submit" class="site-btn">TÌM</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-lg-12">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="#">Danh mục</a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="../PTUD_N10/xemsanpham.php">Xem sản phẩm</a></li>
+                                <li><a href="../PTUD_N10/dathang.php">Đặt hàng</a></li>
+                                <li><a href="../PTUD_N10/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
+                                <li><a href="../PTUD_N10/huydon.html">Hủy đơn</a></li>
+                                <li><a href="#">Khác</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Chính sách</a></li>
+                        <li><a href="#">Quản lý</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+    
     <!-- Header Section End -->
     <br>
-
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
@@ -129,12 +145,12 @@
                 </div>
             </div>
             <div class="row featured__filter">
-            <?php
+                <?php
                 include_once("view/vProduct.php");
                 $p = new VProduct();
                 if (isset($_REQUEST["tim"])) {
                     $p->viewSearchProduct($_REQUEST["tim"]);
-                }else{
+                } else {
                     $p->viewAllProducts();
                 }
                 ?>
