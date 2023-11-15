@@ -3,13 +3,13 @@ session_start();
 ob_start();
 
 if (!isset($_SESSION['MaKhachHang']) || empty($_SESSION['MaKhachHang'])) {
-    header('location: ../view/dangnhap.php');
+    header('location: view/dangnhap.php');
     exit();
 }
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     session_unset(); // Xóa tất cả các biến trong session
     session_destroy(); // Hủy session
-    header('location: ../view/dangnhap.php'); // Chuyển hướng về trang login.php
+    header('location: view/dangnhap.php'); // Chuyển hướng về trang login.php
     exit();
 }
 ?>

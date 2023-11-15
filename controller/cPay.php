@@ -24,11 +24,11 @@ class CPay
             $Email = $_REQUEST['Email'];
             $DiaChi = $_REQUEST['DiaChi'];
             $tongTien = $_REQUEST['TongTien'];
-            $maSanPham = $_REQUEST['maSanPham'];
+            $maSanPham = $_REQUEST['MaSanPham'];
             $maNhanVien = '1';
             $tongTienDonHang = $_REQUEST["tongTienDonHang"];
             $maKhachHang = $_SESSION['MaKhachHang'];
-            $soLuong = 0;
+            $soLuong = $_REQUEST['SoLuong'];
 
             $p = new MPay();
             $tbl = $p->addOrder($HoTen , $SoDienThoai , $Email ,$DiaChi ,$tongTien ,$maSanPham ,$maNhanVien , $tongTienDonHang ,$maKhachHang ,$soLuong );
