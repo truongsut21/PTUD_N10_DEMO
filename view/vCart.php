@@ -43,13 +43,13 @@ function showProduct($tbl)
                         <img src="img/' . $row['HinhAnh'] . '" alt="">
                         <h5>' . $row['TenSanPham'] . '</h5>
                     </td>
-                    <td class="shoping__cart__price">
+                    <td class="shoping__cart__price _price">
                         ' . $row['GiaBan'] . '
                     </td>
                     <td class="shoping__cart__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" name="SoLuong" value="' . $row['SoLuong'] . '">
+                                <input type="text" class="_quantity" name="SoLuong" value="' . $row['SoLuong'] . '" onchange=renderPrice()>
                             </div>
                         </div>
                     </td>

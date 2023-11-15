@@ -16,23 +16,23 @@ class CPay
         return $tbl;
     }
 
-
     function handlePay()
     {
         if (isset($_REQUEST['btnPay'])) {
-            $maSanPhams = $_REQUEST['MaSanPham'];
-            $tongTiens = $_REQUEST['TongTien'];
+            $HoTen = $_REQUEST['HoTen'];
+            $SoDienThoai = $_REQUEST['SoDienThoai'];
+            $Email = $_REQUEST['Email'];
+            $DiaChi = $_REQUEST['DiaChi'];
+            $tongTien = $_REQUEST['TongTien'];
+            $maSanPham = $_REQUEST['maSanPham'];
+            $maNhanVien = '1';
+            $tongTienDonHang = $_REQUEST["tongTienDonHang"];
+            $maKhachHang = $_SESSION['MaKhachHang'];
+            $soLuong = 0;
 
-            $maNhanVien = '01';
-            $maKhachHang = '02';
-            $NgayLap = date("Y-m-d");
-
-
-            // Hiển thị các giá trị đã chọn
-            foreach ($maSanPhams as $maSanPham => $item) {
-                // echo $item . "\n --"; // item là mã sản phẩm
-                // echo $tongTiens[$index] . "\n"; // đây là tổng tiền
-            }
+            $p = new MPay();
+            $tbl = $p->addOrder($HoTen , $SoDienThoai , $Email ,$DiaChi ,$tongTien ,$maSanPham ,$maNhanVien , $tongTienDonHang ,$maKhachHang ,$soLuong );
+            return $tbl;
         }
     }
 }

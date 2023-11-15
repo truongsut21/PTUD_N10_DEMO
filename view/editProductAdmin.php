@@ -108,7 +108,7 @@
             <div class="form-group col-md-7">
                 <label for="">Loại sản phẩm</label>
                 <?php
-                include_once("Controller/cLoaiSP.php");
+                include_once("Controller/cLoaiSPAmin.php");
                 $cloai = new CLoaiSP();
                 $tbl = $cloai->getAllLoaiSP();
 
@@ -130,7 +130,7 @@
             <div class="form-group col-md-12">
                 <label>Nhà cung cấp</label>
                 <?php
-                include_once("Controller/cNhaCC.php");
+                include_once("Controller/Admin.php");
                 $ce = new CNhaCC();
                 $tbl = $ce->getAllNCC();
 

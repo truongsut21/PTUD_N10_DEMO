@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -20,6 +21,7 @@
 
 <body>
     <?php
+       session_start();
     include("controller/cCart.php");
     $p = new CCart();
     $p->handleUpdateProduct();
@@ -164,7 +166,7 @@
 
 
                             <li>
-                                <h5>Tổng tiền</h5> <span>
+                                <h5>Tổng tiền</h5> <span id="allTotal">
                                     <?php
 
                                     $cart->cartTotal()
@@ -218,17 +220,26 @@
             minimumFractionDigits: 0,
         });
 
+
+        setInterval(() => {
+            renderPrice()
+        }, 100);
+
+        const allTotalhtml = document.querySelector('#allTotal')
         const totalItem = document.querySelectorAll('.shoping__cart__total')
         const prices = document.querySelectorAll('._price')
         const quantity = document.querySelectorAll('._quantity')
 
         function renderPrice() {
-            for (let i = 0; i < total.length; i++) {
-                totalItem[i].innerHTML = prices[i].value * quantity[i].value
+            let allTotal = 0
+            for (let i = 0; i < totalItem.length; i++) {
+                totalItem[i].innerHTML = prices[i].innerHTML * quantity[i].value
+                allTotal += prices[i].innerHTML * quantity[i].value
             }
+
+            allTotalhtml.innerHTML = allTotal
         }
-        renderPrice()
-    </script>;
+    </script>
 
 </body>
 

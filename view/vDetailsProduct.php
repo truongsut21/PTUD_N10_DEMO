@@ -111,7 +111,7 @@ function showProduct($tbl)
                             </div>
                             <div class='tab-pane' id='tabs-3' role='tabpanel'>
                                 <div class='product__details__tab__desc'>
-                                    <h6>Đánh giá từ khách hàng:" . $row['NoiDungDanhGia'] . " </h6>
+                                  
                                     
                                   
                             </div>

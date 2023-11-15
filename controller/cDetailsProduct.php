@@ -6,6 +6,10 @@ class CDetailsProduct
 
     function handleAddToCart()
     {
+        if (!isset($_SESSION['MaKhachHang'])){
+            header('PTUD_N10/view/dangnhap.php');
+        }
+
         if (isset($_REQUEST["submitAddToCart"])) {
             $quantity = $_REQUEST["quantity"];
             $maSanPham = $_REQUEST["MaSanPham"];
@@ -30,7 +34,7 @@ function addToCart($quantity, $maSanPham)
 
 function getIdCustommer()
 {
-    session_start();
+   
 
     $maKhachHang = $_SESSION['MaKhachHang'];
 
@@ -38,6 +42,6 @@ function getIdCustommer()
     if ($maKhachHang) {
         return $maKhachHang;
     } else {
-        header('location: /PTUD_N10/view/dangnhap.php');
+        header('PTUD_N10/view/dangnhap.php');
     }
 }

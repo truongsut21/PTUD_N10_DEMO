@@ -55,6 +55,8 @@ function showProduct($tbl)
             while ($row = mysqli_fetch_assoc($tbl)) {
                 echo '<input type="hidden" name="TongTien[]" class="_price" value=' . $row["GiaBan"] * $row["SoLuong"] . '>';
                 echo '<input type="hidden" name="MaSanPham[]" value=' . $row["MaSanPham"] . '>';
+                echo '<input type="hidden" name="SoLuong[]" value=' . $row["SoLuong"] . '>';
+
                 echo '<li>' . $row["TenSanPham"] . ' <span>' . $row["GiaBan"] * $row["SoLuong"]  . '</span></li>';
             };
         }

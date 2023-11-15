@@ -30,7 +30,7 @@
             $p = new CEmployee();
             if(isset($_REQUEST["btnEmpAct"])){
                 if ($_REQUEST["btnEmpAct"] == "edit"){
-                    include("editEmployee.php");
+                    include("editEmployeeAdmin.php");
                     // return $result;
                 }
             }

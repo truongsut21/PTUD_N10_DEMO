@@ -65,7 +65,7 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
+                <li class="active"><a href="./index.php">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
@@ -137,13 +137,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./index.php">Home</a></li>
                             <li class="active"><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
@@ -184,7 +184,7 @@
                     <div class="breadcrumb__text">
                         <h2>Checkout</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="./index.php">Home</a>
                             <span>Checkout</span>
                         </div>
                     </div>
@@ -203,10 +203,10 @@
                 <form action="#" method="get">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
-                            
+
 
                             <?php
-                                $v-> viewInfoUsers();
+                            $v->viewInfoUsers();
                             ?>
 
                             <div class="checkout__input__checkbox">
@@ -223,12 +223,13 @@
                                 <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
                                 <ul>
                                     <?php
-                                   
+
                                     $v->viewAllProducts();
                                     ?>
                                 </ul>
 
                                 <div class="checkout__order__total">Tổng tiền <span id="total">0</span></div>
+                                <input type="hidden" name="tongTienDonHang" value="0" id="tongTienDonHang">
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
                                     ut labore et dolore magna aliqua.</p>
@@ -263,7 +264,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.php"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -345,6 +346,7 @@
         });
 
         const totalItem = document.querySelector('#total')
+        const tongTienDonHang = document.querySelector('#tongTienDonHang')
         const prices = document.querySelectorAll('._price')
 
         function renderPrice() {
@@ -353,8 +355,10 @@
             for (let i = 0; i < prices.length; i++) {
                 console.log(parseInt(prices[i].value, 10))
                 total += parseInt(prices[i].value, 10)
+
             }
             totalItem.innerHTML = formatter.format(total)
+            tongTienDonHang.value = total
         }
         renderPrice()
     </script>;

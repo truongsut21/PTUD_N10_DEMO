@@ -30,7 +30,7 @@
             $p = new CProduct();
             if(isset($_REQUEST["btnProdAct"])){
                 if ($_REQUEST["btnProdAct"] == "edit"){
-                    include("editProduct.php");
+                    include("editProductAdmin.php");
                     // return $result;
                 }
             }
