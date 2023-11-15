@@ -16,7 +16,7 @@
         if(empty($pass) || empty($user)){
             $txt = "Bạn cần nhập đủ thông tin đăng nhập";
         }else if($role==3) {
-            header('location: view/chucuahang.php');
+            header('location: ../indexAdmin.php');
         }else if($role==2) {
             header('location: ../nhanvienbanhang.php');
         }else if($role==1) {
