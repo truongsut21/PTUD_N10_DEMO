@@ -18,7 +18,7 @@
         }else if($role==3) {
             header('location: view/chucuahang.php');
         }else if($role==2) {
-            header('location: view/nhanvienbh.php');
+            header('location: ../nhanvienbanhang.php');
         }else if($role==1) {
             header('location: ../indexQLKH.php');
         }else {
