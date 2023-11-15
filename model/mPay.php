@@ -32,7 +32,7 @@ class MPay
         
 
         if ($p->connect_DB($con)) {
-            $sql_hoadon = "INSERT INTO hoadon (TongTien, NgayLap) VALUES ('99999999', NOW())";
+            $sql_hoadon = "INSERT INTO hoadon (TongTien, NgayLap) VALUES ('$tongTienDonHang', NOW())";
             $result_hoadon = mysqli_query($con, $sql_hoadon);
 
             if ($result_hoadon) {
@@ -43,7 +43,7 @@ class MPay
                 foreach ($maSanPham as $key => $value) {
                    
                     $sql_chitiethoadon = "INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `TongTien`, `NgayLapChiTietHoaDon`, `MaSanPham`, `MaHoaDon`, `SoLuong`, `MaKhachHang`, `DiaChiGiaoHang`, `HoTen`, `SoDienThoai`, `Email`) 
-                    VALUES (NULL, '$tongTien[$key]', NOW(), '$value', '$MaHoaDon', '$soLuong', '$maKhachHang', '$DiaChi', '$HoTen', '$SoDienThoai', '$Email');";
+                    VALUES (NULL, '$tongTien[$key]', NOW(), '$value', '$MaHoaDon', '$soLuong[$key]', '$maKhachHang', '$DiaChi', '$HoTen', '$SoDienThoai', '$Email');";
 
 
                     $result_chitiethoadon = mysqli_query($con, $sql_chitiethoadon);
@@ -53,6 +53,7 @@ class MPay
                     }
                 }
 
+                
                 echo "<script> alert('them don hàng thêm thành công!')</script>";
             } else {
                 echo "Lỗi: " . $sql_hoadon . "<br>" . mysqli_error($con);
