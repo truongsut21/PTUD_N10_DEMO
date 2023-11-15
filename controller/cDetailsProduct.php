@@ -7,7 +7,7 @@ class CDetailsProduct
     function handleAddToCart()
     {
         if (!isset($_SESSION['MaKhachHang'])){
-            header('PTUD_N10/view/dangnhap.php');
+            header('PTUD_N10_1/view/dangnhap.php');
         }
 
         if (isset($_REQUEST["submitAddToCart"])) {
@@ -42,6 +42,6 @@ function getIdCustommer()
     if ($maKhachHang) {
         return $maKhachHang;
     } else {
-        header('PTUD_N10/view/dangnhap.php');
+        header('PTUD_N10_1/view/dangnhap.php');
     }
 }

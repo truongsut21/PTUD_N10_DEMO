@@ -84,7 +84,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="../PTUD_N10/index.php"><img src="../PTUD_N10/img/logoha.png" alt=""></a>
+                        <a href="../PTUD_N10_1/index.php"><img src="../PTUD_N10_1/img/logoha.png" alt=""></a>
                     </div>
                 </div>
 
@@ -103,10 +103,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <ul>
                             <li><a href="#">Danh mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="../PTUD_N10/xemsanpham.php">Xem sản phẩm</a></li>
-                                    <li><a href="../PTUD_N10/dathang.php">Đặt hàng</a></li>
-                                    <li><a href="../PTUD_N10/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                    <li><a href="../PTUD_N10/huydon.html">Hủy đơn</a></li>
+                                    <li><a href="../PTUD_N10_1/xemsanpham.php">Xem sản phẩm</a></li>
+                                    <li><a href="../PTUD_N10_1/dathang.php">Đặt hàng</a></li>
+                                    <li><a href="../PTUD_N10_1/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
+                                    <li><a href="../PTUD_N10_1/huydon.html">Hủy đơn</a></li>
                                     <li><a href="#">Khác</a></li>
                                 </ul>
                             </li>
