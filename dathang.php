@@ -62,7 +62,7 @@
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="../PTUD_N10_1/index.php"><img src="../PTUD_N10_1/img/logoha.png" alt=""></a>
+                        <a href="../PTUD_N10_DEMO/index.php"><img src="../PTUD_N10_DEMO/img/logoha.png" alt=""></a>
                     </div>
                 </div>
 
@@ -81,10 +81,10 @@
                         <ul>
                             <li><a href="#">Danh mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="../PTUD_N10_1/xemsanpham.html">Xem sản phẩm</a></li>
-                                    <li><a href="../PTUD_N10_1/dathang.html">Đặt hàng</a></li>
-                                    <li><a href="../PTUD_N10_1/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                    <li><a href="../PTUD_N10_1/huydon.html">Hủy đơn</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/xemsanpham.html">Xem sản phẩm</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/dathang.html">Đặt hàng</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/huydon.html">Hủy đơn</a></li>
                                     <li><a href="#">Khác</a></li>
                                 </ul>
                             </li>
@@ -131,7 +131,7 @@
                     $p -> viewAllCustomers();
                 ?>
               <!--  <h4>Thông tin Khách hàng</h4>
-                  <p><a href="../PTUD_N10_1/themthongtin.html" style="color: red"> Chỉnh sửa</a></p>
+                  <p><a href="../PTUD_N10_DEMO/themthongtin.html" style="color: red"> Chỉnh sửa</a></p>
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
@@ -183,7 +183,7 @@
                         
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
-                                        Thanh toán trực tuyến. <a href="../PTUD_N10_1/thongtinthanhtoan.html" style="color: palevioletred">Tại đây!</a>
+                                        Thanh toán trực tuyến. <a href="../PTUD_N10_DEMO/thongtinthanhtoan.html" style="color: palevioletred">Tại đây!</a>
                                         <input type="checkbox" id="payment">
                                         <span class="checkmark"></span>
                                     </label>

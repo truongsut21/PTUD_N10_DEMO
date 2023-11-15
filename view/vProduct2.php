@@ -28,7 +28,7 @@
                                 <img src='img/".$row['HinhAnh']."'/>
                                     <ul class='featured__item__pic__hover'>
                                         <li><a href='#'><i class='fa fa-shopping-cart'></i></a></li>
-                                        <li><a href='../PTUD_N10_1/xemsanpham.php'><i class='fa fa-search'></i></li>
+                                        <li><a href='../PTUD_N10_DEMO/xemsanpham.php'><i class='fa fa-search'></i></li>
                                     </ul>
                                 </div>
                                 <div class='featured__item__text'>
