@@ -34,7 +34,7 @@ if (isset($_POST['submit']) && $_POST['submit']) {
         $_SESSION['MatKhau'] = $pass;
 
         // Chuyển hướng đến trang abc.php
-        header('location: ../index.php');
+        header('location: ../indexuser.php');
         exit();
     } else {
         $txt = "Số điện thoại hoặc mật khẩu không tồn tại";

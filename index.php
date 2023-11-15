@@ -51,18 +51,8 @@
                             <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                         <div class="header__top__right__auth">
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuHeader" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Tài khoản của bạn
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="../view/capnhatttcn.php">Cập nhật thông tin</a>
-                                    <a class="dropdown-item" href="../view/doimatkhau.php">Đổi mật khẩu</a>
-                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
-                                </div>
-                            </div>
+                           <a href="./view/dangnhap.php">Đăng nhập</a>
                         </div>
-
                     </div>
                 </div>
             </div>
