@@ -86,7 +86,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="../PTUD_N10/index.php"><img src="../PTUD_N10/img/logoha.png" alt=""></a>
+                        <a href="../PTUD_N10/index.php"><img src="../PTUD_N10/img/logo.png" alt=""></a>
                     </div>
                 </div>
 
