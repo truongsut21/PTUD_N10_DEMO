@@ -74,7 +74,7 @@ class MPay
                 echo  $sql_deleteProd;
                 $tbl = mysqli_query($con, $sql_deleteProd);
 
-                echo "<script> alert('them don hàng thêm thành công! --- makh: $maKhachHang')
+                echo "<script> alert('thêm đơn  hàng thêm thành công!)
                         window.location.href = 'index.php';
                         </script>";
             } else {

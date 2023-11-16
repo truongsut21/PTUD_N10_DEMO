@@ -40,7 +40,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
         
             if ($result) {
                 echo "<script> alert('Cập nhật thông tin thành công')</script>";
-                echo header("refresh: 0; url='../layout/header.php'");
+                echo header("refresh: 0; url='../indexuser.php'");
             } else {
                 echo "Lỗi cập nhật thông tin: " . mysqli_error($conn);
             }

@@ -3,6 +3,8 @@
     ob_start();
     include "../Model/ketnoi.php";
     include "../Model/khachhang.php";
+    $mkdefa = '';
+    $remkdefa = '';
 if((isset($_POST['submit'])) && ($_POST['submit'])){
             $email = $_SESSION['employee_id_check'];  
             $newPassword=$_REQUEST["newPassword"];
@@ -32,8 +34,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
             $txt = "loi";
         }
         
-        $mkdefa = '';
-        $remkdefa = '';
+
         $mkdefa = $newPassword;
         $remkdefa = $renewPassword;
 

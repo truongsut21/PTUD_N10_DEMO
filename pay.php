@@ -36,145 +36,95 @@
     $pay = new CPay();
     $pay->handlePay();
     ?>
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.php">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./cart.php">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Thanh Toán</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
-
+   
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa fa-user"></i></a>
+                                <a href="#"><i class="fa fa-phone"></i></a>
+                                <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
+
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <div class="dropdown">
+                                    <button  class="btn dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Tài khoản của bạn
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                    <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
+                        <a href="../PTUD_N10_DEMO/index.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#" method="get">
+                            <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
+                            <button class="site-btn" type="submit" name="timkiem">
+                                <i class="fa fa-search" value="Tìm kiếm"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.php">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a href="#">Danh mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./cart.php">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/xemsanpham.php">Xem sản phẩm</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/dathang.php">Đặt hàng</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/huydon.html">Hủy đơn</a></li>
+                                    <li><a href="#">Khác</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="../PTUD_N10_DEMO/shop.php">Shop</a></li>
+                            <li><a href="#">Tin tức</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Chính sách</a></li>
+                            <li><a href="#">Quản lý</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
             </div>
         </div>
     </header>
     <!-- Header Section End -->
-
+    <br>
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">

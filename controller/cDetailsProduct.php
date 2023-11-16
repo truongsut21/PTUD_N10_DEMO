@@ -13,9 +13,7 @@ class CDetailsProduct
         if (isset($_REQUEST["submitAddToCart"])) {
             $quantity = $_REQUEST["quantity"];
             $maSanPham = $_REQUEST["MaSanPham"];
-            echo $maSanPham;
-            echo "----------------------------------------------------------------";
-            echo $quantity;
+           
             $respon = addToCart($quantity, $maSanPham);
 
             if ($respon) {
