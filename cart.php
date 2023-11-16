@@ -57,12 +57,24 @@
                             </div>
 
                             <div class="header__top__right__auth">
-                                <a href="#">Follow Us</a>
+                                <div class="dropdown">
+                                    <button  class="btn dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        Tài khoản của bạn
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                    <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <div class="container">
@@ -76,12 +88,13 @@
 
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
-                            <button type="submit" class="site-btn">TÌM</button>
+                        <form action="#" method="get">
+                            <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
+                            <button class="site-btn" type="submit" name="timkiem">
+                                <i class="fa fa-search" value="Tìm kiếm"></i>
+                            </button>
                         </form>
-                    </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
+                    </div>
                 </div>
 
                 <div class="col-lg-12">
@@ -96,7 +109,7 @@
                                     <li><a href="#">Khác</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="../PTUD_N10_DEMO/shop.php">Shop</a></li>
                             <li><a href="#">Tin tức</a></li>
                             <li><a href="#">Liên hệ</a></li>
                             <li><a href="#">Chính sách</a></li>
@@ -108,6 +121,7 @@
         </div>
     </header>
     <!-- Header Section End -->
+    <br>
     <br>
 
     <!-- Breadcrumb Section Begin -->

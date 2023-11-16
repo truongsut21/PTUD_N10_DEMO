@@ -7,10 +7,11 @@ class MPay
 {
     function getAllProduct()
     {
+        $maKhachHang =  $_SESSION['MaKhachHang'];
         $p = new ConnectDB();
         $con = null;
         if ($p->connect_DB($con)) {
-            $str = 'SELECT sp.TenSanPham, sp.GiaBan, gh.SoLuong, sp.MaSanPham FROM giohang gh JOIN sanpham sp ON gh.MaSanPham = sp.MaSanPham WHERE gh.MaKhachHang = "03";';
+            $str = "SELECT sp.TenSanPham, sp.GiaBan, gh.SoLuong, sp.MaSanPham FROM giohang gh JOIN sanpham sp ON gh.MaSanPham = sp.MaSanPham WHERE gh.MaKhachHang = '$maKhachHang';";
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);
             return $tbl;
@@ -73,10 +74,10 @@ class MPay
                 $sql_deleteProd = "DELETE FROM `giohang` WHERE MaKhachHang = '$maKhachHang'";
                 echo  $sql_deleteProd;
                 $tbl = mysqli_query($con, $sql_deleteProd);
-
-                echo "<script> alert('thêm đơn  hàng thêm thành công!)
-                        window.location.href = 'index.php';
-                        </script>";
+                echo "<script> alert('cập nhật số lượng thành công');
+                window.location.href = 'index.php';
+                </script>"; 
+                
             } else {
                 echo "Lỗi: " . $sql_hoadon . "<br>" . mysqli_error($con);
             }

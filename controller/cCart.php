@@ -16,6 +16,7 @@ class CCart
         if (isset($_REQUEST['btnUpdateProduct'])) {
             $soLuong = $_REQUEST['SoLuong'];
             $maGioHang = $_REQUEST['MaGioHang'];
+            echo "<script> alert('cập nhật số lượng thành công')</script>";    
             $tbl = $p->updateProduct($soLuong, $maGioHang);
             return $tbl;
         };
