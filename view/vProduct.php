@@ -1,20 +1,23 @@
 <?php
-    include_once("controller/cProduct.php");
-    class VProduct{
-        function viewAllProducts(){
-            $p = new CProduct();
-            $tbl = $p -> getAllProducts();
-            showProduct($tbl);
-        }
+include_once("controller/cProduct.php");
+class VProduct
+{
+    function viewAllProducts()
+    {
+        $p = new CProduct();
+        $tbl = $p->getAllProducts();
+        showProduct($tbl);
+    }
 
-         function viewSearchProduct($search){
-         $p=new CProduct();
-         $tbl= $p->getSearchProduct($search);
-            if($tbl){
-                if(mysqli_num_rows($tbl) >0){
-                    while($row = mysqli_fetch_assoc($tbl)){
-                        if($row["trangThai"] == 1){
-                              
+    function viewSearchProduct($search)
+    {
+        $p = new CProduct();
+        $tbl = $p->getAllProductBySearch($search);
+        if ($tbl) {
+            if (mysqli_num_rows($tbl) > 0) {
+                while ($row = mysqli_fetch_assoc($tbl)) {
+                    if ($row["trangThai"] == 1) {
+
                         echo "
                         <div class='col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat'>
                             <div class='featured__item'>
@@ -32,13 +35,11 @@
                             </div>
                         </div>
                             ";
-                
-                        }
                     }
-               
+                }
             }
-        }else{
-            echo"Vui lòng nhập dữ liệu!";
+        } else {
+            echo "Vui lòng nhập dữ liệu!";
         }
     }
 }
@@ -74,5 +75,4 @@ function showProduct($tbl)
             echo "Vui lòng nhập dữ liệu!";
         }
     }
-
 }

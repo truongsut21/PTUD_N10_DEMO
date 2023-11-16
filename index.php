@@ -135,8 +135,8 @@
                 <?php
                 include_once("view/vProduct.php");
                 $p = new VProduct();
-                if (isset($_REQUEST["tim"])) {
-                    $p->viewSearchProduct($_REQUEST["tim"]);
+                if (isset($_REQUEST["search"])) {
+                    $p->viewSearchProduct($_REQUEST["search"]);
                 } else {
                     $p->viewAllProducts();
                 }
