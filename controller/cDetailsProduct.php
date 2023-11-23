@@ -8,16 +8,29 @@ class CDetailsProduct
         if (!isset($_SESSION['MaKhachHang'])) {
             header('PTUD_N10_DEMO/view/dangnhap.php');
         }
-
         if (isset($_REQUEST["submitAddToCart"])) {
             $quantity = $_REQUEST["quantity"];
             $idProduct = $_REQUEST["idProduct"];
-
-            // kiểm tra số lượng sản phầm
+            $idCustommer = getIdCustommer();
+            // kiểm tra số lượng sản phầm, nếu không đủ trả về số lượng còn trong kho
             $resultCheckQuantityProduct = checkQuantityProduct($quantity, $idProduct);
 
+            // kiểm tra sản phẩm đã tổn tại trong giỏ hàng chưa, nếu có trả về số lượng sản phẩm
+            $resultCheckProductsAlreadyInCart = checkProductsAlreadyInCart($quantity, $idProduct);
+
             if ($resultCheckQuantityProduct) {
-                $responAddToCart = addToCart($quantity, $idProduct);
+
+                // nếu sản phẩm đã tồn tại thì cập nhật sản phẩm trong giỏ hàng
+                if ($resultCheckProductsAlreadyInCart) {
+
+                    // cộng số lượng thêm mới và số lượng đã có trong giỏ hàng
+                    $quantity +=  $resultCheckProductsAlreadyInCart;
+                    $responAddToCart = updateProductInCart($quantity, $idProduct, $idCustommer);
+                } else {
+                    $responAddToCart = addToCart($quantity, $idProduct, $idCustommer);
+                }
+
+
                 if ($responAddToCart) {
                     echo "<script> alert('thêm sản phầm vào giỏ hàng thành công') </script>";
                 } else {
@@ -30,11 +43,18 @@ class CDetailsProduct
     }
 }
 
-function addToCart($quantity, $idProduct)
+function addToCart($quantity, $idProduct, $idCustommer)
 {
     $p = new MDetailsProduct();
-    $idCustommer = getIdCustommer();
+
     $tbl = $p->addToCart($quantity, $idProduct, $idCustommer);
+    return $tbl;
+};
+
+function updateProductInCart($quantity, $idProduct, $idCustommer)
+{
+    $p = new MDetailsProduct();
+    $tbl = $p->updateProductInCart($quantity, $idProduct, $idCustommer);
     return $tbl;
 };
 
@@ -57,12 +77,28 @@ function checkQuantityProduct($quantity, $idProduct)
     // nếu kết quả tổn tại
     if ($row) {
         $quantityProductsInStock = $row['SoLuongTon'];
-    } 
+    }
 
     // kiểm tra số lượng thêm có bé hơn hoặc bằng số lượng tổn kho
     if ($quantity <= $quantityProductsInStock) {
         return true;
     } else {
+        return $quantityProductsInStock;
+    }
+}
+
+function checkProductsAlreadyInCart($idProduct, $idCustommer)
+{
+    $m = new MDetailsProduct();
+    $resultProductsInStock = $m->checkProductsAlreadyInCart($idProduct, $idCustommer);
+    $row = mysqli_fetch_assoc($resultProductsInStock);
+
+    // nếu sản phẩm đã tồn tài trong giỏ hàng
+    if ($row) {
+        return $row['SoLuong'];
+    } else {
+        echo "<script>alert('false')</script>";
+
         return false;
     }
 }
