@@ -16,7 +16,7 @@ class CDetailsProduct
             $resultCheckQuantityProduct = checkQuantityProduct($quantity, $idProduct);
 
             // kiểm tra sản phẩm đã tổn tại trong giỏ hàng chưa, nếu có trả về số lượng sản phẩm
-            $resultCheckProductsAlreadyInCart = checkProductsAlreadyInCart($quantity, $idProduct);
+            $resultCheckProductsAlreadyInCart = checkProductsAlreadyInCart($idProduct, $idCustommer);
 
             if ($resultCheckQuantityProduct) {
 
@@ -83,7 +83,8 @@ function checkQuantityProduct($quantity, $idProduct)
     if ($quantity <= $quantityProductsInStock) {
         return true;
     } else {
-        return $quantityProductsInStock;
+    
+        return false;
     }
 }
 
@@ -97,8 +98,6 @@ function checkProductsAlreadyInCart($idProduct, $idCustommer)
     if ($row) {
         return $row['SoLuong'];
     } else {
-        echo "<script>alert('false')</script>";
-
         return false;
     }
 }

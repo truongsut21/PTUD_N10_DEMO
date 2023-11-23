@@ -58,4 +58,5 @@ class MDetailsProduct
             return false;
         }
     }
+    
 }

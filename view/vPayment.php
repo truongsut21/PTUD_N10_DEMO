@@ -1,5 +1,5 @@
 <?php
-include_once("controller/cPay.php");
+include_once("controller/cPayment.php");
 class VPay
 {
     function viewAllProducts()

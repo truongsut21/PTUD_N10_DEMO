@@ -29,8 +29,8 @@
         <div class="loader"></div>
     </div> -->
     <?php
-    include_once('./controller/cPay.php');
-    include './view/vPay.php';
+    include_once('./controller/cPayment.php');
+    include './view/vPayment.php';
     $v = new VPay();
 
     $pay = new CPay();

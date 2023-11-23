@@ -63,26 +63,82 @@ class MPay
 
 
                     $result_chitiethoadon = mysqli_query($con, $sql_chitiethoadon);
-
-
-
-                    if (!$result_chitiethoadon) {
-                        echo "Lỗi: " . $sql_chitiethoadon . "<br>" . mysqli_error($con);
-                    } else {
-                    }
                 }
                 $sql_deleteProd = "DELETE FROM `giohang` WHERE MaKhachHang = '$maKhachHang'";
                 echo  $sql_deleteProd;
                 $tbl = mysqli_query($con, $sql_deleteProd);
                 echo "<script> alert('cập nhật số lượng thành công');
+
                 window.location.href = 'index.php';
-                </script>"; 
-                
+                </script>";
             } else {
                 echo "Lỗi: " . $sql_hoadon . "<br>" . mysqli_error($con);
             }
 
             $p->closeDB($con);
+        } else {
+            return false;
+        }
+    }
+    function createOrder($tongTienDonHang)
+    {
+        $p = new ConnectDB();
+        $con = null;
+
+        if ($p->connect_DB($con)) {
+            $str_hoadon = "INSERT INTO hoadon (TongTien, NgayLap) VALUES ('$tongTienDonHang', NOW())";
+            mysqli_query($con, $str_hoadon);
+            return mysqli_insert_id($con);
+        } else {
+            return false;
+        }
+    }
+
+    function createDetailsOrder(
+        $HoTen,
+        $SoDienThoai,
+        $Email,
+        $DiaChi,
+        $tongTien,
+        $maSanPham,
+        $maNhanVien,
+        $maKhachHang,
+        $soLuong,
+        $MaHoaDon
+    ) {
+        $p = new ConnectDB();
+        $con = null;
+
+        if ($p->connect_DB($con)) {
+            $sql_detailsOrder = "INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `TongTien`, `NgayLapChiTietHoaDon`, `MaSanPham`, `MaHoaDon`, `SoLuong`, `MaKhachHang`, `DiaChiGiaoHang`, `HoTen`, `SoDienThoai`, `Email`) 
+                    VALUES (NULL, 
+                    '$tongTien', 
+                    NOW(), 
+                    '$maSanPham', 
+                    '$MaHoaDon', 
+                    '$soLuong', 
+                    '$maKhachHang', 
+                    '$DiaChi', 
+                    '$HoTen', 
+                    '$SoDienThoai', 
+                    '$Email');";
+            $result_DetailsOrder = mysqli_query($con, $sql_detailsOrder);
+            return $result_DetailsOrder;
+        } else {
+            return false;
+        }
+    }
+
+    function updateProductsStock($maSanPham, $soLuong)
+    {
+        $p = new ConnectDB();
+        $con = null;
+
+        if ($p->connect_DB($con)) {
+            $sql_updateProductsStock = "UPDATE `sanpham` SET `SoLuongTon` = $soLuong WHERE `sanpham`.`MaSanPham` = $maSanPham;";
+            $result_updateProductsStock = mysqli_query($con, $sql_updateProductsStock);
+
+            return $result_updateProductsStock;
         } else {
             return false;
         }
@@ -99,6 +155,33 @@ class MPay
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);
             return $tbl;
+        } else {
+            return false;
+        }
+    }
+    function getQuantityProductsInStock($idProduct)
+    {
+        $p = new ConnectDB();
+        $con = null;
+        if ($p->connect_DB($con)) {
+            $str = "SELECT SoLuongTon FROM `sanpham` WHERE MaSanPham = $idProduct;";
+            $result = mysqli_query($con, $str);
+            $p->closeDB($con);
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    function deleteProductInCart($maKhachHang, $maSanPham)
+    {
+        $p = new ConnectDB();
+        $con = null;
+        if ($p->connect_DB($con)) {
+            $str = "DELETE FROM `giohang` WHERE MaKhachHang = $maKhachHang AND MaSanPham = $maSanPham;";
+            $result = mysqli_query($con, $str);
+            $p->closeDB($con);
+            return $result;
         } else {
             return false;
         }

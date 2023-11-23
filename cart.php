@@ -188,7 +188,7 @@
                                 </span>
                             </li>
                         </ul>
-                        <a href="pay.php" class="primary-btn">Thanh Toán</a>
+                        <a href="payment.php" class="primary-btn">Thanh Toán</a>
                     </div>
                 </div>
             </div>
