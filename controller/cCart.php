@@ -1,5 +1,11 @@
 <?php
 include_once("Model/mCart.php");
+
+if (!isset($_SESSION['MaKhachHang'])) {
+    header('location: view/dangnhap.php');
+    exit();
+}
+
 class CCart
 {
     function getAllProduct()

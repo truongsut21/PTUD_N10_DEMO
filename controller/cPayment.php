@@ -47,7 +47,7 @@ class CPay
             $tongTienDonHang = $_REQUEST["tongTienDonHang"];
             $maKhachHang = $_SESSION['MaKhachHang'];
             $tongTien = $_REQUEST['TongTien']; // mảng
-            $maSanPham = $_REQUEST['MaSanPham']; // mảng
+            $maSanPham = $_REQUEST['MaSanPham']; // mảng 
             $soLuong = $_REQUEST['SoLuong']; // mảng
             $idOrder = false;
 
@@ -60,14 +60,15 @@ class CPay
                     $checkQuantity = false;
                 }
             };
-
-
+            
+            if ($checkQuantity) {
+                // tạo hoá đơn 
+                $idOrder = createOrder($tongTienDonHang);
+            }
+            
             foreach ($maSanPham as $index => $item) {
                 // nếu các thành phần kiểm tra đều đáp ứng đủ số lượng thì vào điều kiện này
-                if ($checkQuantity) {
-                    // tạo hoá đơn 
-                    $idOrder = createOrder($tongTienDonHang);
-                }
+                
 
                 // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
                 if ($idOrder) {

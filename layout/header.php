@@ -2,10 +2,11 @@
 session_start();
 ob_start();
 
-if (!isset($_SESSION['MaKhachHang']) || empty($_SESSION['MaKhachHang'])) {
-    header('location: view/dangnhap.php');
-    exit();
-}
+// if (!isset($_SESSION['MaKhachHang'])) {
+//     header('location: view/dangnhap.php');
+//     exit();
+// }
+
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     session_unset(); // Xóa tất cả các biến trong session
     session_destroy(); // Hủy session

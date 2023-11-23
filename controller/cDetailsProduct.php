@@ -5,10 +5,14 @@ class CDetailsProduct
 
     function handleAddToCart()
     {
-        if (!isset($_SESSION['MaKhachHang'])) {
-            header('PTUD_N10_DEMO/view/dangnhap.php');
-        }
+
         if (isset($_REQUEST["submitAddToCart"])) {
+            
+            if (!isset($_SESSION['MaKhachHang'])) {
+                header('location: view/dangnhap.php');
+                exit();
+            }
+
             $quantity = $_REQUEST["quantity"];
             $idProduct = $_REQUEST["idProduct"];
             $idCustommer = getIdCustommer();
