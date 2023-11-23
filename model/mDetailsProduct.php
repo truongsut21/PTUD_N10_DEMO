@@ -3,14 +3,12 @@ include_once("connect.php");
 
 class MDetailsProduct
 {
-    function addToCart($quantity, $maSanPham, $idCustommer)
+    function addToCart($quantity, $idProduct, $idCustommer)
     {
-        $maKhachHang = $_SESSION['MaKhachHang'];
-
         $p = new ConnectDB();
         $con = null;
         if ($p->connect_DB($con)) {
-            $str = "INSERT INTO `giohang` (`MaGioHang`, `SoLuong`, `MaKhachHang`, `MaSanPham`) VALUES (NULL, '".$quantity."', '$maKhachHang', '".$maSanPham."');";
+            $str = "INSERT INTO `giohang` (`MaGioHang`, `SoLuong`, `MaKhachHang`, `MaSanPham`) VALUES (NULL, '" . $quantity . "', '$idCustommer', '" . $idProduct . "');";
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);
             return $tbl;
@@ -18,6 +16,17 @@ class MDetailsProduct
             return false;
         }
     }
+    function getQuantityProductsInStock($idProduct)
+    {
+        $p = new ConnectDB();
+        $con = null;
+        if ($p->connect_DB($con)) {
+            $str = "SELECT SoLuongTon FROM `sanpham` WHERE MaSanPham = $idProduct;";
+            $result = mysqli_query($con, $str);
+            $p->closeDB($con);
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }
-
-

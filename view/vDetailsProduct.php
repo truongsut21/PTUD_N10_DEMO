@@ -61,7 +61,7 @@ function showProduct($tbl)
                                 </div>
                             </div>
                         </div>
-                            <input type='hidden' value='" . $_REQUEST["MaSanPham"] . "' name='maSanPham'>
+                            <input type='hidden' value='" . $_REQUEST["MaSanPham"] . "' name='idProduct'>
                             <input type='submit' value='Thêm vào Giỏ hàng' name='submitAddToCart' class='primary-btn'/>
                         </form>
                         <ul>
