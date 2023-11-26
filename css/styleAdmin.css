@@ -90,3 +90,12 @@ form > button.btnCus.btn2.delete{
     margin: 50px 150px;
     box-shadow: 4px 4px 4px 4px #ccc
 }
+
+#adminButton{
+    border: none;
+    border-radius: 3px;
+    padding: 3px 10px;
+    color: #fff;
+    background-color: #157347;
+    margin-right: 10px;
+}
