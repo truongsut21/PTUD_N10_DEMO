@@ -2,6 +2,8 @@
 session_start();
 ob_start();
 
+echo"<script>alert('ma nhan vien khi dang nhap: ".$_SESSION['MaNhanVien']."')</script>";
+
 if (!isset($_SESSION['LoaiNhanVien']) || empty($_SESSION['LoaiNhanVien'])) {
     header('location: ./admin/login.php');
     exit();
@@ -89,6 +91,7 @@ if (isset($_REQUEST['adminButton'])) {
         <div class="tab-content">
 
             <?php
+            
             include_once("view/vKiemKeKho.php");
             $p = new VPhieuKiemTraKho();
 

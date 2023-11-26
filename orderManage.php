@@ -22,12 +22,21 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
+    <?php
+    session_start();
+    include_once('./controller/cOrderManage.php');
+    include_once('./view/vOrderManage.php');
 
-  <!-- Header Section Begin -->
-  <header class="header">
+    $c = new COrderManager();
+    $v = new VOrderManager();
+
+    ?>
+
+    <!-- Header Section Begin -->
+    <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="row">
@@ -50,16 +59,14 @@
 
                             <div class="header__top__right__auth">
                                 <div class="dropdown">
-                                    <button  class="btn dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Tài khoản của bạn
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
-                                    <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
-                                    <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
-                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                        <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
                                     </div>
                                 </div>
                             </div>
@@ -148,65 +155,38 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Kem trộn sáng x5</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        DH01
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            $55.00
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        <button class="btn btn-outline-info">xem chi tiết</button>
-                                    </td>
-
+                                    <form action="#" method="get">
+                                        <td class="shoping__cart__item">
+                                            <img src="img/cart/cart-1.jpg" alt="">
+                                            <h5>Kem trộn sáng x5</h5>
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            HD - 01
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                $55.00
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total">
+                                            <input type="hidden" name="maHoaDon" value="">
+                                            <button class="btn btn-outline-info" type="submit" name="btn_details_order">xem chi tiết</button>
+                                        </td>
+                                    </form>
                                 </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Kem trộn sáng x5</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        DH01
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            $55.00
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        <button class="btn btn-outline-info">xem chi tiết</button>
-                                    </td>
 
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Kem trộn sáng x5</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        DH01
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            $55.00
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        <button class="btn btn-outline-info">xem chi tiết</button>
-                                    </td>
+                                <?php
+                                $v->viewAllOrder();
 
-                                </tr>
+                                ?>
+
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </section>
     <!-- Shoping Cart Section End -->

@@ -10,8 +10,13 @@
         $user = $_POST['user'];
         $pass = $_POST['pass'];
         $role = checkuser1($user,$pass);
+        $idEmployee = getIdEmployee($user);
+        
         $_SESSION['LoaiNhanVien']=$role;
         $_SESSION['SoDienThoai'] = $user;
+        $_SESSION['MaNhanVien'] =  $idEmployee ;
+        
+        echo"<script>alert('ma nhan vien khi dang nhap: ".$_SESSION['MaNhanVien']."')</script>";
 
         if(empty($pass) || empty($user)){
             $txt = "Bạn cần nhập đủ thông tin đăng nhập";
