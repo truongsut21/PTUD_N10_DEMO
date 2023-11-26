@@ -45,30 +45,30 @@ class CPay
             if ($checkQuantity) {
                 // tạo hoá đơn 
                 $idOrder = createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email);
-            }
-
-            foreach ($maSanPham as $index => $item) {
-                // nếu các thành phần kiểm tra đều đáp ứng đủ số lượng thì vào điều kiện này
+                foreach ($maSanPham as $index => $item) {
+                    // nếu các thành phần kiểm tra đều đáp ứng đủ số lượng thì vào điều kiện này
 
 
-                // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
-                if ($idOrder) {
-                    $result_createDetailsOrder = createDetailsOrder(
-                        $tongTien[$index],
-                        $maSanPham[$index],
-                        $maKhachHang,
-                        $soLuong[$index],
-                        $idOrder
-                    );
+                    // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
+                    if ($idOrder) {
+                        echo "<script>alert('ma hoa don $idOrder')</script>";
 
-                    // nếu thêm sản phẩm vào chi tiết sản phẩm thành công thì trừ đi số lượng đã thêm vào chi tiết
-                    if ($result_createDetailsOrder) {
-                        $quantityProductsInStock = getQuantityProduct($maSanPham[$index]);
-                        updateProductsStock($maSanPham[$index], $quantityProductsInStock - $soLuong[$index]);
-                        // xoả sản phẩm đã thanh toán trong  giỏ hàng
-                        deleteProductInCart($maKhachHang, $maSanPham[$index]);
-                        echo "<script> alert('thanh toán thành công')</script>";
-                        echo header("refresh: 0; url = 'index.php?'");
+                        $result_createDetailsOrder = createDetailsOrder(
+                            $tongTien[$index],
+                            $maSanPham[$index],
+                            $soLuong[$index],
+                            $idOrder
+                        );
+
+                        // nếu thêm sản phẩm vào chi tiết sản phẩm thành công thì trừ đi số lượng đã thêm vào chi tiết
+                        if ($result_createDetailsOrder) {
+                            $quantityProductsInStock = getQuantityProduct($maSanPham[$index]);
+                            updateProductsStock($maSanPham[$index], $quantityProductsInStock - $soLuong[$index]);
+                            // xoả sản phẩm đã thanh toán trong  giỏ hàng
+                            deleteProductInCart($maKhachHang, $maSanPham[$index]);
+                            echo "<script> alert('thanh toán thành công')</script>";
+                            echo header("refresh: 0; url = 'index.php?'");
+                        }
                     }
                 }
             }
@@ -100,12 +100,14 @@ function createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienTho
 {
     $m = new MPay();
     $result = $m->createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email);
-
-    return $result;
+    $row = mysqli_fetch_assoc($result);
+    return $row['MaHoaDon'];
 }
 
 function createDetailsOrder($tongTien, $maSanPham, $soLuong, $MaHoaDon)
 {
+
+
     $m = new MPay();
     $result = $m->createDetailsOrder($tongTien, $maSanPham, $soLuong, $MaHoaDon);
 

@@ -20,66 +20,6 @@ class MPay
         }
     }
 
-    function addOrder(
-        $HoTen,
-        $SoDienThoai,
-        $Email,
-        $DiaChi,
-        $tongTien,
-        $maSanPham,
-        $maNhanVien,
-        $tongTienDonHang,
-        $maKhachHang,
-        $soLuong
-    ) {
-        $p = new ConnectDB();
-        $con = null;
-
-
-
-        if ($p->connect_DB($con)) {
-            $sql_hoadon = "INSERT INTO hoadon (TongTien, NgayLap) VALUES ('$tongTienDonHang', NOW())";
-            $result_hoadon = mysqli_query($con, $sql_hoadon);
-
-            if ($result_hoadon) {
-                // Lấy ID của hóa đơn vừa thêm
-                $MaHoaDon = mysqli_insert_id($con);
-
-                // Tạo câu truy vấn để chèn dữ liệu vào bảng chitiethoadon
-                foreach ($maSanPham as $key => $value) {
-
-                    $sql_chitiethoadon = "INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `TongTien`, `NgayLapChiTietHoaDon`, `MaSanPham`, `MaHoaDon`, `SoLuong`, `MaKhachHang`, `DiaChiGiaoHang`, `HoTen`, `SoDienThoai`, `Email`) 
-                    VALUES (NULL, 
-                    '$tongTien[$key]', 
-                    NOW(), 
-                    '$value', 
-                    '$MaHoaDon', 
-                    '$soLuong[$key]', 
-                    '$maKhachHang', 
-                    '$DiaChi', 
-                    '$HoTen', 
-                    '$SoDienThoai', 
-                    '$Email');";
-
-
-                    $result_chitiethoadon = mysqli_query($con, $sql_chitiethoadon);
-                }
-                $sql_deleteProd = "DELETE FROM `giohang` WHERE MaKhachHang = '$maKhachHang'";
-                echo  $sql_deleteProd;
-                $tbl = mysqli_query($con, $sql_deleteProd);
-                echo "<script> alert('cập nhật số lượng thành công');
-
-                window.location.href = 'index.php';
-                </script>";
-            } else {
-                echo "Lỗi: " . $sql_hoadon . "<br>" . mysqli_error($con);
-            }
-
-            $p->closeDB($con);
-        } else {
-            return false;
-        }
-    }
     function createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email)
     {
         $p = new ConnectDB();
@@ -91,9 +31,12 @@ class MPay
             $str_hoadon = "INSERT INTO `hoadon` 
             (`MaHoaDon`, `TongTien`, `NgayLap`, `MaKhachHang`, `DiaChiGiaoHang`, `Họ Tên`, `SoDienThoai`, `Email`) 
             VALUES (NULL, $tongTienDonHang, NOW(), $maKhachHang, '$DiaChi', '$HoTen', $SoDienThoai, '$Email');";
-
             mysqli_query($con, $str_hoadon);
-            return mysqli_insert_id($con);
+
+            $str_maHoaDon = "SELECT `MaHoaDon` FROM `hoadon` ORDER BY `MaHoaDon` DESC LIMIT 1;";
+            $id_maHoaDon = mysqli_query($con, $str_maHoaDon);
+            $p->closeDB($con);
+            return $id_maHoaDon;
         } else {
             return false;
         }
@@ -103,13 +46,13 @@ class MPay
     {
         $p = new ConnectDB();
         $con = null;
-
         if ($p->connect_DB($con)) {
 
             $sql_detailsOrder = "INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `TongTien`, `MaSanPham`, `MaHoaDon`, `SoLuong`) 
             VALUES (NULL, '$tongTien', ' $maSanPham', '$MaHoaDon', '$soLuong');";
-
             $result_DetailsOrder = mysqli_query($con, $sql_detailsOrder);
+            $p->closeDB($con);
+          
             return $result_DetailsOrder;
         } else {
             return false;
