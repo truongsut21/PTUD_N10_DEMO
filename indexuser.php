@@ -68,6 +68,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                         Tài khoản của bạn
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
                                     <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
                                     <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
