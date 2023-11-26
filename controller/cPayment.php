@@ -16,25 +16,6 @@ class CPay
         return $tbl;
     }
 
-    // function handlePay()
-    // {
-    //     if (isset($_REQUEST['btnPay'])) {
-    //         $HoTen = $_REQUEST['HoTen'];
-    //         $SoDienThoai = $_REQUEST['SoDienThoai'];
-    //         $Email = $_REQUEST['Email'];
-    //         $DiaChi = $_REQUEST['DiaChi'];
-    //         $tongTien = $_REQUEST['TongTien'];
-    //         $maSanPham = $_REQUEST['MaSanPham'];
-    //         $maNhanVien = '1';
-    //         $tongTienDonHang = $_REQUEST["tongTienDonHang"];
-    //         $maKhachHang = $_SESSION['MaKhachHang'];
-    //         $soLuong = $_REQUEST['SoLuong'];
-
-    //         $p = new MPay();
-    //         $tbl = $p->addOrder($HoTen, $SoDienThoai, $Email, $DiaChi, $tongTien, $maSanPham, $maNhanVien, $tongTienDonHang, $maKhachHang, $soLuong);
-    //         return $tbl;
-    //     }
-    // }
 
     function handlePay()
     {
@@ -60,26 +41,21 @@ class CPay
                     $checkQuantity = false;
                 }
             };
-            
+
             if ($checkQuantity) {
                 // tạo hoá đơn 
-                $idOrder = createOrder($tongTienDonHang);
+                $idOrder = createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email);
             }
-            
+
             foreach ($maSanPham as $index => $item) {
                 // nếu các thành phần kiểm tra đều đáp ứng đủ số lượng thì vào điều kiện này
-                
+
 
                 // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
                 if ($idOrder) {
                     $result_createDetailsOrder = createDetailsOrder(
-                        $HoTen,
-                        $SoDienThoai,
-                        $Email,
-                        $DiaChi,
                         $tongTien[$index],
                         $maSanPham[$index],
-                        $maNhanVien,
                         $maKhachHang,
                         $soLuong[$index],
                         $idOrder
@@ -120,39 +96,18 @@ function checkQuantityProduct($quantity, $idProduct)
     }
 }
 
-function createOrder($tongTienDonHang)
+function createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email)
 {
     $m = new MPay();
-    $result = $m->createOrder($tongTienDonHang);
+    $result = $m->createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email);
 
     return $result;
 }
 
-function createDetailsOrder(
-    $HoTen,
-    $SoDienThoai,
-    $Email,
-    $DiaChi,
-    $tongTien,
-    $maSanPham,
-    $maNhanVien,
-    $maKhachHang,
-    $soLuong,
-    $MaHoaDon
-) {
+function createDetailsOrder($tongTien, $maSanPham, $soLuong, $MaHoaDon)
+{
     $m = new MPay();
-    $result = $m->createDetailsOrder(
-        $HoTen,
-        $SoDienThoai,
-        $Email,
-        $DiaChi,
-        $tongTien,
-        $maSanPham,
-        $maNhanVien,
-        $maKhachHang,
-        $soLuong,
-        $MaHoaDon
-    );
+    $result = $m->createDetailsOrder($tongTien, $maSanPham, $soLuong, $MaHoaDon);
 
     return $result;
 }
