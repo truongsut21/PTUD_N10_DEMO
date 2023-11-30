@@ -61,7 +61,9 @@ function showProduct($tbl)
                                 <button onclick="handleBtnComment(\'' . $row['TenSanPham'] . '\',\'' . $row['MaSanPham'] . '\' )" type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
                                 Đánh giá sản phẩm
                             </button>
-                                <button class="btn btn-outline-danger" type="submit" name="btn_details_order">Trả hàng</button>
+                            <button onclick="handleBtnReturn(\'' . $row['TenSanPham'] . '\',\'' . $row['MaChiTietHoaDon'] . '\' )" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal2">
+                            Trả hàng
+                        </button>
                             </td>
                         </form>
                     </tr>

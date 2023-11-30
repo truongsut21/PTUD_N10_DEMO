@@ -22,6 +22,8 @@ class MDetailsOrder
         }
     }
 
+
+
     function createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh)
     {
         $p = new ConnectDB();
@@ -29,6 +31,22 @@ class MDetailsOrder
         if ($p->connect_DB($con)) {
             $str = "INSERT INTO `noidungdanhgia` (`MaDanhGia`, `MaSanPham`, `ThoiGianDanhGia`, `NoiDungDanhGia`, `HinhAnh`, `SoSao`, `MaKhachHang`) 
             VALUES (NULL, '$maSanPham', NOW(), '$noidung','$hinhAnh','$sao', '$maKhachHang');";
+
+            $tbl = mysqli_query($con, $str);
+            $p->closeDB($con);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function createReturn($maChiTietHoaDon,  $soLuong,  $noidung, $hinhAnh)
+    {
+        $p = new ConnectDB();
+        $con = null;
+        if ($p->connect_DB($con)) {
+            $str = "INSERT INTO `phieutrahang` (`MaPhieuTraHang`, `MaChiTietDonHang`, `ThoiGianTraHang`, `SoLuong`, `LyDoTraHang`, `HinhAnh`) 
+            VALUES (NULL, '$maChiTietHoaDon', NOW(), '$soLuong', '$noidung', '$hinhAnh');";
 
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);

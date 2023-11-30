@@ -44,10 +44,10 @@ function showProduct($tbl)
                         <form action="detailsOrder.php" method="get">
                             <td class="shoping__cart__item">
                             <img src="img/' . $row['HinhAnh'] . '" alt="">
-                                <h5>' . $row['NgayLap'] . '</h5>
+                                <h5>' . $row['DiaChiGiaoHang'] . '</h5>
                             </td>
                             <td class="shoping__cart__price">
-                            <p>' . $row['DiaChiGiaoHang'] . '</p>
+                            ' . $row['NgayLap'] . '
                             </td>
                             <td class="shoping__cart__price">
                                 HD - ' . $row['MaHoaDon'] . '

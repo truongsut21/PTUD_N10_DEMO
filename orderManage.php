@@ -146,8 +146,8 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Đơn hàng</th>
-                                    <th>Địa chỉ</th>
+                                    <th class="shoping__product">Đơn hàng - đia chỉ</th>
+                                    <th>Ngày tạo</th>
                                     <th>Mã đơn</th>
                                     <th>Thành tiền</th>
                                     <th></th>
@@ -155,26 +155,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <form action="#" method="get">
-                                        <td class="shoping__cart__item">
-                                            <img src="img/cart/cart-1.jpg" alt="">
-                                            <h5>Kem trộn sáng x5</h5>
-                                        </td>
-                                        <td class="shoping__cart__price">
-                                            HD - 01
-                                        </td>
-                                        <td class="shoping__cart__quantity">
-                                            <div class="quantity">
-                                                $55.00
-                                            </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            <input type="hidden" name="maHoaDon" value="">
-                                            <button class="btn btn-outline-info" type="submit" name="btn_details_order">xem chi tiết</button>
-                                        </td>
-                                    </form>
-                                </tr>
+                                
 
                                 <?php
                                 $v->viewAllOrder();

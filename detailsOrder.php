@@ -35,6 +35,8 @@
     $v = new VDetailsOrder();
 
     $c -> handleComment();
+    $c -> handleReturn();
+
     ?>
 
     <!-- Header Section Begin -->
@@ -240,10 +242,50 @@
             </div>
         </div>
     </div>
+
+
+    <!-- model trả hàng  -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Trả sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="get" action="#">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Tên sản phẩm</label>
+                            <input type="name" class="form-control" id="nameProduct2" placeholder="name@example.com" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Số lượng sản phẩm</label>
+                            <input type="number" name="soLuong" class="form-control" id="" placeholder="Nhập số lượng">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Hình ảnh</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="Hình ảnh sản phẩm">
+                        </div>
+
+                    
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Nguyên nhân trả hàng</label>
+                            <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="maChiTietHoaDon" name="maChiTietHoaDon" value="">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <button type="submit" name="btnReturn" class="btn btn-primary">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Footer End -->
-    <button onclick='handleBtnComment("a")' type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
-        Đánh giá sản phẩm
-    </button>
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -255,9 +297,17 @@
     <script src="js/main.js"></script>
     <script>
         function handleBtnComment(name,id) {
+            // id là mã sản phẩm
             console.log(name)
             document.getElementById("nameProduct").value = name;
             document.getElementById("maSanPham").value = id;
+        }
+
+        function handleBtnReturn(name,id) {
+            // id là mã chi tiết hoá đơn 
+            console.log(name)
+            document.getElementById("nameProduct2").value = name;
+            document.getElementById("maChiTietHoaDon").value = id;
         }
     </script>
 

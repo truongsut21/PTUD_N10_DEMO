@@ -18,7 +18,7 @@ class CDetailsOrder
             echo  $maKhachHang;
 
             // thêm bước xử lý hình ảnh
-            $hinhAnh = "";
+            $hinhAnh = "hinh anh 123";
             $p = new MDetailsOrder();
             $result = $p->createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh);
 
@@ -30,6 +30,29 @@ class CDetailsOrder
                 // exit();
             } else {
                 echo '<script>alert("Bình luận thất bại")</script>';
+            }
+        }
+    }
+
+    function handleReturn()
+    {
+        if (isset($_REQUEST["btnReturn"])) {
+            $maChiTietHoaDon = $_REQUEST["maChiTietHoaDon"];
+            $soLuong = $_SESSION['soLuong'];
+            $noidung = $_REQUEST["noidung"];
+             // thêm bước xử lý hình ảnh
+            $hinhAnh = "hinh anh 123";
+            
+            $p = new MDetailsOrder();
+            $result = $p->createReturn($maChiTietHoaDon,  $soLuong,  $noidung, $hinhAnh);
+
+            if ($result) {
+                echo '<script>alert("Chúng tôi đã ghi nhận thông tin vui lòng đợi nhân viên phản hồi qua email")
+                window.location.href = "orderManage.php";
+                </script>';
+             
+            } else {
+                echo '<script>alert("Hoàn trả thất bại")</script>';
             }
         }
     }
