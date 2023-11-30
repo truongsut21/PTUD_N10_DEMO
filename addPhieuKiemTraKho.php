@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php 
-        // include("Controller/acProduct.php");
+        // include("Controller/acProduct.php"); 1
         if(isset($_REQUEST["btnAddPKTK"])){
             $NgayKiemTra = $_REQUEST["NKT"];
             $TrangThaiKiemTra = $_REQUEST["txtTTKT"];
