@@ -127,6 +127,5 @@
                 echo header("refresh: 5; url='indexQLKH.php?kiem-ke-kho'");
             }
         }
-        }
-    
+        } 
     ?>
