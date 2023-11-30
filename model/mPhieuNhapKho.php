@@ -33,7 +33,7 @@
                 INNER JOIN sanpham sp ON sp.MaSanPham = pnk.MaSanPham
                 INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham
                 INNER JOIN nhacungcap ncc ON ncc.MaNhaCungCap = sp.MaSanPham
-                where TrangThaiPhieuNhapKho like N'%".$search."%' and LoaiNhanVien = '2' order by MaPhieuNhapKho Desc";
+                where TrangThaiPhieuNhapKho like N'%".$search."%' order by MaPhieuNhapKho Desc";
                 $table=mysqli_query($con,$string);
                 $p->dongketnoi($con);
                 return $table;
