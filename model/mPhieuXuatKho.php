@@ -1,7 +1,4 @@
 <?php
-    
-    //hien thi tat ca cac san pham
-    //include file ketnoi
     include_once("connect3.php");
     class modelPhieuXuatKho{
         function selectAllPhieuXuatKho(){
