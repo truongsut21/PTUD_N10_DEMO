@@ -38,7 +38,6 @@ if (isset($_REQUEST['adminButton'])) {
         exit();
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
