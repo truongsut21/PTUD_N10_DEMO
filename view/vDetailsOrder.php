@@ -56,11 +56,11 @@ function showProduct($tbl)
                                 </div>
                             </td>
                             <td class="shoping__cart__item">
-                                <input type="hidden" name="maHoaDon" value="' . $row['MaHoaDon'] . '">
+                                <input type="hidden" name="maSanPham" value="' . $row['MaSanPham'] . '">
                                 <!-- Button trigger modal đánh giá sản phẩm -->
-                                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
-                                    Đánh giá sản phẩm
-                                </button>
+                                <button onclick="handleBtnComment(\'' . $row['TenSanPham'] . '\',\'' . $row['MaSanPham'] . '\' )" type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
+                                Đánh giá sản phẩm
+                            </button>
                                 <button class="btn btn-outline-danger" type="submit" name="btn_details_order">Trả hàng</button>
                             </td>
                         </form>

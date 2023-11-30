@@ -34,6 +34,7 @@
     $c = new CDetailsOrder();
     $v = new VDetailsOrder();
 
+    $c -> handleComment();
     ?>
 
     <!-- Header Section Begin -->
@@ -207,52 +208,42 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="get" action="#">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Tên sản phẩm</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" disabled>
+                            <input type="email" class="form-control" id="nameProduct" placeholder="name@example.com" disabled>
                         </div>
 
-                        <label for="exampleFormControlInput1">Số sao</label> <br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">1</label>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Hình ảnh</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="Hình ảnh sản phẩm">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">2</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">3</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">4</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">5</label>
-                        </div>
-                        
 
+                        <div class="form-group">
+                            <label for="formControlRange">Mức độ hài lòng</label>
+                            <input name="sao" type="range" min="0" max="5" class="form-control-range " id="formControlRange" onInput="$('#rangeval').html($(this).val())">
+                            <span id="rangeval">3<!-- Default value --></span>
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Nội dung đánh giá</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary">Xác nhận</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="maSanPham" name="maSanPham" value="">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                        <button type="submit" name="btnComment" class="btn btn-primary">Xác nhận</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <!-- Footer End -->
-
+    <button onclick='handleBtnComment("a")' type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
+        Đánh giá sản phẩm
+    </button>
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -262,6 +253,13 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function handleBtnComment(name,id) {
+            console.log(name)
+            document.getElementById("nameProduct").value = name;
+            document.getElementById("maSanPham").value = id;
+        }
+    </script>
 
 
 </body>

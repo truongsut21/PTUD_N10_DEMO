@@ -14,10 +14,25 @@ class MDetailsOrder
             INNER JOIN sanpham ON chitiethoadon.MaSanPham = sanpham.MaSanPham
             WHERE chitiethoadon.MaHoaDon = $maHoaDon";
 
-           
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);
             return $tbl;
+        } else {
+            return false;
+        }
+    }
+
+    function createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh)
+    {
+        $p = new ConnectDB();
+        $con = null;
+        if ($p->connect_DB($con)) {
+            $str = "INSERT INTO `noidungdanhgia` (`MaDanhGia`, `MaSanPham`, `ThoiGianDanhGia`, `NoiDungDanhGia`, `HinhAnh`, `SoSao`, `MaKhachHang`) 
+            VALUES (NULL, '$maSanPham', NOW(), '$noidung','$hinhAnh','$sao', '$maKhachHang');";
+
+            $tbl = mysqli_query($con, $str);
+            $p->closeDB($con);
+            return true;
         } else {
             return false;
         }
