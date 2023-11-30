@@ -12,7 +12,7 @@ class modelPhieuKiemTraKho{
             INNER JOIN nhanvien nvk ON nvk.MaNhanVien = pktk.MaNhanVien
             INNER JOIN loainhanvien lnv ON lnv.MaLoaiNhanVien = nvk.LoaiNhanVien
             INNER JOIN sanpham sp ON sp.MaSanPham = pktk.MaSanPham
-            INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham where TrangThaiKiemTra like N'%".$search."%' and LoaiNhanVien = '2' order by MaPhieuKiemTraKho Desc";
+            INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham where TrangThaiKiemTra like N'%".$search."%' order by MaPhieuKiemTraKho Desc";
             $table=mysqli_query($con,$string);
             $p->dongketnoi($con);
             return $table;
@@ -36,7 +36,7 @@ class modelPhieuKiemTraKho{
             INNER JOIN loainhanvien lnv ON lnv.MaLoaiNhanVien = nvk.LoaiNhanVien
             INNER JOIN sanpham sp ON sp.MaSanPham = pktk.MaSanPham
             INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham
-            where LoaiNhanVien = '2'";
+            ";
             $table = mysqli_query($con,$string);
             $p->dongKetNoi($con);
             return $table;
@@ -123,53 +123,5 @@ class modelPhieuKiemTraKho{
             return false;
         }
     }
-
-    // function updatePhieuKiemTraKho($MaSanPham, $TenSanPham, $SoLuongTon, $MoTa,$GiaBan,$GiaNhap,$ThuongHieu,$HinhAnh,$HanSuDung,$LoaiSanPham,$NhaCungCap,$NgayKiemTraKho,$MaNhanVien){
-    //     $con;
-    //     $p = new KetNoiDB();
-    //     if($p -> moKetNoi($con)){
-    //         $string ="
-    //         UPDATE `mypham`.`sanpham` SET `TenSanPham` = '$TenSanPham',
-    //         `TenSanPham` = '$TenSanPham',
-    //         `SoLuongTon` = '$SoLuongTon',
-    //         `MoTa` = '$MoTa',
-    //         `GiaBan` = '$GiaBan',
-    //         `GiaNhap` = '$GiaNhap',
-    //         `ThuongHieu` = '$ThuongHieu',
-    //         `HanSuDung` = '$HanSuDung',
-    //         `LoaiSanPham` = '$LoaiSanPham',
-    //         `NhaCungCap` = '$NhaCungCap',
-    //         `NgayKiemTraKho`,
-    //         `MaNhanVien`,
-    //         ";
-           
-    //         if(!$HinhAnh == ''){
-    //             $string ="
-    //             UPDATE `mypham`.`sanpham` SET `TenSanPham` = '$TenSanPham',
-    //             `TenSanPham` = '$TenSanPham',
-    //             `SoLuongTon` = '$SoLuongTon',
-    //             `MoTa` = '$MoTa',
-    //             `GiaBan` = '$GiaBan',
-    //             `GiaNhap` = '$GiaNhap',
-    //             `ThuongHieu` = '$ThuongHieu',
-    //             `HanSuDung` = '$HanSuDung',
-    //             `LoaiSanPham` = '$LoaiSanPham',
-    //             `NhaCungCap` = '$NhaCungCap',
-    //             `NgayKiemTraKho`,
-    //             `MaNhanVien`,
-    //             ";
-              
-    //         }
-    //         $result = mysql_query($string);
-    //         $p -> dongKetNoi($con);
-    //         return $result;
-    //     }else{
-    //         return false; //ket noi that bai
-    //     }
-    // }
-
-    
-
-
 
 }

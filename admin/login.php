@@ -23,9 +23,9 @@
         }else if($role==3) {
             header('location: ../indexAdmin.php');
         }else if($role==2) {
-            header('location: ../nhanvienbanhang.php');
-        }else if($role==1) {
             header('location: ../indexQLKH.php');
+        }else if($role==1) {
+            header('location: ../nhanvienbanhang.php');
         }else {
             $txt = "Số điện thoại hoặc mật khẩu không tồn tại";
         }

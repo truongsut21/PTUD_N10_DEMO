@@ -13,8 +13,7 @@
                 INNER JOIN nhanvien nvk ON nvk.MaNhanVien = pnk.MaNhanVien 
                 INNER JOIN sanpham sp ON sp.MaSanPham = pnk.MaSanPham
                 INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham
-                INNER JOIN nhacungcap ncc ON ncc.MaNhaCungCap = sp.MaSanPham
-                ";
+                INNER JOIN nhacungcap ncc ON ncc.MaNhaCungCap = sp.MaSanPham";
                 $tbl=mysqli_query($con,$query);
                 $p->dongketnoi($con);
                 return $tbl;

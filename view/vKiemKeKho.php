@@ -69,7 +69,7 @@
                                 <th width="auto">MPKT</th>
                                 <th width="auto">NKT</th>
                                 <th>TTKT</th>
-                                <th>MVNK</th>
+                                <th>MNVK</th>
                                 <th>Tên</th>
                                 <th>Chức vụ</th>
                                 <th>MSP</th>
@@ -88,20 +88,20 @@
                         while($row = mysqli_fetch_assoc($tbl)){
                             if($row["PhieuShow"] == 1){
                                 echo "<tr >";
-                                echo "<td>". $row['MaPhieuKiemTraKho'] ."</td>";
+                                echo "<td>"."MP". $row['MaPhieuKiemTraKho'] ."</td>";
                                 echo "<td>". $row['NgayKiemTra'] ."</td>"; 
                                 echo "<td>". $row['TrangThaiKiemTra'] ."</td>";
-                                echo "<td>". $row['MaNhanVien'] ."</td>";
+                                echo "<td>"."NV". $row['MaNhanVien'] ."</td>";
                                 echo "<td>". $row['HoTen'] ."</td>";
                                 echo "<td>". $row['TenLoaiNhanVien'] ."</td>";    
-                                echo "<td>". $row['MaSanPham'] ."</td>"; 
+                                echo "<td>"."SP". $row['MaSanPham'] ."</td>"; 
                                 echo "<td>". $row['TenSanPham'] ."</td>";
                                 echo "<td>". $row['SoLuongTon'] ."</td>";
                                 echo "<td>". $row['GiaBan'] ."</td>";
                                 echo "<td>". $row['GiaNhap'] ."</td>";
                                 echo "<td>". $row['ThuongHieu'] ."</td>";
                                 echo "<td>". $row['HanSuDung'] ."</td>";
-                                echo "<td>". $row['LoaiSanPham'] ."</td>";
+                                echo "<td>"."L". $row['LoaiSanPham'] ."</td>";
                                 echo "<td>". $row['TenLoai'] ."</td>"; 
                                 echo "<td>
                                         <form action='#' method='get'>

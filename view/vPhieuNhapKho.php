@@ -85,16 +85,16 @@
                         while($row = mysqli_fetch_assoc($tbl)){
                             if($row["PhieuShow"] == 1){
                                 echo "<tr >";
-                                    echo "<td>". $row['MaPhieuNhapKho'] ."</td>";
+                                    echo "<td>"."MP". $row['MaPhieuNhapKho'] ."</td>";
                                     echo "<td>". $row['TrangThaiPhieuNhapKho'] ."</td>";
                                     echo "<td>". $row['NgayLapPhieuNhapKho'] ."</td>"; 
-                                    echo "<td>". $row['MaNhanVien'] ."</td>"; 
+                                    echo "<td>"."NV". $row['MaNhanVien'] ."</td>"; 
                                     echo "<td>". $row['HoTen'] ."</td>";   
-                                    echo "<td>". $row['MaSanPham'] ."</td>"; 
+                                    echo "<td>"."SP". $row['MaSanPham'] ."</td>"; 
                                     echo "<td>". $row['TenSanPham'] ."</td>";
                                     echo "<td>". $row['SoLuongTon'] ."</td>";
                                     echo "<td>". $row['ThuongHieu'] ."</td>";
-                                    echo "<td>". $row['LoaiSanPham'] ."</td>";
+                                    echo "<td>"."L". $row['LoaiSanPham'] ."</td>";
                                     echo "<td>". $row['TenNhaCungCap'] ."</td>";
                                     echo "<td>". $row['TenLoai'] ."</td>"; 
                                 echo "<td>

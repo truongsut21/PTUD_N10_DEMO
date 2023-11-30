@@ -87,7 +87,7 @@
                     while($row = mysqli_fetch_assoc($tbl)){
                         if($row["trangThai"] == 1){
                             echo "<tr >";
-                            echo "<td>".$row["MaSanPham"]."</td>";
+                            echo "<td>"."MSP".$row["MaSanPham"]."</td>";
                             echo "<td>".$row["TenSanPham"]."</td>";
                             echo "<td>".$row["SoLuongTon"]."</td>";
                             echo "<td>".$row["MoTa"]."</td>";
@@ -96,8 +96,8 @@
                             echo "<td>".$row["ThuongHieu"]."</td>";
                             echo "<td>"."<img src='Image/".$row["HinhAnh"]."' alt='".$row["HinhAnh"]."' width= '50px' height= '50px'>"."</td>";
                             echo "<td>".date("d/m/Y", strtotime($row["HanSuDung"]))."</td>";
-                            echo "<td>".$row["LoaiSanPham"]."</td>";
-                            echo "<td>".$row["NhaCungCap"]."</td>";
+                            echo "<td>"."L".$row["LoaiSanPham"]."</td>";
+                            echo "<td>"."NCC".$row["NhaCungCap"]."</td>";
                             echo "<td>
                                     <form action='#' method='get'>
                                     <input type='hidden' name='MaSanPham' value='" . $row["MaSanPham"] . "'>
