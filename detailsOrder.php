@@ -27,11 +27,12 @@
     </div> -->
     <?php
     session_start();
-    include_once('./controller/cOrderManage.php');
-    include_once('./view/vOrderManage.php');
+    include_once('./controller/cDetailsOrder.php');
+    include_once('./view/vDetailsOrder.php');
 
-    $c = new COrderManager();
-    $v = new VOrderManager();
+
+    $c = new CDetailsOrder();
+    $v = new VDetailsOrder();
 
     ?>
 
@@ -129,7 +130,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Lịch sửa mua hàng</h2>
+                        <h2>Chi tiết đơn hàng</h2>
                     </div>
                 </div>
             </div>
@@ -146,35 +147,15 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Đơn hàng</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Mã đơn</th>
+                                    <th class="shoping__product">Sản phẩm</th>
+                                    <th>Số lượng</th>
                                     <th>Thành tiền</th>
                                     <th></th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <form action="#" method="get">
-                                        <td class="shoping__cart__item">
-                                            <img src="img/cart/cart-1.jpg" alt="">
-                                            <h5>Kem trộn sáng x5</h5>
-                                        </td>
-                                        <td class="shoping__cart__price">
-                                            HD - 01
-                                        </td>
-                                        <td class="shoping__cart__quantity">
-                                            <div class="quantity">
-                                                $55.00
-                                            </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            <input type="hidden" name="maHoaDon" value="">
-                                            <button class="btn btn-outline-info" type="submit" name="btn_details_order">xem chi tiết</button>
-                                        </td>
-                                    </form>
-                                </tr>
+
 
                                 <?php
                                 $v->viewAllOrder();
@@ -212,6 +193,64 @@
             </div>
         </div>
     </footer>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Đánh giá sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Tên sản phẩm</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" disabled>
+                        </div>
+
+                        <label for="exampleFormControlInput1">Số sao</label> <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">5</label>
+                        </div>
+                        
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Nội dung đánh giá</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer End -->
 
     <!-- Js Plugins -->

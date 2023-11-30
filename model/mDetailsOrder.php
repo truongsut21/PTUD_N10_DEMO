@@ -1,9 +1,9 @@
 <?php
 include_once("connect.php");
 
-class MOrderManager
+class MDetailsOrder
 {
-    function getAllOrder($maKhachHang)
+    function getAllDetailsOrder($maHoaDon)
     {
         $p = new ConnectDB();
         $con = null;
@@ -12,7 +12,9 @@ class MOrderManager
             FROM chitiethoadon
             INNER JOIN hoadon ON chitiethoadon.MaHoaDon = hoadon.MaHoaDon
             INNER JOIN sanpham ON chitiethoadon.MaSanPham = sanpham.MaSanPham
-            WHERE MaKhachHang = $maKhachHang";
+            WHERE chitiethoadon.MaHoaDon = $maHoaDon";
+
+           
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);
             return $tbl;
