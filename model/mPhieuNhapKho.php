@@ -14,7 +14,7 @@
                 INNER JOIN sanpham sp ON sp.MaSanPham = pnk.MaSanPham
                 INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham
                 INNER JOIN nhacungcap ncc ON ncc.MaNhaCungCap = sp.MaSanPham
-                where LoaiNhanVien = '2'";
+                ";
                 $tbl=mysqli_query($con,$query);
                 $p->dongketnoi($con);
                 return $tbl;
