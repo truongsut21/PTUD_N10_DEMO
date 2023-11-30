@@ -15,7 +15,6 @@
         $_SESSION['LoaiNhanVien']=$role;
         $_SESSION['SoDienThoai'] = $user;
         $_SESSION['MaNhanVien'] =  $idEmployee ;
-        
         echo"<script>alert('ma nhan vien khi dang nhap: ".$_SESSION['MaNhanVien']."')</script>";
 
         if(empty($pass) || empty($user)){
