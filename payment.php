@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        small{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -288,7 +293,61 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
+        function validateFormPay() {
+            console.log('object');
+            var hoTen = document.getElementById('hoTen').value;
+            var SDT = document.getElementById('SDT').value;
+            var Email = document.getElementById('Email').value;
+            var DiaChi = document.getElementById('DiaChi').value;
+
+            // Khởi tạo đối tượng chứa thông báo lỗi
+            var errorMessages = {
+                hoTen: '',
+               
+                Email: '',
+                SDT: '',
+                DiaChi: ''
+            };
+
+            // Kiểm tra điều kiện và lưu thông báo lỗi
+            //^[a-zA-Z\s]
+            if (hoTen.trim() === '' || !/^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$/gm.test(hoTen)) {
+                errorMessages.hoTen = 'Họ và tên không được để trống và phải là chữ.';
+            }
+
+           
+
+            if (Email.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
+                errorMessages.Email = 'Email không hợp lệ.';
+            }
+
+            if (SDT.trim() === '' || !/^[0]\d{9}$/.test(SDT)) {
+                errorMessages.SDT = 'Số điện thoại không hợp lệ.';
+            }
+
+            ///^[a-zA-Z\d][a-zA-Z\d\s]*[a-zA-Z]$/
+            if (DiaChi.trim() === '' || !/^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ0-9,/-][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỸĐ0-9,/-]*(?:[ 0-9][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ0-9,/-][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỸĐ0-9,/-]*)*$/gm.test(DiaChi)) {
+                errorMessages.DiaChi = 'Địa chỉ không hợp lệ.';
+            }
+
+            // Hiển thị thông báo lỗi trong thẻ <small>
+            document.getElementById('hoTen-mess').innerHTML = errorMessages.hoTen;
+            document.getElementById('Email-mess').innerHTML = errorMessages.Email;
+            document.getElementById('SDT-mess').innerHTML = errorMessages.SDT;
+            document.getElementById('DiaChi-mess').innerHTML = errorMessages.DiaChi;
+
+            // Kiểm tra xem có thông báo lỗi nào không
+            for (var field in errorMessages) {
+                if (errorMessages[field] !== '') {
+                    return false; // Có ít nhất một lỗi, không submit form
+                }
+            }
+
+            return true; // Không có lỗi, có thể submit form
+        }
+
         function confirmPay() {
+            
             return confirm("Bạn có chắc chắn thanh toán đơn hàng này?");
         }
         var formatter = new Intl.NumberFormat('vi-VN', {

@@ -27,21 +27,25 @@ function showInfoUsers($tbl)
                     <div class="col-lg-12">
                         <div class="checkout__input">
                             <p>Họ tên<span>*</span></p>
-                            <input name="HoTen" type="text" value="'.$row["HoTen"].'">
+                            <input id="hoTen"  onchange="validateFormPay()" name="HoTen" type="text" value="'.$row["HoTen"].'">
+                            <small id="hoTen-mess"></small>
                         </div>
                     </div>
                 </div>
                 <div class="checkout__input">
                     <p>Số điện thoại<span>*</span></p>
-                    <input name="SoDienThoai" type="tell" value="'.$row["SoDienThoai"].'">
+                    <input onchange="validateFormPay()" id="SDT" name="SoDienThoai" type="tell" value="'.$row["SoDienThoai"].'">
+                    <small id="SDT-mess"></small>
                 </div>
                 <div class="checkout__input">
                     <p>Email<span>*</span></p>
-                    <input name="Email" type="email" value="'.$row["Email"].'">
+                    <input onchange="validateFormPay()" id="Email" name="Email" type="email" value="'.$row["Email"].'">
+                    <small id="Email-mess"></small>
                 </div>
                 <div class="checkout__input">
                     <p>Địa chỉ<span>*</span></p>
-                    <input name="DiaChi" type="text" placeholder="Street Address" class="checkout__input__add" value="'.$row["DiaChi"].'">
+                    <input onchange="validateFormPay()" id="DiaChi" name="DiaChi" type="text" placeholder="Street Address" class="checkout__input__add" value="'.$row["DiaChi"].'">
+                    <small id="DiaChi-mess"></small>
             </div>
         ';
     } else {

@@ -2015,7 +2015,7 @@ ol {
 }
 
 .checkout__input input.checkout__input__add {
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 }
 
 .checkout__input input::placeholder {
