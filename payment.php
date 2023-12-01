@@ -168,7 +168,8 @@
                                     Bạn đồng ý với các điều khoản của chúng tôi ?
                                     <input type="checkbox" id="acc">
                                     <span class="checkmark"></span>
-                                </label>
+                                </label> <br>
+                                <small id="DieuKhoan-mess"></small>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -191,16 +192,17 @@
                                     <label for="payment">
                                         Thanh toán khi nhận hàng
                                         <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
+                                        <span class="checkmark"></span> <br>
+                                        <small id="PhuongThucThanhToan-mess"></small>
                                     </label>
                                 </div>
-                                <div class="checkout__input__checkbox">
+                                <!-- <div class="checkout__input__checkbox">
                                     <label for="paypal">
                                         Chuyển khoản
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
+                                </div> -->
                                 <button type="submit" class="site-btn" name="btnPay" onClick="return confirmPay();"> thanh toán</button>
                             </div>
                         </div>
@@ -299,14 +301,19 @@
             var SDT = document.getElementById('SDT').value;
             var Email = document.getElementById('Email').value;
             var DiaChi = document.getElementById('DiaChi').value;
+            var DieuKhoan = document.getElementById('acc').checked;
+            var PhuongThucThanhToan = document.getElementById('payment').checked;
+       
+
 
             // Khởi tạo đối tượng chứa thông báo lỗi
             var errorMessages = {
                 hoTen: '',
-               
                 Email: '',
                 SDT: '',
-                DiaChi: ''
+                DiaChi: '',
+                DieuKhoan:'',
+                PhuongThucThanhToan:''
             };
 
             // Kiểm tra điều kiện và lưu thông báo lỗi
@@ -329,12 +336,22 @@
             if (DiaChi.trim() === '' || !/^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ0-9,/-][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỸĐ0-9,/-]*(?:[ 0-9][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ0-9,/-][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỸĐ0-9,/-]*)*$/gm.test(DiaChi)) {
                 errorMessages.DiaChi = 'Địa chỉ không hợp lệ.';
             }
+            if (!DieuKhoan) {
+                errorMessages.DieuKhoan = 'Bắt buộc chọn.';
+            }
+            if (!PhuongThucThanhToan) {
+                errorMessages.PhuongThucThanhToan = 'Bắt buộc chọn phương thức.';
+            }
+
+
 
             // Hiển thị thông báo lỗi trong thẻ <small>
             document.getElementById('hoTen-mess').innerHTML = errorMessages.hoTen;
             document.getElementById('Email-mess').innerHTML = errorMessages.Email;
             document.getElementById('SDT-mess').innerHTML = errorMessages.SDT;
             document.getElementById('DiaChi-mess').innerHTML = errorMessages.DiaChi;
+            document.getElementById('DieuKhoan-mess').innerHTML = errorMessages.DieuKhoan;
+            document.getElementById('PhuongThucThanhToan-mess').innerHTML = errorMessages.PhuongThucThanhToan;
 
             // Kiểm tra xem có thông báo lỗi nào không
             for (var field in errorMessages) {
@@ -347,8 +364,12 @@
         }
 
         function confirmPay() {
-            
-            return confirm("Bạn có chắc chắn thanh toán đơn hàng này?");
+            if(validateFormPay()){
+                return confirm("Bạn có chắc chắn thanh toán đơn hàng này?");
+            }else{
+                alert("kiểm tra lại thông tin")
+                return false
+            }
         }
         var formatter = new Intl.NumberFormat('vi-VN', {
             style: 'currency',
