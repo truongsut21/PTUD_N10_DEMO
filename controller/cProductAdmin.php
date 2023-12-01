@@ -26,7 +26,7 @@
 
             if($type == 'image/jpg' || $type == 'image/png' || $type == 'image/jpeg'){
                 if($size < 3*1024*1024){
-                    if(move_uploaded_file($hinhAnh["tmp_name"], 'image/'.$tenAnh)){
+                    if(move_uploaded_file($hinhAnh["tmp_name"], 'img/'.$tenAnh)){
                         $p = new MProductAdmin();
                         $res = $p -> insertProduct($tenSP, $slt, $moTa, $giaBan, $giaNhap, $thuongHieu, $tenAnh, $hsd, $loaiSP, $nhaCC);
                         if($res){

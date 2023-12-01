@@ -152,12 +152,13 @@
                     $hsd = $_REQUEST["HSD"];
                     $loaiSP = $_REQUEST["LoaiSP"];
                     $nhaCC = $_REQUEST["nhaCC"];
-                    $cp = new CProduct();
+                    $cp = new CProductAdmin();
                     $result = $cp->addProduct($tenSP, $slt, $moTa, $giaBan, $giaNhap, $thuongHieu, $hinhAnh, $hsd, $loaiSP, $nhaCC);
 
                     if ($result == 1) {
                         echo "<script>alert('Add product successfully!')</script>";
-                        // echo header("refresh: 0; url = 'indexAdmin.php?san-pham'");
+                        // header("refresh: 0; url = 'indexAdmin.php?san-pham'");
+                        echo "<meta http-equiv='refresh' content='0;url='./indexAdmin?san-pham''>";
                     } elseif ($result == 0) {
                         echo "<script>alert('Add product unsuccessfully!')</script>";
                     } elseif ($result == -1) {
@@ -375,7 +376,7 @@
         //     });
         // });
     </script>
-    <script src="./main.js"></script>
+    <script src="./js/mainAdmin.js"></script>
 </body>
 
 </html>
