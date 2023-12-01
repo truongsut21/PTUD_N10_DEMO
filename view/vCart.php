@@ -37,8 +37,9 @@ function showProduct($tbl)
             while ($row = mysqli_fetch_assoc($tbl)) {
                 echo '
                 <tr>
-                    <form action="#" method="get">
+                <form action="#" method="get">
                         <input type="hidden" name="MaGioHang" value="' . $row['MaGioHang'] . '">
+                        <input type="hidden" name="MaSanPham" value="' . $row['MaSanPham'] . '">
                     <td class="shoping__cart__item">
                         <img src="img/' . $row['HinhAnh'] . '" alt="">
                         <h5>' . $row['TenSanPham'] . '</h5>
@@ -56,13 +57,12 @@ function showProduct($tbl)
                     <td class="shoping__cart__total">
                         ' . $row['GiaBan'] * $row['SoLuong'] . '
                     </td>
-                    <td class="">
-                        <button type="submit" name="btnUpdateProduct" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    </td>
-                    <td class="">
+                    <td class="shoping__cart__quantity">
+                        <button type="submit" name="btnUpdateProduct" class="btn btn-outline-success" onClick="return confirmUpdate();">Cập nhật</button>
+                        <button type="submit" name="btnDeleteProduct" class="btn btn-danger" onClick="return confirmDelete();">x</button>
 
-                        <button type="submit" name="btnDeleteProduct" class="btn btn-danger">x</button>
                     </td>
+                    
                 </form>
                 </tr>
                 ';

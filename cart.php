@@ -229,6 +229,12 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
+         function confirmDelete() {
+            return confirm("Bạn có chắc chắn muốn xóa không?");
+        }
+        function confirmUpdate() {
+            return confirm("Bạn có chắc chắn cập nhật số lượng?");
+        }
         var formatter = new Intl.NumberFormat('vi-VN', {
             style: 'currency',
             currency: 'VND',
@@ -254,6 +260,7 @@
 
             allTotalhtml.innerHTML = allTotal
         }
+       
     </script>
 
 </body>

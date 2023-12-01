@@ -36,7 +36,7 @@
     $pay = new CPay();
     $pay->handlePay();
     ?>
-   
+
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -61,16 +61,14 @@
 
                             <div class="header__top__right__auth">
                                 <div class="dropdown">
-                                    <button  class="btn dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Tài khoản của bạn
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
-                                    <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
-                                    <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
-                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                        <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +196,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn" name="btnPay"> thanh toán</button>
+                                <button type="submit" class="site-btn" name="btnPay" onClick="return confirmPay();"> thanh toán</button>
                             </div>
                         </div>
                     </div>
@@ -290,6 +288,9 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
+        function confirmPay() {
+            return confirm("Bạn có chắc chắn thanh toán đơn hàng này?");
+        }
         var formatter = new Intl.NumberFormat('vi-VN', {
             style: 'currency',
             currency: 'VND',
