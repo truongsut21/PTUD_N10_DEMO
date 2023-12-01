@@ -48,7 +48,7 @@ if (isset($_REQUEST['adminButton'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styleAdmin.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -65,10 +65,13 @@ if (isset($_REQUEST['adminButton'])) {
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+    <div class="row">
             <div class="col-md-12 header">
                 <a class="navbar-brand" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> NHÂN VIÊN QUẢN LÝ KHO</a>
-                <a href="?action=logout" data-toggle="tooltip" data-placement="bottom" title="ĐĂNG XUẤT"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a>
+                <form action="" method="post" id= "formAdmin">
+                    <button type="submit" name="adminButton" id="adminButton" >Admin</button>
+                    <a href="?action=logout" data-toggle="tooltip" data-placement="bottom" title="ĐĂNG XUẤT"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a>
+                </form>
             </div>
         </div>
     </div>

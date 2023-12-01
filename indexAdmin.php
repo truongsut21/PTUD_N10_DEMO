@@ -4,10 +4,15 @@
 
     $_SESSION['role'] = 'admin';
 
-    if (!isset($_SESSION['LoaiNhanVien']) || empty($_SESSION['LoaiNhanVien'])) {
-        header('location: ./admin/login.php');
+    if (!isset($_SESSION['MaNhanVien'])) {
+        header('location: /admin/login.php');
         exit();
     }
+
+    // if (!isset($_SESSION['LoaiNhanVien']) || empty($_SESSION['LoaiNhanVien'])) {
+    //     header('location: ./admin/login.php');
+    //     exit();
+    // }
 
     if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         session_unset();
@@ -70,7 +75,7 @@
                 <a class="nav-link <?php echo isset($_REQUEST['thong-ke']) ? "active" : ""; ?>" href="indexAdmin.php?thong-ke">THỐNG KÊ</a>
             </li>
             <li class="nav-item menu">
-                <a class="nav-link <?php echo isset($_REQUEST['ban-hang']) ? "active" : ""; ?>" href="nhanvienbanhang.php">QUẢN LÝ BÁN HÀNG</a>
+                <a class="nav-link <?php echo isset($_REQUEST['ban-hang']) ? "active" : ""; ?>" href="indexNVBH.php">QUẢN LÝ BÁN HÀNG</a>
             </li>
             <li class="nav-item menu">
                 <a class="nav-link <?php echo isset($_REQUEST['kho']) ? "active" : ""; ?>" href="indexQLKH.php">QUẢN LÝ KHO</a>
