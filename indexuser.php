@@ -47,7 +47,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                                <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -106,11 +106,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <nav class="header__menu">
                     <ul>
                         <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="index.php">Danh Mục</a>
+                        <li><a href="#">Danh Mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./dathang.php">Đặt hàng</a></li>
-                                <li><a href="./thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                <li><a href="./huydon.html">Hủy đơn</a></li>
+                                <li><a href="#">Đặt hàng</a></li>
+                                <li><a href="#">Xem lịch sử mua hàng</a></li>
                             </ul>
                         </li>
                         <li><a href="shop.php">Sản Phẩm</a></li>
@@ -135,7 +134,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <span>COSMETICS</span>
                             <h2>MỸ PHẨM<br>100% An toàn cho da</h2>
                             <p>Có sẵn nhận và giao hàng miễn phí</p>
-                            <a href="#" class="primary-btn">MUA NGAY</a>
+                            <a href="shop.php" class="primary-btn">XEM NGAY</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +147,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>SẢN PHẨM</h2>
+                        <h2>Sản phẩm nổi bật</h2>
                     </div>
                 </div>
             </div>
