@@ -157,3 +157,6 @@ main {
     color: #171717; /* Màu chữ trắng trong tiêu đề cột */
 }
 
+a{
+    text-decoration: none;
+}

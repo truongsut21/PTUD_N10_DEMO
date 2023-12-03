@@ -19,7 +19,7 @@
                         if($row["trangThai"] == 1){
                             echo "
                             <h4>Thông tin Khách hàng</h4>
-                            <p><a href='../PTUD_N10_DEMO/themthongtin.html' style='color: red'> Chỉnh sửa</a></p>
+                            <p><a href='./themthongtin.html' style='color: red'> Chỉnh sửa</a></p>
                           <form action='#'>
                               <div class='row'>
                                   <div class='col-lg-8 col-md-6'>
@@ -63,7 +63,7 @@
                                   
                                           <div class='checkout__input__checkbox'>
                                               <label for='payment'>
-                                                  Thanh toán trực tuyến. <a href='../PTUD_N10_DEMO/thongtinthanhtoan.html' style='color: palevioletred'>Tại đây!</a>
+                                                  Thanh toán trực tuyến. <a href='./thongtinthanhtoan.html' style='color: palevioletred'>Tại đây!</a>
                                                   <input type='checkbox' id='payment'>
                                                   <span class='checkmark'></span>
                                               </label>

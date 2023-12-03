@@ -58,7 +58,7 @@
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="../PTUD_N10_DEMO/index.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
+                        <a href="./index.php"><img src="./img/logo.png" alt=""></a>
                     </div>
                 </div>
 

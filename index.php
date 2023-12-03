@@ -64,7 +64,7 @@
 
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="../PTUD_N10_DEMO/index.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
+                    <a href="./index.php"><img src="./img/logo.png" alt=""></a>
                 </div>
             </div>
 
@@ -81,12 +81,12 @@
             <div class="col-lg-12">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="#">Danh mục</a>
+                        <li><a href="index.php">Trang chủ</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="../PTUD_N10_DEMO/shop.php">Xem sản phẩm</a></li>
-                                <li><a href="../PTUD_N10_DEMO/dathang.php">Đặt hàng</a></li>
-                                <li><a href="../PTUD_N10_DEMO/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                <li><a href="../PTUD_N10_DEMO/huydon.html">Hủy đơn</a></li>
+                                <li><a href="./shop.php">Xem sản phẩm</a></li>
+                                <li><a href="./dathang.php">Đặt hàng</a></li>
+                                <li><a href="./thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
+                                <li><a href="./huydon.html">Hủy đơn</a></li>
                                 <li><a href="#">Khác</a></li>
                             </ul>
                         </li>
