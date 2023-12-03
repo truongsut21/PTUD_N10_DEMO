@@ -26,7 +26,7 @@
 
             if($type == 'image/jpg' || $type == 'image/png' || $type == 'image/jpeg'){
                 if($size < 3*1024*1024){
-                    if(move_uploaded_file($hinhAnh["tmp_name"], 'image/'.$tenAnh)){
+                    if(move_uploaded_file($hinhAnh["tmp_name"], 'img/'.$tenAnh)){
                         $p = new MProduct();
                         $res = $p -> insertProduct($tenSP, $slt, $moTa, $giaBan, $giaNhap, $thuongHieu, $tenAnh, $hsd, $loaiSP, $nhaCC);
                         if($res){
@@ -65,7 +65,7 @@
 
                 if($type == 'image/jpg' || $type == 'image/png' || $type == 'image/jpeg'){
                     if($size < 3*1024*1024){
-                        if(move_uploaded_file($tenAnh["tmp_name"], 'image/'.$nameImg)){
+                        if(move_uploaded_file($tenAnh["tmp_name"], 'img/'.$nameImg)){
                             $res = $p -> updateProduct($ma, $ten, $slt, $moTa, $giaBan, $giaNhap, $thuongHieu, $nameImg, $hsd, $loaiSP, $nhaCC);
                             if($res){
                                 return 1; //update thành công
