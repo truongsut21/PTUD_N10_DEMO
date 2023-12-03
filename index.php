@@ -38,7 +38,7 @@
                     <div class="header__top__left">
                         <ul>
                             <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                            <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                            <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
                         </ul>
                     </div>
                 </div>
@@ -81,20 +81,17 @@
             <div class="col-lg-12">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="index.php">Trang chủ</a>
+                        <li><a href="index.php">Trang Chủ</a>
+                        <li><a href="index.php">Danh Mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./shop.php">Xem sản phẩm</a></li>
                                 <li><a href="./dathang.php">Đặt hàng</a></li>
                                 <li><a href="./thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
                                 <li><a href="./huydon.html">Hủy đơn</a></li>
-                                <li><a href="#">Khác</a></li>
                             </ul>
                         </li>
-                        <li><a href="shop.php">Shop</a></li>
-                        <li><a href="#">Tin tức</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Chính sách</a></li>
-                        <li><a href="#">Quản lý</a></li>
+                        <li><a href="shop.php">Sản Phẩm</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="#">Chính Sách</a></li>
                     </ul>
                 </nav>
             </div>
@@ -114,7 +111,7 @@
                             <span>COSMETICS</span>
                             <h2>MỸ PHẨM<br>100% An toàn cho da</h2>
                             <p>Có sẵn nhận và giao hàng miễn phí</p>
-                            <a href="#" class="primary-btn">MUA NGAY</a>
+                            <a href="shop.php" class="primary-btn">XEM NGAY</a>
                         </div>
                     </div>
                 </div>
