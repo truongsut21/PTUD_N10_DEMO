@@ -46,9 +46,9 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="header__top__right">
                         <div class="header__top__right__social">
-                            <a href="#"><i class="fa fa-user"></i></a>
+                            <a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>
                             <a href="#"><i class="fa fa-phone"></i></a>
-                            <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
+                            <a href="./view/dangnhap.php"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                         <div class="header__top__right__auth">
                            <a href="./view/dangnhap.php">Đăng nhập</a>
@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>SẢN PHẨM</h2>
+                        <h2>Sản phẩm nổi bật</h2>
                     </div>
                 </div>
             </div>

@@ -63,7 +63,7 @@ function showProduct($tbl)
                                     </ul>
                                 </div>
                                 <div class='featured__item__text'>
-                                    <h6><a href='#'>" . $row["TenSanPham"] . "</a></h6>
+                                    <h6><a href='./xemsanpham.php?MaSanPham=" . $row["MaSanPham"] . "'>" . $row["TenSanPham"] . "</a></h6>
                                     <h5>" . number_format($row["GiaBan"], 0, ',', '.') . "đ</h5>
                                 </div>
                             </div>

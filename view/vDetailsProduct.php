@@ -91,9 +91,10 @@ function showProduct($tbl)
                             </li>
                             <li class='nav-item'>
                                 <a class='nav-link' data-toggle='tab' href='#tabs-3' role='tab'
-                                    aria-selected='false'>Đánh giá <span>(1)</span></a>
+                                    aria-selected='false'>Đánh giá</a>
                             </li>
                         </ul>
+
                         <div class='tab-content'>
 
                             <div class='tab-pane active' id='tabs-1' role='tabpanel'>
@@ -101,20 +102,18 @@ function showProduct($tbl)
                                     <p>" . $row['MoTa'] . "</a></p>
                                 </div>
                             </div>
+
                             <div class='tab-pane' id='tabs-2' role='tabpanel'>
                                 <div class='product__details__tab__desc'>
                                     <p><b>Mã sản phẩm</b> " . $row['MaSanPham'] . "</p>
                                     <p><b>Tên sản phẩm</b> " . $row['TenSanPham'] . "</p>
                                     <p><b>Thương hiệu</b> " . $row['ThuongHieu'] . "</p>
-                                   
                                 </div>
                             </div>
-                            <div class='tab-pane' id='tabs-3' role='tabpanel'>
-                                <div class='product__details__tab__desc'>
-                                  
-                                    
-                                  
-                            </div>
+
+
+                        </div>
+                          
                         </div>
                     </div>
                 </div>
