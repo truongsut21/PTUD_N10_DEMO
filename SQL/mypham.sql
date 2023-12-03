@@ -402,9 +402,9 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `SoLuongTon`, `MoTa`, `GiaBan`, `GiaNhap`, `ThuongHieu`, `HinhAnh`, `HanSuDung`, `LoaiSanPham`, `NhaCungCap`, `trangThai`) VALUES
-(1, 'Mascara touching', 0, 'Kem nền dạng lỏng che khuyết điểm', 179000, 79000, 'Becca', 'a1.jpg', '2024-10-23', 1, 1, 1),
-(2, 'Phấn phủ gramy', 927, 'Mascara làm cong mi mắt', 99000, 39000, 'GECOMO', 'a2.jpg', '2025-10-15', 2, 2, 1),
-(3, 'Phấn phủ Pramy', 578, 'Phấn phủ làm mịn da', 490000, 290000, 'PRAMY', 'a3.jpg', '2025-10-01', 3, 3, 0),
+(1, 'Mascara GECOMO', 0, 'Mascara làm cong mi mắt', 179000, 79000, 'GECOMO', 'a1.jpg', '2024-10-23', 1, 1, 1),
+(2, 'Phấn phủ Pramy', 927, 'Phấn phủ làm mịn da', 99000, 39000, 'PRAMY', 'a2.jpg', '2025-10-15', 2, 2, 1),
+(3, 'Phấn phủ ', 578, 'Phấn phủ làm mịn da', 490000, 290000, 'PRAMY', 'a3.jpg', '2025-10-01', 3, 3, 0),
 (4, 'sữa rửa mặt simple', 88, 'sữa rửa mặt simple', 460000, 400000, 'Melody', 'a4.jpg', '2025-11-13', 4, 4, 1),
 (5, 'Sữa rửa mặt lahabo', 8, 'Sữa rửa mặt sáng dae', 100000, 90000, 'Simple', 'a5.jpg', '2023-11-29', 5, 5, 1),
 (14, 'Test', 5, 'Rửa mặt sạch 2', 1000000, 100000, 'Loreal', 'Test.jpg', '2023-11-22', 1, 1, 0),
