@@ -84,7 +84,7 @@
                         <li><a href="index.php">Trang Chủ</a>
                         <li><a href="index.php">Danh Mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./dathang.php">Đặt hàng</a></li>
+                                <li><a href="./cart.php">Đặt hàng</a></li>
                                 <li><a href="./thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
                                 <li><a href="./huydon.html">Hủy đơn</a></li>
                             </ul>
