@@ -75,7 +75,7 @@
                 <nav class="header__menu">
                     <ul>
                         <li><a href="index.php">Trang Chủ</a>
-                        <li><a href="index.php">Danh Mục</a>
+                        <li><a href="#">Danh Mục</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
                                 <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
