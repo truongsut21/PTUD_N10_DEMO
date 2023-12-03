@@ -31,7 +31,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                                <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -63,14 +63,13 @@
                 </div>
 
                 <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <input type="text"  name="search" placeholder="Nhập sản phẩm cần tìm.">
-                            <button type="submit" class="site-btn">TÌM</button>
-                        </form>
-                    </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    
+                <div class="hero__search__form">
+                    <form action="#">
+                        <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
+                        <button type="submit" class="site-btn">TÌM</button>
+                    </form>
                 </div>
+            </div>
 
                 <div class="col-lg-12">
                 <nav class="header__menu">
@@ -105,10 +104,15 @@
             </div>
             <div class="row featured__filter">
                 <?php
-                    include_once("view/vProduct.php");
-                    $p = new VProduct();
-                    $p -> viewAllProducts();
+                include_once("view/vProduct.php");
+                $p = new VProduct();
+                if (isset($_REQUEST["search"])) {
+                    $p->viewSearchProduct($_REQUEST["search"]);
+                } else {
+                    $p->viewAllProducts();
+                }
                 ?>
+            </div>
              <!--    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/xem1.jpg">
@@ -213,7 +217,7 @@
                         </div>
                     </div>
                 </div>-->
-            </div> 
+            
         </div>
     </section>
 
