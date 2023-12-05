@@ -15,21 +15,59 @@ class CDetailsOrder
             $noidung = $_REQUEST["noidung"];
             $maSanPham = $_REQUEST["maSanPham"];
             $maKhachHang = $_SESSION['MaKhachHang'];
-            echo  $maKhachHang;
+            $hinhAnh = $_FILES["fileAnh"];
+            
 
-            // thêm bước xử lý hình ảnh
-            $hinhAnh = "hinh anh 123";
-            $p = new MDetailsOrder();
-            $result = $p->createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh);
+            if(isset($hinhAnh) && $hinhAnh['error'] == 0) {
+                $type = $hinhAnh["type"];
+                $size = $hinhAnh["size"];
+                $tenAnh = $maSanPham . strstr($hinhAnh["name"], ".");
 
-            if ($result) {
-                echo '<script>alert("Bình luận thành công")
-                window.location.href = "orderManage.php";
-                </script>';
-                // header('location: orderManage.php');
-                // exit();
+                if ($type == 'image/jpg' || $type == 'image/png' || $type == 'image/jpeg') {
+                    if ($size < 3 * 1024 * 1024) {
+                        if (move_uploaded_file($hinhAnh["tmp_name"], 'img/' . $tenAnh)) {
+                            $p = new MDetailsOrder();
+                            $result = $p->createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh);
+
+                            if ($result) {
+                                echo '<script>alert("Đánh giá sản phẩm thành công")
+                                window.location.href = "orderManage.php";
+                                </script>';
+                                // header('location: orderManage.php');
+                                // exit();
+                            } else {
+                                echo '<script>alert("Đánh giá sản phẩm thất bại")</script>';
+                            }
+
+
+
+                            if ($result) {
+                                return 1; //insert thành công
+                            } else {
+                                return 0; //insert không thành công
+                            }
+                        } else {
+                            return -3; //không thể upload ảnh
+                        }
+                    } else {
+                        return -2; //ảnh quá kích cỡ
+                    }
+                } else {
+                    return -1; //ảnh không đúng định dạng
+                }
             } else {
-                echo '<script>alert("Bình luận thất bại")</script>';
+                $p = new MDetailsOrder();
+                $hinhAnh = "";
+                $result = $p->createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh);
+                if ($result) {
+                    echo '<script>alert("Đánh giá sản phẩm thành công")
+                    window.location.href = "orderManage.php";
+                    </script>';
+                    // header('location: orderManage.php');
+                    // exit();
+                } else {
+                    echo '<script>alert("Đánh giá sản phẩm thất bại")</script>';
+                }
             }
         }
     }
@@ -40,9 +78,9 @@ class CDetailsOrder
             $maChiTietHoaDon = $_REQUEST["maChiTietHoaDon"];
             $soLuong = $_SESSION['soLuong'];
             $noidung = $_REQUEST["noidung"];
-             // thêm bước xử lý hình ảnh
+            // thêm bước xử lý hình ảnh
             $hinhAnh = "hinh anh 123";
-            
+
             $p = new MDetailsOrder();
             $result = $p->createReturn($maChiTietHoaDon,  $soLuong,  $noidung, $hinhAnh);
 
@@ -50,7 +88,6 @@ class CDetailsOrder
                 echo '<script>alert("Chúng tôi đã ghi nhận thông tin vui lòng đợi nhân viên phản hồi qua email")
                 window.location.href = "orderManage.php";
                 </script>';
-             
             } else {
                 echo '<script>alert("Hoàn trả thất bại")</script>';
             }

@@ -247,11 +247,11 @@
         function renderPrice() {
             let allTotal = 0
             for (let i = 0; i < totalItem.length; i++) {
-                totalItem[i].innerHTML = prices[i].innerHTML * quantity[i].value
+                totalItem[i].innerHTML = formatter.format(prices[i].innerHTML * quantity[i].value)
                 allTotal += prices[i].innerHTML * quantity[i].value
             }
 
-            allTotalhtml.innerHTML = allTotal
+            allTotalhtml.innerHTML =  formatter.format(allTotal)
         }
        
     </script>

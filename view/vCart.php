@@ -44,8 +44,9 @@ function showProduct($tbl)
                         <img src="img/' . $row['HinhAnh'] . '" alt="">
                         <h5>' . $row['TenSanPham'] . '</h5>
                     </td>
-                    <td class="shoping__cart__price _price">
-                        ' . $row['GiaBan'] . '
+                    <td class="shoping__cart__price">
+                        ' . number_format($row['GiaBan'], 0, ',', '.') . 'đ
+                        <span class="_price" style="display: none;">' . $row['GiaBan'] . '</span>
                     </td>
                     <td class="shoping__cart__quantity">
                         <div class="quantity">
@@ -56,11 +57,11 @@ function showProduct($tbl)
                     </td>
                     <td class="shoping__cart__total">
                         ' . $row['GiaBan'] * $row['SoLuong'] . '
+                        
                     </td>
                     <td class="shoping__cart__quantity">
-                        <button type="submit" name="btnUpdateProduct" class="btn btn-outline-success" onClick="return confirmUpdate();">Cập nhật</button>
+                        <button type="submit" name="btnUpdateProduct" class="btn btn-outline-info" onClick="return confirmUpdate();">Cập nhật</button>
                         <button type="submit" name="btnDeleteProduct" class="btn btn-danger" onClick="return confirmDelete();">x</button>
-
                     </td>
                     
                 </form>
