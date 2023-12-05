@@ -52,7 +52,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-user"></i></a>
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="#"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
@@ -82,17 +82,15 @@
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.php"><img src="./img/logo.png" alt=""></a>
+                        <a href="./indexuser.php"><img src="./img/logo.png" alt=""></a>
                     </div>
                 </div>
 
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#" method="get">
+                    <form action="#" method="get">
                             <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
-                            <button class="site-btn" type="submit" name="timkiem">
-                                <i class="fa fa-search" value="Tìm kiếm"></i>
-                            </button>
+                            <button class="site-btn" type="submit" name="timkiem">TÌM</button>
                         </form>
                     </div>
                 </div>
@@ -103,8 +101,8 @@
                         <li><a href="indexuser.php">Trang Chủ</a>
                         <li><a href="#">Danh Mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="#">Đặt hàng</a></li>
-                                <li><a href="#">Xem lịch sử mua hàng</a></li>
+                                <li><a href="cart.php">Đặt hàng</a></li>
+                                <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
                             </ul>
                         </li>
                         <li><a href="shop.php">Sản Phẩm</a></li>
@@ -142,7 +140,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Đơn hàng - đia chỉ</th>
+                                    <th class="shoping__product">Đơn hàng - Địa chỉ</th>
                                     <th>Ngày tạo</th>
                                     <th>Mã đơn</th>
                                     <th>Thành tiền</th>

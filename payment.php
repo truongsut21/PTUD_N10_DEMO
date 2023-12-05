@@ -87,11 +87,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./indexuser.php"><img src="./img/logo.png" alt=""></a>
-                    </div>
-                </div>
+              
 
             <!--    <div class="hero__search">
                     <div class="hero__search__form">
@@ -108,15 +104,7 @@
                 <nav class="header__menu">
                     <ul>
                         <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="#">Đặt hàng</a></li>
-                                <li><a href="#">Xem lịch sử mua hàng</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
+                  
                     </ul>
                 </nav>
                 </div>

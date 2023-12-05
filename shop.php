@@ -39,13 +39,13 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-user"></i></a>
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="#"><i class="fa fa-phone"></i></a>                   
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
                         
                             <div class="header__top__right__auth">
-                                <a href="#">Follow Us</a>
+                                <a href="#"></a>
                             </div>
                         </div>
                     </div>
