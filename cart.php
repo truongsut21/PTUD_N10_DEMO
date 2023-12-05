@@ -43,8 +43,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
-                            </ul>
+                                <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
                         </div>
                     </div>
 
@@ -102,11 +101,10 @@
                 <nav class="header__menu">
                     <ul>
                         <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="index.php">Danh Mục</a>
+                        <li><a href="#">Danh Mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./dathang.php">Đặt hàng</a></li>
-                                <li><a href="./thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                <li><a href="./huydon.html">Hủy đơn</a></li>
+                                <li><a href="#">Đặt hàng</a></li>
+                                <li><a href="#">Xem lịch sử mua hàng</a></li>
                             </ul>
                         </li>
                         <li><a href="shop.php">Sản Phẩm</a></li>
@@ -123,12 +121,12 @@
     <br>
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/bgxemct.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Giỏ hàng</h2>
+                        <h2>GIỎ HÀNG</h2>
                     </div>
                 </div>
             </div>

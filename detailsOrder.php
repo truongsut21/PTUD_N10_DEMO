@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>CHI TIẾT ĐƠN ĐẶT HÀNG</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                                <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -102,24 +102,20 @@
                 </div>
 
                 <div class="col-lg-12">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="#">Danh mục</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./xemsanpham.php">Xem sản phẩm</a></li>
-                                    <li><a href="./dathang.php">Đặt hàng</a></li>
-                                    <li><a href="./thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                    <li><a href="./huydon.html">Hủy đơn</a></li>
-                                    <li><a href="#">Khác</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./shop.php">Shop</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Chính sách</a></li>
-                            <li><a href="#">Quản lý</a></li>
-                        </ul>
-                    </nav>
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="indexuser.php">Trang Chủ</a>
+                        <li><a href="#">Danh Mục</a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="#">Đặt hàng</a></li>
+                                <li><a href="#">Xem lịch sử mua hàng</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="shop.php">Sản Phẩm</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="#">Chính Sách</a></li>
+                    </ul>
+                </nav>
                 </div>
             </div>
         </div>
