@@ -95,9 +95,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="hero__search__form">
                         <form action="#" method="get">
                             <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
-                            <button class="site-btn" type="submit" name="timkiem">
-                                <i class="fa fa-search" value="Tìm kiếm"></i>
-                            </button>
+                            <button class="site-btn" type="submit" name="timkiem">TÌM</button>
                         </form>
                     </div>
                 </div>

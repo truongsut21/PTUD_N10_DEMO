@@ -1,9 +1,3 @@
-<?php
-include_once('./layout/header.php');
-include_once("controller/cDetailsProduct.php");
-$p = new CDetailsProduct();
-$p->handleAddToCart()
-?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -28,6 +22,13 @@ $p->handleAddToCart()
 </head>
 
 <body>
+
+<?php
+include_once('./layout/header.php');
+include_once("controller/cDetailsProduct.php");
+$p = new CDetailsProduct();
+$p->handleAddToCart()
+?>
 
 
     <!-- Breadcrumb Section Begin -->

@@ -24,7 +24,7 @@ class VProduct
                                 <div class='featured__item__pic set-bg'>
                                 <img src='img/" . $row['HinhAnh'] . "'/>
                                     <ul class='featured__item__pic__hover'>
-                                        <li><a href='#'><i class='fa fa-shopping-cart'></i></a></li>
+                               
                                         <li><a href='./xemsanpham.php?MaSanPham=" . $row["MaSanPham"] . "'><i class='fa fa-search'></i></li>
                                     </ul>
                                 </div>
@@ -58,7 +58,7 @@ function showProduct($tbl)
                                 <div class='featured__item__pic set-bg'>
                                 <img src='img/" . $row['HinhAnh'] . "'/>
                                     <ul class='featured__item__pic__hover'>
-                                        <li><a href='#'><i class='fa fa-shopping-cart'></i></a></li>
+                                   
                                         <li><a href='./xemsanpham.php?MaSanPham=" . $row["MaSanPham"] . "'><i class='fa fa-search'></i></li>
                                     </ul>
                                 </div>

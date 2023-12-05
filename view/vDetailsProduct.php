@@ -44,25 +44,26 @@ function showProduct($tbl)
                             <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
-                            <i class='fa fa-star-half-o'></i>
+                            <i class='fa fa-star'></i>
                         </div>
                         <div class='product__details__price'> 
 
                         <img width=20% height=100% src='img/" . $row['HinhAnh'] . "'/>
-                        <h6>" . $row['MoTa'] . "</a></h6>
+                        <h6>Giá bán </a></h6> 
                         <h5>" . number_format($row['GiaBan'], 0, ',', '.') . "đ</h5></div>
+                        
                        
                     
                         <form action='#' method='post'>
                         <div class='product__details__quantity'>
-                            <div class='quantity'>
+                            <div class='quantity'><h6>Số lượng</h6>
                                 <div class='pro-qty'>
                                     <input type='text' value='1' name='quantity'>
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                             <input type='hidden' value='" . $_REQUEST["MaSanPham"] . "' name='idProduct'>
-                            <input type='submit' value='Thêm vào Giỏ hàng' name='submitAddToCart' class='primary-btn'/>
+                            <input type='submit' value='Thêm vào giỏ hàng' name='submitAddToCart' class='primary-btn'/> <input type='submit' value='Đặt hàng' name='submitAddToCart' class='primary-btn'/>
                         </form>
                         <ul>
                             <li><b>Số lượng tồn kho:</b> " . $row['SoLuongTon'] . "</li>

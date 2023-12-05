@@ -128,7 +128,8 @@ ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	background: pink;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
+	border: 1px;
 }
 
 .site-btn {
@@ -139,8 +140,8 @@ ol {
 	display: inline-block;
 	padding: 13px 30px 12px;
 	background: #FFBFCC;
-	border: none;
 	margin-left: 470px;
+	border: none;
 }
 
 .site-btn1 {
@@ -151,7 +152,7 @@ ol {
 	display: inline-block;
 	padding: 13px 30px 12px;
 	background: #FFBFCC;
-	border: none;
+	
 }
 
 /* Preloder */
