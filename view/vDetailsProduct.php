@@ -38,7 +38,7 @@ function showProduct($tbl)
 
                         <h3>" . $row['TenSanPham'] . "</h3>
                         <div class='product__d'etails__rating'>
-                            <i class='fa fa-star></i>
+                            <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
@@ -52,8 +52,7 @@ function showProduct($tbl)
                         <h6>Giá bán </a></h6> 
                         <h5>" . number_format($row['GiaBan'], 0, ',', '.') . "đ</h5></div>
                         
-                       
-                    
+                
                         <form action='#' method='post'>
                         <div class='product__details__quantity'>
                             <div class='quantity'><h6>Số lượng</h6>
@@ -63,7 +62,7 @@ function showProduct($tbl)
                             </div>
                         </div><br>
                             <input type='hidden' value='" . $_REQUEST["MaSanPham"] . "' name='idProduct'>
-                            <input type='submit' value='Thêm vào giỏ hàng' name='submitAddToCart' class='primary-btn'/> <input type='submit' value='Đặt hàng' name='submitAddToCart' class='primary-btn'/>
+                            <input type='submit' value='Thêm vào giỏ hàng' name='submitAddToCart' class='primary-btn'/> <a href='cart.php' class='primary-btn' value='Đặt hàng' />Đặt hàng</a>
                         </form>
                         <ul>
                             <li><b>Số lượng tồn kho:</b> " . $row['SoLuongTon'] . "</li>
