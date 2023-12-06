@@ -206,7 +206,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="get" action="#">
+                    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return confirmComment();">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Tên sản phẩm</label>
                             <input type="email" class="form-control" id="nameProduct" placeholder="name@example.com" disabled>
@@ -214,13 +214,13 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Hình ảnh</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="Hình ảnh sản phẩm">
+                            <input type="file" name="fileAnh" class="form-control-file" id="exampleFormControlFile1" placeholder="Hình ảnh sản phẩm">
                         </div>
 
                         <div class="form-group">
                             <label for="formControlRange">Mức độ hài lòng</label>
                             <input name="sao" type="range" min="0" max="5" class="form-control-range " id="formControlRange" onInput="$('#rangeval').html($(this).val())">
-                            <span id="rangeval">3<!-- Default value --></span>
+                            <span id="rangeval">3<!-- Default value --></span> <i style="color: #F7B400;" class="fa fa-star" aria-hidden="true"></i>
                         </div>
 
                         <div class="form-group">
@@ -231,8 +231,8 @@
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" id="maSanPham" name="maSanPham" value="">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                        <button type="submit" name="btnComment" class="btn btn-primary">Xác nhận</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
+                        <button type="submit" name="btnComment" class="btn btn-outline-info">Xác nhận</button>
                     </div>
                 </form>
             </div>
@@ -267,15 +267,15 @@
 
                     
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Nguyên nhân trả hàng</label>
+                            <label for="exampleFormControlTextarea1">Lý do trả hàng</label>
                             <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" id="maChiTietHoaDon" name="maChiTietHoaDon" value="">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                        <button type="submit" name="btnReturn" class="btn btn-primary">Xác nhận</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
+                        <button type="submit" name="btnReturn" class="btn btn-outline-info">Xác nhận</button>
                     </div>
                 </form>
             </div>
@@ -292,6 +292,9 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script>
+        function confirmComment() {
+            return confirm("Bạn có chắc chắn muốn dánh giá sản phẩm này?");
+        }
         function handleBtnComment(name,id) {
             // id là mã sản phẩm
             console.log(name)

@@ -58,7 +58,7 @@ function showProduct($tbl)
                             <td class="shoping__cart__item">
                                 <input type="hidden" name="maSanPham" value="' . $row['MaSanPham'] . '">
                                 <!-- Button trigger modal đánh giá sản phẩm -->
-                                <button onclick="handleBtnComment(\'' . $row['TenSanPham'] . '\',\'' . $row['MaSanPham'] . '\' )" type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">
+                                <button onclick="handleBtnComment(\'' . $row['TenSanPham'] . '\',\'' . $row['MaSanPham'] . '\' )" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
                                 Đánh giá sản phẩm
                             </button>
                             <button onclick="handleBtnReturn(\'' . $row['TenSanPham'] . '\',\'' . $row['MaChiTietHoaDon'] . '\' )" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal2">
