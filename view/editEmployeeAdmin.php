@@ -11,7 +11,7 @@
 <body>
     <?php
     // include_one("Controller/acEmployee.php");
-    $p = new CEmployee();
+    $p = new CEmployeeAdmin();
     $tblEdit = $p->getEmployeeToEdit($_REQUEST["MaNhanVien"]);
 
     if (mysqli_num_rows($tblEdit) > 0) {
@@ -49,37 +49,37 @@
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Họ tên</label>
-                <input type="text" name="hoten" class="form-control" value="<?php echo $hoten ?>" required>
+                <input type="text" name="hoten" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hoten ?>" required>
             </div>
             <div class="form-group col-md-7">
                 <label>Mật khẩu</label>
-                <input type="text" name="matkhau" class="form-control" value="<?php echo $matkhau ?>" required>
+                <input type="text" name="matkhau" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $matkhau ?>" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Email</label>
-                <input type="text" name="Email" class="form-control" value="<?php echo $email ?>" required>
+                <input type="text" name="Email" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $email ?>" required>
             </div>
             <div class="form-group col-md-5">
                 <label>SDT</label>
-                <input type="text" name="SDT" class="form-control" value="<?php echo $sdt ?>" required>
+                <input type="text" name="SDT" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $sdt ?>" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Địa chỉ</label>
-                <input type="text" name="DiaChi" class="form-control" value="<?php echo $diachi ?>" required>
+                <input type="text" name="DiaChi" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $diachi ?>" required>
             </div>
             <div class="form-group col-md-7 formCus2">
                 <label>Loại NV</label>
                 <?php
                     include_once("Controller/cLoaiNVAdmin.php");
-                    $ce = new CLoaiNV();
+                    $ce = new CLoaiNVAdmin();
                     $tbl = $ce -> getAllLoaiNV();
 
                     if(mysqli_num_rows($tbl)>0){
-                        echo '<select name="loaiNV" class="form-control">';
+                        echo '<select name="loaiNV" class="form-control" style="width: 600px; margin-bottom: 15px">';
                         while ($r = mysqli_fetch_assoc($tbl)){
                             if($loainv == $r["LoaiNhanVien"]){
                                 echo '<option selected value="'.$r["MaLoaiNhanVien"].'">'.$r["GhiChu"].'</option>';

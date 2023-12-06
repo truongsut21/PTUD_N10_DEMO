@@ -10,8 +10,8 @@
 
 <body>
     <?php
-    // include_one("Controller/acProduct.php");
-    $p = new CProduct();
+    // include_one("Controller/aAdmin.php");
+    $p = new CProductAdmin();
     $tblEdit = $p->getProductToEdit($_REQUEST["MaSanPham"]);
 
     if (mysqli_num_rows($tblEdit) > 0) {
@@ -62,58 +62,58 @@
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Mã sản phẩm</label>
-                <input type="text" name="maSP" class="form-control" value="<?php echo $maSP ?>" required>
+                <input type="text" name="maSP" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $maSP ?>" required>
             </div>
             <div class="form-group col-md-7">
                 <label>Tên sản phẩm</label>
-                <input type="text" name="tenSP" class="form-control" value="<?php echo $tenSP ?>" required>
+                <input type="text" name="tenSP" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $tenSP ?>" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Số lượng tồn</label>
-                <input type="number" name="slt" class="form-control" value="<?php echo $slt ?>" required>
+                <input type="number" name="slt" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $slt ?>" required>
             </div>
             <div class="form-group col-md-7">
                 <label>Mô tả</label>
-                <textarea name="mota" id="" class="form-control" cols="30" rows="4"><?php echo $moTa ?></textarea>
+                <textarea name="mota" id="" class="form-control" style="width: 600px; margin-bottom: 15px" cols="30" rows="4"><?php echo $moTa ?></textarea>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Giá bán</label>
-                <input type="number" name="giaBan" class="form-control" value="<?php echo $giaBan ?>" required>
+                <input type="number" name="giaBan" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaBan ?>" required>
             </div>
             <div class="form-group col-md-7">
                 <label>Giá nhập</label>
-                <input type="number" name="giaNhap" class="form-control" value="<?php echo $giaNhap ?>" required>
+                <input type="number" name="giaNhap" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaNhap ?>" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Thương hiệu</label>
-                <input type="text" name="thuongHieu" class="form-control" value="<?php echo $thuongHieu ?>" required>
+                <input type="text" name="thuongHieu" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $thuongHieu ?>" required>
             </div>
             <div class="form-group col-md-7">
                 <label>Hình ảnh</label>
                 <img src="image/<?php echo $tenAnh ?>" alt="" width="100px">
-                <input type="file" name="tenAnh" class="form-control">
+                <input type="file" name="tenAnh" class="form-control" style="width: 600px; margin-bottom: 15px">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Hạn sử dụng</label>
-                <input type="date" name="HSD" class="form-control" value="<?php echo $hsd ?>" required>
+                <input type="date" name="HSD" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hsd ?>" required>
             </div>
             <div class="form-group col-md-7">
                 <label for="">Loại sản phẩm</label>
                 <?php
                 include_once("Controller/cLoaiSPAdmin.php");
-                $cloai = new CLoaiSP();
+                $cloai = new CLoaiSPAdmin();
                 $tbl = $cloai->getAllLoaiSP();
 
                 if(mysqli_num_rows($tbl)>0){
-                    echo '<select name="loaiSP" class="form-control">';
+                    echo '<select name="loaiSP" class="form-control" style="width: 600px; margin-bottom: 15px">';
                     while ($r = mysqli_fetch_assoc($tbl)){
                         if($loaiSP == $r["LoaiSanPham"]){
                             echo '<option selected value="'.$r["MaLoai"].'">'.$r["TenLoai"].'</option>';
@@ -131,11 +131,11 @@
                 <label>Nhà cung cấp</label>
                 <?php
                 include_once("Controller/cNhaCCAdmin.php");
-                $ce = new CNhaCC();
+                $ce = new CNhaCCAdmin();
                 $tbl = $ce->getAllNCC();
 
                 if(mysqli_num_rows($tbl)>0){
-                    echo '<select name="nhaCC" class="form-control">';
+                    echo '<select name="nhaCC" class="form-control" style="width: 600px; margin-bottom: 15px">';
                     while ($r = mysqli_fetch_assoc($tbl)){
                         if($nhaCC == $r["NhaCungCap"]){
                             echo '<option selected value="'.$r["MaNhaCungCap"].'">'.$r["TenNhaCungCap"].'</option>';

@@ -1,6 +1,6 @@
 <?php
     include_once("Model/mLoaiSPAdmin.php");
-    class CLoaiSP{
+    class CLoaiSPAdmin{
         function getAllLoaiSP(){
             $p = new MLoaiSP();
             $tbl = $p -> selectAllLoaiSP();
