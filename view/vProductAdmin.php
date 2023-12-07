@@ -68,7 +68,7 @@
                     echo'
                     <table class="table table-bordered table-hover " id="myTable">
                     <thead class="table-secondary">
-                        <tr class="ex">
+                        <tr class="ex" style="vertical-align: text-top;">
                             <th width="auto">Mã SP</th>
                             <th width="auto">Tên SP</th>
                             <th>SLT</th>
