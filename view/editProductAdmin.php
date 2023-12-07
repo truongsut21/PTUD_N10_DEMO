@@ -6,6 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        div#update_info {
+            color: #157347;
+            text-align: center;
+            margin: 15px 0;
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 25%;
+            align-items: center;
+        }
+
+        #update_info a>i {
+            color: #157347;
+            margin-right: 150px;
+        }
+
+        h4 {
+            color: #157347;
+            margin: 15px 0;
+            margin-left: 25%;
+        }
+
+        .btnCus3.btnCus {
+            border-radius: 3px;
+            background-color: #157347;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            width: 80px;
+        }
+
+        form {
+            margin-left: 25%;
+        }
+
+        .btnUpd {
+            align-items: center;
+            margin-left: 25%;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +67,7 @@
             $giaBan = $r["GiaBan"];
             $giaNhap = $r["GiaNhap"];
             $thuongHieu = $r["ThuongHieu"];
-            $tenAnh = $r["HinhAnh"];   
+            $tenAnh = $r["HinhAnh"];
             $hsd = $r["HanSuDung"];
             $loaiSP = $r["LoaiSanPham"];
             $nhaCC = $r["NhaCungCap"];
@@ -58,6 +102,18 @@
             echo "<script>alert('Can not upload file!')</script>";
     }
     ?>
+
+    <div>
+        <div id="update_info">
+            <a href="./indexAdmin.php?san-pham"><i class="fas fa-backward"></i></a>
+            <h2>Cập nhật thông tin</h2>
+        </div>
+
+        <?php
+        echo "<h4>Mã sản phẩm: SP" . $maSP . "</h4>";
+        ?>
+    </div>
+
     <form action="#" method="post" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-5">
@@ -112,13 +168,13 @@
                 $cloai = new CLoaiSPAdmin();
                 $tbl = $cloai->getAllLoaiSP();
 
-                if(mysqli_num_rows($tbl)>0){
+                if (mysqli_num_rows($tbl) > 0) {
                     echo '<select name="loaiSP" class="form-control" style="width: 600px; margin-bottom: 15px">';
-                    while ($r = mysqli_fetch_assoc($tbl)){
-                        if($loaiSP == $r["LoaiSanPham"]){
-                            echo '<option selected value="'.$r["MaLoai"].'">'.$r["TenLoai"].'</option>';
-                        }else{
-                            echo '<option value="'.$r["MaLoai"].'">'.$r["TenLoai"].'</option>';
+                    while ($r = mysqli_fetch_assoc($tbl)) {
+                        if ($loaiSP == $r["LoaiSanPham"]) {
+                            echo '<option selected value="' . $r["MaLoai"] . '">' . $r["TenLoai"] . '</option>';
+                        } else {
+                            echo '<option value="' . $r["MaLoai"] . '">' . $r["TenLoai"] . '</option>';
                         }
                     }
                     echo '</select>';
@@ -134,13 +190,13 @@
                 $ce = new CNhaCCAdmin();
                 $tbl = $ce->getAllNCC();
 
-                if(mysqli_num_rows($tbl)>0){
+                if (mysqli_num_rows($tbl) > 0) {
                     echo '<select name="nhaCC" class="form-control" style="width: 600px; margin-bottom: 15px">';
-                    while ($r = mysqli_fetch_assoc($tbl)){
-                        if($nhaCC == $r["NhaCungCap"]){
-                            echo '<option selected value="'.$r["MaNhaCungCap"].'">'.$r["TenNhaCungCap"].'</option>';
-                        }else{
-                            echo '<option value="'.$r["MaNhaCungCap"].'">'.$r["TenNhaCungCap"].'</option>';
+                    while ($r = mysqli_fetch_assoc($tbl)) {
+                        if ($nhaCC == $r["NhaCungCap"]) {
+                            echo '<option selected value="' . $r["MaNhaCungCap"] . '">' . $r["TenNhaCungCap"] . '</option>';
+                        } else {
+                            echo '<option value="' . $r["MaNhaCungCap"] . '">' . $r["TenNhaCungCap"] . '</option>';
                         }
                     }
                     echo '</select>';
@@ -150,7 +206,7 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group">
+            <div class="form-group btnUpd">
                 <input type="hidden" value="">
                 <button type="reset" class="btnCus3 btnCus">Reset</button>
                 <button type="submit" name='btnEditSP' class="btnCus3 btnCus">Update</button>
