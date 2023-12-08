@@ -27,8 +27,8 @@ class MPay
 
         if ($p->connect_DB($con)) { 
 
-            $str_hoadon = "INSERT INTO `hoadon` (`MaHoaDon`, `TongTien`, `NgayLap`, `MaNhanVien`, `MaKhachHang`, `DiaChiGiaoHang`, `Họ Tên`, `SoDienThoai`, `Email`) 
-            VALUES (NULL, '$tongTienDonHang', NOW(), '$maNhanVien', '1', 'OFFLINE', '$HoTen', '$SoDienThoai', '$Email');";
+            $str_hoadon = "INSERT INTO `hoadon` (`MaHoaDon`, `TongTien`, `NgayLap`, `MaNhanVien`, `MaKhachHang`, `DiaChiGiaoHang`, `HoTen`, `SoDienThoai`, `Email`) 
+            VALUES (NULL, '$tongTienDonHang', NOW(), '$maNhanVien', NULL, 'OFFLINE', '$HoTen', '$SoDienThoai', '$Email');";
             mysqli_query($con,  $str_hoadon);
          
 

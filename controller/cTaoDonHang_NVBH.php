@@ -26,7 +26,7 @@ class CPay
             $SoDienThoai = $_REQUEST['customer-phone']; // 
             $Email = $_REQUEST['customer-email']; // 
             $DiaChi = $_REQUEST['customer-diachi']; //
-            $maNhanVien = 1; // cho tạm là 1 sau này nhân viên sẽ là online 
+            $maNhanVien = $_SESSION['MaNhanVien']; // cho tạm là 1 sau này nhân viên sẽ là online 
             $tongTienDonHang = $_REQUEST["tongtien"]; // 
             $tongTien = $_REQUEST['tongtien']; // mảng 
             $maSanPham = $_REQUEST['selected-products']; // mảng 

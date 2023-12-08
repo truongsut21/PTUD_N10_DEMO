@@ -29,7 +29,7 @@ class MPay
 
             // $str_hoadon2 = "INSERT INTO hoadon (TongTien, NgayLap) VALUES ('$tongTienDonHang', NOW())";
             $str_hoadon = "INSERT INTO `hoadon` 
-            (`MaHoaDon`, `TongTien`, `NgayLap`, `MaKhachHang`, `DiaChiGiaoHang`, `Họ Tên`, `SoDienThoai`, `Email`) 
+            (`MaHoaDon`, `TongTien`, `NgayLap`, `MaKhachHang`, `DiaChiGiaoHang`, `HoTen`, `SoDienThoai`, `Email`) 
             VALUES (NULL, $tongTienDonHang, NOW(), $maKhachHang, '$DiaChi', '$HoTen', $SoDienThoai, '$Email');";
             mysqli_query($con, $str_hoadon);
 
