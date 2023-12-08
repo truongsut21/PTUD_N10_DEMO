@@ -1,7 +1,6 @@
 <?php
     session_start();
     ob_start();
-
     include "../Model/connectdb.php";
     include "../Model/user.php";
     $hoTenDefault = '';
@@ -10,17 +9,21 @@
         $user = $_POST['user'];
         $pass = $_POST['pass'];
         $role = checkuser1($user,$pass);
+        $idEmployee = getIdEmployee($user);
+
         $_SESSION['LoaiNhanVien']=$role;
-        //$_SESSION['SoDienThoai'] = $user;
+        $_SESSION['SoDienThoai'] = $user;
+        $_SESSION['MaNhanVien'] =  $idEmployee ;
+        echo"<script>alert('ma nhan vien khi dang nhap: ".$_SESSION['MaNhanVien']."')</script>";
 
         if(empty($pass) || empty($user)){
             $txt = "Bạn cần nhập đủ thông tin đăng nhập";
         }else if($role==3) {
             header('location: ../indexAdmin.php');
-        }else if($role==1) {
-            header('location: ../indexNVBH.php');
         }else if($role==2) {
             header('location: ../indexQLKH.php');
+        }else if($role==1) {
+            header('location: ../indexNVBH.php');
         }else {
             $txt = "Số điện thoại hoặc mật khẩu không tồn tại";
         }
