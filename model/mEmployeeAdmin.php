@@ -1,7 +1,7 @@
 <?php
     include_once("connect.php");
 
-    class MEmployee {
+    class MEmployeeAdmin {
         function selectAllEmployees() {
             $p = new ConnectDB();
             // $con;

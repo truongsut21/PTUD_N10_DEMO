@@ -8,12 +8,16 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     $sodienthoai = $_REQUEST["phone"];
     $email = $_REQUEST["email"];
     $matkhau = $_REQUEST["pass"];
+    $patternname = '/^[a-zA-Z ]+$/';
     $diachi = '';
     $role = 1;
     $pattern = '/^[0-9]{10}$/';
     $checkpass = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
+    $hashedPassword = md5($matkhau);
     if (empty($hoten) || empty($sodienthoai) || empty($email) || empty($matkhau)) {
         $txt = "Bạn cần nhập đầy đủ thông tin";
+    }else if (preg_match($patternname, $hoten)) {
+        $txt = "Họ tên không hợp lệ";
     } else if (!preg_match($pattern, $sodienthoai)) {
         $txt = "Số điện thoại không hợp lệ";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -30,7 +34,7 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
         } else if ($ra == 0) {
             $txt = "Số điện thoại đã tồn tại";
         } else {
-            $kq = $p->UpdateProds1($hoten, $sodienthoai, $diachi, $matkhau, $email, $role);
+            $kq = $p->UpdateProds1($hoten, $sodienthoai, $diachi, $hashedPassword, $email, $role);
             if ($kq == 1) {
                 echo "<script> alert('Đăng ký thành công')</script>";
                 echo header("refresh: 0; url='dangnhap.php'");
@@ -117,10 +121,15 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
                     }
                     ?>
 
-                    <div  class="container-login100-form-btn">
+                    <div class="container-login100-form-btn">
                         <input type="submit" class="login100-form-btn" name="submit" value="Đăng ký">
                     </div>
 
+                    <div class="text-center p-t-12">
+                        <a class="txt2" href="../chinhsach.php">
+                        Bằng việc đăng ký, bạn đã đồng ý về Điều khoản dịch vụ & Chính sách bảo mật
+                        </a>
+                    </div>
                     <div class="text-center p-t-12">
                         <a class="txt2" href="dangnhap.php">
                             Bạn đã có tài khoản? Đăng nhập tại đây

@@ -130,7 +130,7 @@
                 $diachi = $_REQUEST["DiaChi"];
                 $loainv = $_REQUEST["LoaiNV"];
                 // include_once("controller/cEmployee.php");
-                $cem = new CEmployee();
+                $cem = new CEmployeeAdmin();
                 $result = $cem->addEmployee($hoten, $matkhau, $email, $sdt, $diachi, $loainv);
 
                 if ($result == 1) {
@@ -248,7 +248,7 @@
                                     <small id="DiaChi-mess"></small> -->
                             <?php
                             include_once("Controller/cLoaiSPAdmin.php");
-                            $cloai = new CLoaiSP();
+                            $cloai = new CLoaiSPAdmin();
                             $tbl = $cloai->getAllLoaiSP();
 
                             if (mysqli_num_rows($tbl) > 0) {
@@ -265,7 +265,7 @@
                             <label for="">Nhà cung cấp</label>
                             <?php
                             include_once("Controller/cNhaCCAdmin.php");
-                            $ce = new CNhaCC();
+                            $ce = new CNhaCCAdmin();
                             $tbl = $ce->getAllNCC();
 
                             if (mysqli_num_rows($tbl) > 0) {
@@ -340,7 +340,7 @@
                                     <small id="DiaChi-mess"></small> -->
                             <?php
                             include_once("Controller/cLoaiNVAdmin.php");
-                            $ce = new CLoaiNV();
+                            $ce = new CLoaiNVAdmin();
                             $tbl = $ce->getAllLoaiNV();
 
                             if (mysqli_num_rows($tbl) > 0) {

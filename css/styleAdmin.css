@@ -103,3 +103,18 @@ form > button.btnCus.btn2.delete{
 a{
     text-decoration: none;
 }
+
+
+div#update_info {
+    color: #157347;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.btnCus.btnCus5{
+    border: none;
+    background-color: #157347;
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 7px 3px 7px;
+}

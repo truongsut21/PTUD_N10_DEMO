@@ -1,6 +1,6 @@
 <?php
     include_once("Model/mLoaiNVAdmin.php");
-    class CLoaiNV{
+    class CLoaiNVAdmin{
         function getAllLoaiNV(){
             $p = new MLoaiNV();
             $tbl = $p -> selectAllLoaiNV();

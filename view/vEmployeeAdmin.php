@@ -2,13 +2,13 @@
     include_once("controller/cEmployeeAdmin.php");
     class VEmployee{
         function viewAllEmployees(){
-            $p = new CEmployee();
+            $p = new CEmployeeAdmin();
             $tbl = $p -> getAllEmployees();
             showEmployee($tbl);
         }
 
         function viewAllEmployeeBySearch($search){
-            $p = new CEmployee();
+            $p = new CEmployeeAdmin();
             if(isset($_REQUEST['txtSearchNV'])){
                 $tbl = $p -> getAllEmployeeBySearch($search);
             }
@@ -16,7 +16,7 @@
         }
 
         function showFormDelEmployee(){
-            $p = new CEmployee();
+            $p = new CEmployeeAdmin();
                 if(isset($_REQUEST["btnEmpAct"])){
                     if ($_REQUEST["btnEmpAct"] == "delete"){
                         $result = $p -> getDelEmployee($_REQUEST["MaNhanVien"]);
@@ -27,7 +27,7 @@
         } 
 
         function showFormEditEmployee(){
-            $p = new CEmployee();
+            $p = new CEmployeeAdmin();
             if(isset($_REQUEST["btnEmpAct"])){
                 if ($_REQUEST["btnEmpAct"] == "edit"){
                     include("editEmployeeAdmin.php");
@@ -81,7 +81,7 @@
                     while($row = mysqli_fetch_assoc($tbl)){
                         if($row["trangThai"] == 1){
                             echo "<tr >";
-                            echo "<td>".$row["MaNhanVien"]."</td>";
+                            echo "<td>NV".$row["MaNhanVien"]."</td>";
                             echo "<td>".$row["HoTen"]."</td>";
                             echo "<td>".$row["Email"]."</td>";
                             echo "<td>".$row["SoDienThoai"]."</td>";

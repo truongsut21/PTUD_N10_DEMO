@@ -15,7 +15,12 @@ mysqli_set_charset($con,"UTF8");
 $emailDefault = '';
 if (isset($_POST['submit'])) {
     $emailPhone = mysqli_real_escape_string($con, $_POST['check']);
-    if (filter_var($emailPhone, FILTER_VALIDATE_EMAIL)) {
+    if(empty($emailPhone)){
+        $txt = "Bạn cần nhập email";
+    }
+    else if (!filter_var($emailPhone, FILTER_VALIDATE_EMAIL)) {
+        $txt = "Email không hợp lệ";
+    }else if (!empty($emailPhone)) {
         $select = mysqli_query($con, "SELECT * FROM `khachhang` where `Email` = '$emailPhone';") or die("select failed");
         if (mysqli_num_rows($select) > 0) {
             $row = mysqli_fetch_assoc($select);
@@ -57,8 +62,8 @@ if (isset($_POST['submit'])) {
         }else {
             $txt = "Email chưa được đăng ký";
         }
-    } else {
-        $txt = "Nhập email của bạn";
+    }else {
+        $txt = "Bạn cần nhập email";
     }
     $emaildf = $_POST['check'];
     $emailDefault = $emaildf;
@@ -97,12 +102,12 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <form class="login100-form validate-form" method="post" >
-                    <span class="login100-form-title">
+                    <span class="login100-form-title1">
                         Quên mật khẩu 
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="email" name="check" id="check" value="<?php echo $emailDefault; ?>"
+                        <input class="input100" type="text" name="check" id="check" value="<?php echo $emailDefault; ?>"
                             placeholder="Nhập email của bạn ">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -114,8 +119,8 @@ if (isset($_POST['submit'])) {
                         echo "<div style='color: red; text-align: center;'>$txt</div>";
                     }
                     ?>
-                    <div  class="container-login100-form-btn">
-                        <input type="submit" name="submit" value="Gửi mã xác thực"  class="login100-form-btn"> 
+                    <div  class="container-login100-form-btn1">
+                        <input type="submit" name="submit" value="Tiếp theo"  class="login100-form-btn"> 
                     </div>
                     
                 </form>

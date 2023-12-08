@@ -6,8 +6,9 @@ include_once("../model/connectdb.php");
 function checkuser($user, $pass)
 {
     $conn = connectdb();
+    $hashedPassword = md5($pass);
     $stmt = $conn->prepare("SELECT * FROM khachhang WHERE SoDienThoai = ? AND MatKhau = ?");
-    $stmt->execute([$user, $pass]);
+    $stmt->execute([$user, $hashedPassword]);
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $kq = $stmt->fetchAll();
 
@@ -43,6 +44,7 @@ if (isset($_POST['submit']) && $_POST['submit']) {
     $soDienThoaiDefault = $pass;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

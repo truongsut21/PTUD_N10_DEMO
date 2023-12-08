@@ -1,6 +1,6 @@
 <?php
     include_once("Model/mNhaCCAdmin.php");
-    class CNhaCC{
+    class CNhaCCAdmin{
         function getAllNCC(){
             $p = new MNhaCC();
             $tbl = $p -> selectAllNCC();
