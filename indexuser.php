@@ -1,7 +1,8 @@
 <?php
 session_start();
 ob_start();
-
+// include_once("model/connectdb.php");
+$conn = mysqli_connect("localhost","root","","mypham");
 if (!isset($_SESSION['MaKhachHang']) || empty($_SESSION['MaKhachHang'])) {
     header('location: index.php');
     exit();
@@ -46,8 +47,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển cho đơn hàng từ 399k</li>
                             </ul>
                         </div>
                     </div>
@@ -55,23 +56,28 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
+                                <a href="#"><i class="fa fa-user"></i></a>
                                 <a href="#"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
 
                             <div class="header__top__right__auth">
                                 <div class="dropdown">
-                                    <button  class="btn dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Tài khoản của bạn
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php
+                                        if (isset($_SESSION['MaKhachHang'])) {
+                                            $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                            $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                            $kq = mysqli_fetch_array($name);
+                                            echo $kq["HoTen"];
+                                        }
+                                        ?>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
-                                    <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
-                                    <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
-                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +93,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./indexuser.php"><img src="./img/logo.png" alt=""></a>
+                        <a href="../PTUD_N10_DEMO/index.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
                     </div>
                 </div>
 
@@ -95,26 +101,32 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="hero__search__form">
                         <form action="#" method="get">
                             <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
-                            <button class="site-btn" type="submit" name="timkiem">TÌM</button>
+                            <button class="site-btn" type="submit" name="timkiem">
+                                <i class="fa fa-search" value="Tìm kiếm"></i>
+                            </button>
                         </form>
                     </div>
                 </div>
 
                 <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="cart.php">Đặt hàng</a></li>
-                                <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
-                    </ul>
-                </nav>
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="#">Danh mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="../PTUD_N10_DEMO/xemsanpham.php">Xem sản phẩm</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/dathang.php">Đặt hàng</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
+                                    <li><a href="../PTUD_N10_DEMO/huydon.html">Hủy đơn</a></li>
+                                    <li><a href="#">Khác</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../PTUD_N10_DEMO/shop.php">Shop</a></li>
+                            <li><a href="#">Tin tức</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Chính sách</a></li>
+                            <li><a href="#">Quản lý</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -132,7 +144,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <span>COSMETICS</span>
                             <h2>MỸ PHẨM<br>100% An toàn cho da</h2>
                             <p>Có sẵn nhận và giao hàng miễn phí</p>
-                            <a href="shop.php" class="primary-btn">XEM NGAY</a>
+                            <a href="#" class="primary-btn">MUA NGAY</a>
                         </div>
                     </div>
                 </div>
@@ -145,7 +157,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Sản phẩm nổi bật</h2>
+                        <h2>SẢN PHẨM</h2>
                     </div>
                 </div>
             </div>
@@ -201,4 +213,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </html>

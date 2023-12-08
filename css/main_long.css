@@ -7,12 +7,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: "Cairo", sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: "Cairo", sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: "Cairo", sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -105,14 +105,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: "Cairo", sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: #999999;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: "Cairo", sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: #666666;
@@ -139,15 +139,12 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: #FFBFCC;
+
 }
 
 .wrap-login100 {
-  width: 960px;
+  width: 860px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -159,7 +156,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 80px 100px 33px 95px;
 }
 
 /*------------------------------------------------------------------
@@ -180,7 +177,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Regular;
+  font-family: "Cairo", sans-serif;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -190,7 +187,19 @@ iframe {
   padding-bottom: 54px;
 
 }
+.login100-form-title1 {
+  font-family: "Cairo", sans-serif;
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 54px;
+  padding-top: 40px;
 
+
+}
 
 /*---------------------------------------------*/
 .wrap-input100 {
@@ -201,7 +210,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
+  font-family: "Cairo", sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -213,7 +222,10 @@ iframe {
   border-radius: 25px;
   padding: 0 30px 0 68px;
 }
-
+.txt2
+.login100-form-btn{
+  font-family: "Cairo", sans-serif;
+}
 
 /*------------------------------------------------------------------
 [ Focus ]*/
@@ -294,17 +306,27 @@ iframe {
 
 }
 
+.container-login100-form-btn1 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 110px;
+}
 .login100-form-btn {
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
   text-transform: uppercase;
-
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  background: #57b846;
+  background: #FFBFCC;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;

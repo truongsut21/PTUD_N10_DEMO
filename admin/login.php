@@ -10,21 +10,17 @@
         $user = $_POST['user'];
         $pass = $_POST['pass'];
         $role = checkuser1($user,$pass);
-        $idEmployee = getIdEmployee($user);
-        
         $_SESSION['LoaiNhanVien']=$role;
-        $_SESSION['SoDienThoai'] = $user;
-        $_SESSION['MaNhanVien'] =  $idEmployee ;
-        echo"<script>alert('ma nhan vien khi dang nhap: ".$_SESSION['MaNhanVien']."')</script>";
+        //$_SESSION['SoDienThoai'] = $user;
 
         if(empty($pass) || empty($user)){
             $txt = "Bạn cần nhập đủ thông tin đăng nhập";
-        }else if($role==3) {
+        }else if($role==1) {
             header('location: ../indexAdmin.php');
         }else if($role==2) {
-            header('location: ../indexQLKH.php');
-        }else if($role==1) {
             header('location: ../nhanvienbanhang.php');
+        }else if($role==3) {
+            header('location: ../indexQLKH.php');
         }else {
             $txt = "Số điện thoại hoặc mật khẩu không tồn tại";
         }

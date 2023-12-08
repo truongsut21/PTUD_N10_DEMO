@@ -62,7 +62,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
                 </div>
 
                 <form class="login100-form validate-form" method="post" >
-                    <span class="login100-form-title">
+                    <span class="login100-form-title1">
                         Tạo mật khẩu 
                     </span>
 
@@ -85,7 +85,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
                         echo "<div style='color: red; text-align: center;'>$txt</div>";
                     }
                     ?>
-                    <div class="container-login100-form-btn">
+                    <div class="container-login100-form-btn1">
                         <input type="submit" name="submit" value="Tạo mật khẩu" class="login100-form-btn">
 
                     </div>

@@ -51,13 +51,29 @@ class modelProduct{
             return false;
         }
     }
-
+    function isPasswordCorrect($inputPassword, $ma) {
+        $con;
+        $p = new clsketnoi();
+        if ($p->ketnoiDB($con)) {
+            $hashedInputPassword = md5($inputPassword);
+            $query = "SELECT * FROM khachhang WHERE MatKhau = '$hashedInputPassword' AND MaKhachHang = '$ma'";
+            $result = mysqli_query($con, $query);
+            $rowCount = mysqli_num_rows($result);
+            
+            $p->dongKetNoi($con);
+            
+            return $rowCount > 0; // Trả về true nếu có ít nhất một dòng dữ liệu khớp
+        } else {
+            return false;
+        }
+    }
 
     function changePassword($oldPassword, $newPassword,$ma) {
         $con;
         $p= new clsketnoi();
         if($p->ketnoiDB($con)){
-            $string = "UPDATE khachhang SET MatKhau = '$newPassword' WHERE MatKhau = '$oldPassword' and MaKhachHang ='$ma'";
+            $hashedPassword = md5($oldPassword);
+            $string = "UPDATE khachhang SET MatKhau = '$newPassword' WHERE MatKhau = '$hashedPassword' and MaKhachHang ='$ma'";
             $kq = mysqli_query($con,$string);
             $p->dongKetNoi($con);
             return $kq;
@@ -70,7 +86,8 @@ class modelProduct{
         $con;
         $p= new clsketnoi();
         if($p->ketnoiDB($con)){
-            $string = "UPDATE khachhang SET MatKhau = '$newPassword' WHERE MaKhachHang = $email";
+            $hashedPassword = md5($newPassword);
+            $string = "UPDATE khachhang SET MatKhau = '$hashedPassword' WHERE MaKhachHang = $email";
             $kq = mysqli_query($con,$string);
             $p->dongKetNoi($con);
             return $kq;
@@ -78,5 +95,6 @@ class modelProduct{
             return false;
         }
     }
+    
 }
 ?>
