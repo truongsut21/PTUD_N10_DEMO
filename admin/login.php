@@ -17,9 +17,9 @@
             $txt = "Bạn cần nhập đủ thông tin đăng nhập";
         }else if($role==3) {
             header('location: ../indexAdmin.php');
-        }else if($role==2) {
-            header('location: ../indexNVBH.php');
         }else if($role==1) {
+            header('location: ../indexNVBH.php');
+        }else if($role==2) {
             header('location: ../indexQLKH.php');
         }else {
             $txt = "Số điện thoại hoặc mật khẩu không tồn tại";
