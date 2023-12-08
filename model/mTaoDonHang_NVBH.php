@@ -25,7 +25,7 @@ class MPay
         $p = new ConnectDB();
         $con = null;
 
-        if ($p->connect_DB($con)) {
+        if ($p->connect_DB($con)) { 
 
             $str_hoadon = "INSERT INTO `hoadon` (`MaHoaDon`, `TongTien`, `NgayLap`, `MaNhanVien`, `MaKhachHang`, `DiaChiGiaoHang`, `Họ Tên`, `SoDienThoai`, `Email`) 
             VALUES (NULL, '$tongTienDonHang', NOW(), '$maNhanVien', '1', 'OFFLINE', '$HoTen', '$SoDienThoai', '$Email');";
