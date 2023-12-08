@@ -49,6 +49,10 @@
             margin-left: 25%;
 
         }
+
+        small {
+            color: red;
+        }
     </style>
 </head>
 
@@ -61,14 +65,14 @@
     if (mysqli_num_rows($tblEdit) > 0) {
         while ($r = mysqli_fetch_assoc($tblEdit)) {
             $maSP = $r["MaSanPham"];
-            $tenSP = $r["TenSanPham"];
-            $slt = $r["SoLuongTon"];
+            $tenSPUpdate = $r["TenSanPham"];
+            $SLTUpdate = $r["SoLuongTon"];
             $moTa = $r["MoTa"];
-            $giaBan = $r["GiaBan"];
-            $giaNhap = $r["GiaNhap"];
-            $thuongHieu = $r["ThuongHieu"];
+            $giaBanUpdate = $r["GiaBan"];
+            $giaNhapUpdate = $r["GiaNhap"];
+            $thuongHieuUpdate = $r["ThuongHieu"];
             $tenAnh = $r["HinhAnh"];
-            $hsd = $r["HanSuDung"];
+            $hsdUpdate = $r["HanSuDung"];
             $loaiSP = $r["LoaiSanPham"];
             $nhaCC = $r["NhaCungCap"];
         }
@@ -76,18 +80,18 @@
 
     if (isset($_REQUEST["btnEditSP"])) {
         $ma = $_REQUEST["maSP"];
-        $ten = $_REQUEST["tenSP"];
-        $slt = $_REQUEST["slt"];
+        $ten = $_REQUEST["tenSPUpdate"];
+        $SLT = $_REQUEST["SLTUpdate"];
         $moTa = $_REQUEST["mota"];
-        $giaBan = $_REQUEST["giaBan"];
-        $giaNhap = $_REQUEST["giaNhap"];
-        $thuongHieu = $_REQUEST["thuongHieu"];
+        $giaBan = $_REQUEST["giaBanUpdate"];
+        $giaNhap = $_REQUEST["giaNhapUpdate"];
+        $thuongHieu = $_REQUEST["thuongHieuUpdate"];
         $tenAnh = $_FILES["tenAnh"];
-        $hsd = $_REQUEST["HSD"];
+        $hsd = $_REQUEST["HSDUpdate"];
         $loaiSP = $_REQUEST["loaiSP"];
         $nhaCC = $_REQUEST["nhaCC"];
 
-        $result = $p->editProduct($ma, $ten, $slt, $moTa, $giaBan, $giaNhap, $thuongHieu, $tenAnh, $hsd, $loaiSP, $nhaCC);
+        $result = $p->editProduct($ma, $ten, $SLT, $moTa, $giaBan, $giaNhap, $thuongHieu, $tenAnh, $hsd, $loaiSP, $nhaCC);
 
         if ($result == 1) {
             echo "<script>alert('Edit product successfully!')</script>";
@@ -114,52 +118,59 @@
         ?>
     </div>
 
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateFormUpdateSP();">
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Mã sản phẩm</label>
-                <input type="text" name="maSP" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $maSP ?>" required>
+                <input type="text" name="maSP" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $maSP ?>" readonly>
             </div>
             <div class="form-group col-md-7">
                 <label>Tên sản phẩm</label>
-                <input type="text" name="tenSP" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $tenSP ?>" required>
+                <input type="text" name="tenSPUpdate" id="tenSPUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $tenSPUpdate ?>"  aria-describedby="tenSPUpdate-messs">
+                <small id="tenSPUpdate-mess"></small>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Số lượng tồn</label>
-                <input type="number" name="slt" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $slt ?>" required>
+                <input type="number" name="SLTUpdate" id="SLTUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $SLTUpdate ?>"  aria-describedby="SLTUpdate-messs">
+                <small id="SLTUpdate-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label>Mô tả</label>
-                <textarea name="mota" id="" class="form-control" style="width: 600px; margin-bottom: 15px" cols="30" rows="4"><?php echo $moTa ?></textarea>
+                <textarea name="mota" id="moTa" class="form-control" style="width: 600px; margin-bottom: 15px" cols="30" rows="4"  aria-describedby="moTa-messs"><?php echo $moTa ?></textarea>
+                <small id="moTa-mess"></small>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-5">
-                <label>Giá bán</label>
-                <input type="number" name="giaBan" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaBan ?>" required>
-            </div>
             <div class="form-group col-md-7">
                 <label>Giá nhập</label>
-                <input type="number" name="giaNhap" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaNhap ?>" required>
+                <input type="number" name="giaNhapUpdate" id="giaNhapUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaNhapUpdate ?>" aria-describedby="giaNhapUpdate-messs">
+                <small id="giaNhapUpdate-mess"></small>
+            </div>
+            <div class="form-group col-md-5">
+                <label>Giá bán</label>
+                <input type="number" name="giaBanUpdate" id="giaBanUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaBanUpdate ?>" aria-describedby="giaBanUpdate-messs">
+                <small id="giaBanUpdate-mess"></small>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Thương hiệu</label>
-                <input type="text" name="thuongHieu" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $thuongHieu ?>" required>
+                <input type="text" name="thuongHieuUpdate" id="thuongHieuUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $thuongHieuUpdate ?>" aria-describedby="thuongHieuUpdate-messs">
+                <small id="thuongHieuUpdate-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label>Hình ảnh</label>
-                <img src="image/<?php echo $tenAnh ?>" alt="" width="100px">
+                <img src="img/<?php echo $tenAnh ?>" alt="" width="100px">
                 <input type="file" name="tenAnh" class="form-control" style="width: 600px; margin-bottom: 15px">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Hạn sử dụng</label>
-                <input type="date" name="HSD" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hsd ?>" required>
+                <input type="date" name="HSDUpdate" id="HSDUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hsdUpdate ?>" aria-describedby="HSDUpdate-messs">
+                <small id="HSDUpdate-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label for="">Loại sản phẩm</label>
@@ -214,6 +225,8 @@
         </div>
 
     </form>
+
+    <script src="../js/mainAdmin.js"></script>
 </body>
 
 </html>
