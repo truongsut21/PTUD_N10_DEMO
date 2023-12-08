@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/xemsanpham.css" type="text/css">
+    <style>
+        small{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -251,7 +256,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="get" action="#">
+                    <form method="get" action="#" onsubmit="return confirmReturn();">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Tên sản phẩm</label>
                             <input type="name" class="form-control" id="nameProduct2" placeholder="name@example.com" disabled>
@@ -276,7 +281,7 @@
                 <div class="modal-footer">
                     <input type="hidden" id="maChiTietHoaDon" name="maChiTietHoaDon" value="">
                     <input type="hidden" id="soluongMua" value="">
-                    <button onClick="confirmReturn();">adadasd</button>
+                    <!-- <button type="button" onClick="confirmReturn();">adadasd</button> -->
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
                     <button type="submit" name="btnReturn" class="btn btn-outline-info" >Xác nhận</button>
                 </div>
@@ -311,18 +316,14 @@
             console.log(name)
             document.getElementById("nameProduct2").value = name;
             document.getElementById("maChiTietHoaDon").value = id;
-            document.getElementById("soluongMua").value = soLuong;
-            console.log(soLuong)
+            document.getElementById("soluongMua").value = parseInt(soLuong)
+            console.log(document.getElementById("soluongMua").value)
 
         }
 
         function validateFormReturn() {
-            var soluongmua = document.getElementById('soluongmua').value;
-            var soluongtra = document.getElementById('soluongtra').value;
-
-
-
-
+            let soluongmua = parseInt(document.getElementById("soluongMua").value)
+            let soluongtra = parseInt(document.getElementById('soluongtra').value)
 
             // Khởi tạo đối tượng chứa thông báo lỗi
             var errorMessages = {
@@ -331,11 +332,9 @@
             };
 
             // Kiểm tra điều kiện và lưu thông báo lỗi
-            if (soluongmua < soluongtra || soluongtra) {
+            if (soluongmua < soluongtra || soluongtra <= 0) {
                 errorMessages.soluong = 'Số lượng không hợp lệ';
             }
-
-
 
             // Hiển thị thông báo lỗi trong thẻ <small>
             document.getElementById('soLuongTra-mess').innerHTML = errorMessages.soluong;

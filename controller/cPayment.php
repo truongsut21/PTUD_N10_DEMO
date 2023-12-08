@@ -67,7 +67,7 @@ class CPay
                             // xoả sản phẩm đã thanh toán trong  giỏ hàng
                             deleteProductInCart($maKhachHang, $maSanPham[$index]);
                             echo "<script> alert('thanh toán thành công')</script>";
-                            echo header("refresh: 0; url = 'index.php?'");
+                            echo header("refresh: 0; url = 'indexuser.php?'");
                         }
                     }
                 }
