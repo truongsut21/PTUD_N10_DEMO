@@ -34,8 +34,8 @@
     $c = new CDetailsOrder();
     $v = new VDetailsOrder();
 
-    $c -> handleComment();
-    $c -> handleReturn();
+    $c->handleComment();
+    $c->handleReturn();
 
     ?>
 
@@ -102,20 +102,20 @@
                 </div>
 
                 <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="#">Đặt hàng</a></li>
-                                <li><a href="#">Xem lịch sử mua hàng</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
-                    </ul>
-                </nav>
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="indexuser.php">Trang Chủ</a>
+                            <li><a href="#">Danh Mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="#">Đặt hàng</a></li>
+                                    <li><a href="#">Xem lịch sử mua hàng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="#">Liên Hệ</a></li>
+                            <li><a href="#">Chính Sách</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -228,12 +228,12 @@
                             <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" id="maSanPham" name="maSanPham" value="">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
-                        <button type="submit" name="btnComment" class="btn btn-outline-info">Xác nhận</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="maSanPham" name="maSanPham" value="">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
+                    <button type="submit" name="btnComment" class="btn btn-outline-info">Xác nhận</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -258,25 +258,28 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Số lượng sản phẩm</label>
-                            <input type="number" name="soLuong" class="form-control" id="" placeholder="Nhập số lượng">
+                            <input type="number" name="soLuong" class="form-control" id="soluongtra" placeholder="Nhập số lượng">
+                            <small id="soLuongTra-mess"></small>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Hình ảnh</label>
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="Hình ảnh sản phẩm">
                         </div>
 
-                    
+
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Lý do trả hàng</label>
                             <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" id="maChiTietHoaDon" name="maChiTietHoaDon" value="">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
-                        <button type="submit" name="btnReturn" class="btn btn-outline-info">Xác nhận</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="maChiTietHoaDon" name="maChiTietHoaDon" value="">
+                    <input type="hidden" id="soluongMua" value="">
+                    <button onClick="confirmReturn();">adadasd</button>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
+                    <button type="submit" name="btnReturn" class="btn btn-outline-info" >Xác nhận</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -295,18 +298,67 @@
         function confirmComment() {
             return confirm("Bạn có chắc chắn muốn dánh giá sản phẩm này?");
         }
-        function handleBtnComment(name,id) {
+
+        function handleBtnComment(name, id) {
             // id là mã sản phẩm
             console.log(name)
             document.getElementById("nameProduct").value = name;
             document.getElementById("maSanPham").value = id;
         }
 
-        function handleBtnReturn(name,id) {
+        function handleBtnReturn(name, id, soLuong) {
             // id là mã chi tiết hoá đơn 
             console.log(name)
             document.getElementById("nameProduct2").value = name;
             document.getElementById("maChiTietHoaDon").value = id;
+            document.getElementById("soluongMua").value = soLuong;
+            console.log(soLuong)
+
+        }
+
+        function validateFormReturn() {
+            var soluongmua = document.getElementById('soluongmua').value;
+            var soluongtra = document.getElementById('soluongtra').value;
+
+
+
+
+
+            // Khởi tạo đối tượng chứa thông báo lỗi
+            var errorMessages = {
+                soluong: '',
+
+            };
+
+            // Kiểm tra điều kiện và lưu thông báo lỗi
+            if (soluongmua < soluongtra || soluongtra) {
+                errorMessages.soluong = 'Số lượng không hợp lệ';
+            }
+
+
+
+            // Hiển thị thông báo lỗi trong thẻ <small>
+            document.getElementById('soLuongTra-mess').innerHTML = errorMessages.soluong;
+
+
+            // Kiểm tra xem có thông báo lỗi nào không
+            for (var field in errorMessages) {
+                if (errorMessages[field] !== '') {
+                    return false; // Có ít nhất một lỗi, không submit form
+                }
+            }
+
+            return true; // Không có lỗi, có thể submit form
+        }
+
+        function confirmReturn() {
+            console.log('first')
+            if (validateFormReturn()) {
+                return confirm("Bạn có chắc chắn trả sản phẩm này?");
+            } else {
+                alert("kiểm tra lại thông tin")
+                return false
+            }
         }
     </script>
 

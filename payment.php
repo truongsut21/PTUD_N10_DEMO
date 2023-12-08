@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <style>
-        small{
+        small {
             color: red;
         }
     </style>
@@ -87,9 +87,9 @@
         <div class="container">
             <div class="row">
 
-              
 
-            <!--    <div class="hero__search">
+
+                <!--    <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="#" method="get">
                             <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
@@ -101,12 +101,12 @@
                 </div> -->
 
                 <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="indexuser.php">Trang Chủ</a>
-                  
-                    </ul>
-                </nav>
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="indexuser.php">Trang Chủ</a>
+
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>ĐẶT HÀNG</h2>
-                       
+
                     </div>
                 </div>
             </div>
@@ -284,7 +284,7 @@
             var DiaChi = document.getElementById('DiaChi').value;
             var DieuKhoan = document.getElementById('acc').checked;
             var PhuongThucThanhToan = document.getElementById('payment').checked;
-       
+
 
 
             // Khởi tạo đối tượng chứa thông báo lỗi
@@ -293,8 +293,8 @@
                 Email: '',
                 SDT: '',
                 DiaChi: '',
-                DieuKhoan:'',
-                PhuongThucThanhToan:''
+                DieuKhoan: '',
+                PhuongThucThanhToan: ''
             };
 
             // Kiểm tra điều kiện và lưu thông báo lỗi
@@ -303,7 +303,7 @@
                 errorMessages.hoTen = 'Họ và tên không được để trống và phải là chữ.';
             }
 
-           
+
 
             if (Email.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
                 errorMessages.Email = 'Email không hợp lệ.';
@@ -345,9 +345,9 @@
         }
 
         function confirmPay() {
-            if(validateFormPay()){
+            if (validateFormPay()) {
                 return confirm("Bạn có chắc chắn thanh toán đơn hàng này?");
-            }else{
+            } else {
                 alert("kiểm tra lại thông tin")
                 return false
             }
