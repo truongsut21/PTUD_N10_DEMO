@@ -25,7 +25,7 @@ class CDetailsOrder
 
                 if ($type == 'image/jpg' || $type == 'image/png' || $type == 'image/jpeg') {
                     if ($size < 3 * 1024 * 1024) {
-                        if (move_uploaded_file($hinhAnh["tmp_name"], 'img/' . $tenAnh)) {
+                        if (move_uploaded_file($hinhAnh["tmp_name"], 'img/comment/' . $tenAnh)) {
                             $p = new MDetailsOrder();
                             $result = $p->createComment($maKhachHang,  $maSanPham,  $noidung, $sao, $hinhAnh);
 
