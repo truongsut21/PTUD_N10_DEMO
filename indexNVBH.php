@@ -56,7 +56,7 @@ if (isset($_REQUEST['adminButton'])) {
     <div class="container-fluid">
     <div class="row">
             <div class="col-md-12 header">
-                <a class="navbar-brand" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> NHÂN VIÊN QUẢN LÝ KHO</a>
+                <a class="navbar-brand" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> NHÂN VIÊN BÁN HÀNG</a>
                 <form action="" method="post" id= "formAdmin">
                     <button type="submit" name="adminButton" id="adminButton" >Admin</button>
                     <a href="?action=logout" data-toggle="tooltip" data-placement="bottom" title="ĐĂNG XUẤT"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a>
