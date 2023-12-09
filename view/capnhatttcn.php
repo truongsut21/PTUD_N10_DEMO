@@ -26,13 +26,13 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
     $patternadd = '/^[a-zA-Z0-9,.#\- ]+$/';
     if(empty($HoTen) || empty($SoDienThoai) ||empty($Email)){
         $txt = "Bạn cần nhập đầy đủ thông tin";
-    }else if (!preg_match($patternname, $HoTen)) {
+    }else if (preg_match($patternname, $HoTen)) {
         $txt = "Họ tên không hợp lệ";
     } else if(!preg_match($pattern, $SoDienThoai)){
         $txt = "Số điện thoại không hợp lệ";
     }else if(!filter_var($Email, FILTER_VALIDATE_EMAIL)){
         $txt = "Email không hợp lệ";
-    }else if (!preg_match($patternadd, $DiaChi)) {
+    }else if (preg_match($patternadd, $DiaChi)) {
         $txt = "Địa chỉ không hợp lệ";
     }else{
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -98,7 +98,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <title>Cập nhật thông tin cá nhân</title>
 </head>
 <body>
-<header class="header">
+<header class="header" >
         <div class="header__top">
             <div class="container">
                 <div class="row">
