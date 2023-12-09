@@ -65,7 +65,7 @@
 
                 if($type == 'image/jpg' || $type == 'image/png' || $type == 'image/jpeg'){
                     if($size < 3*1024*1024){
-                        if(move_uploaded_file($tenAnh["tmp_name"], 'image/'.$nameImg)){
+                        if(move_uploaded_file($tenAnh["tmp_name"], 'img/'.$nameImg)){
                             $res = $p -> updateProduct($ma, $ten, $slt, $moTa, $giaBan, $giaNhap, $thuongHieu, $nameImg, $hsd, $loaiSP, $nhaCC);
                             if($res){
                                 return 1; //update thành công

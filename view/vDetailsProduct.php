@@ -8,6 +8,15 @@ class vDetailsProduct
         $tbl = $p->getAllProducts();
         showProduct($tbl);
     }
+
+    function viewAllAssess()
+    {
+        $p = new CProduct();
+        if (isset($_REQUEST['MaDanhGia'])) {
+            $tbl = $p->getAllAssess();
+        }
+        showProduct($tbl);
+    }
 }
 
 function showProduct($tbl)
@@ -108,7 +117,12 @@ function showProduct($tbl)
                                     <p><b>Thương hiệu</b> " . $row['ThuongHieu'] . "</p>
                                 </div>
                             </div>
-
+                    
+                            <div class='tab-pane active' id='tabs-3' role='tabpanel'>
+                              <div class='product__details__tab__desc'>
+                                <p>" . $row['MaDanhGia'] . "</a></p>
+                              </div>
+                            </div> 
 
                         </div>
                           

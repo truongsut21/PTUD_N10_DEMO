@@ -210,15 +210,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Giá bán</label>
-                            <input type="number" name="giaBan" id="giaBan" class="form-control" aria-describedby="giaBan-messs">
-                            <small id="giaBan-mess"></small>
-                        </div>
-
-                        <div class="form-group">
                             <label for="">Giá nhập</label>
                             <input type="number" name="giaNhap" id="giaNhap" class="form-control" aria-describedby="giaNhap-messs">
                             <small id="giaNhap-mess"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Giá bán</label>
+                            <input type="number" name="giaBan" id="giaBan" class="form-control" aria-describedby="giaBan-messs">
+                            <small id="giaBan-mess"></small>
                         </div>
 
                         <div class="form-group">
@@ -299,7 +299,7 @@
                     <h5 class="modal-title">THÔNG TIN NHÂN VIÊN</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="#" method="get" enctype="multipart/form-data" onsubmit="return validateFormNV();">
+                <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateFormNV();">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">Họ và tên</label>

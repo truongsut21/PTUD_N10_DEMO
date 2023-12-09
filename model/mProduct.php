@@ -15,6 +15,19 @@
             }
         }
 
+        function selectAllAssess() {
+            $p = new ConnectDB();
+            // $con;
+            if ($p->connect_DB($con)) {
+                $str = "SELECT * FROM noidungdanhgia";
+                $tbl = mysqli_query($con, $str);
+                $p->closeDB($con);
+                return $tbl;
+            } else {
+                return false;
+            }
+        }
+
         function selectAllProductBySearch($search){
             $p = new ConnectDB();
             // $con;

@@ -48,7 +48,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__left">
                             <ul>
                                 <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-user"></i></a>
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="#"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
@@ -93,40 +93,34 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="../PTUD_N10_DEMO/index.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
+                        <a href="../PTUD_N10_DEMO/indexuser.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
                     </div>
                 </div>
 
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#" method="get">
-                            <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
-                            <button class="site-btn" type="submit" name="timkiem">
-                                <i class="fa fa-search" value="Tìm kiếm"></i>
-                            </button>
-                        </form>
+                    <form action="#">
+                        <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
+                        <button type="submit" class="site-btn">TÌM</button>
+                    </form>
                     </div>
                 </div>
 
                 <div class="col-lg-12">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="#">Danh mục</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="../PTUD_N10_DEMO/xemsanpham.php">Xem sản phẩm</a></li>
-                                    <li><a href="../PTUD_N10_DEMO/dathang.php">Đặt hàng</a></li>
-                                    <li><a href="../PTUD_N10_DEMO/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                    <li><a href="../PTUD_N10_DEMO/huydon.html">Hủy đơn</a></li>
-                                    <li><a href="#">Khác</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="../PTUD_N10_DEMO/shop.php">Shop</a></li>
-                            <li><a href="#">Tin tức</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Chính sách</a></li>
-                            <li><a href="#">Quản lý</a></li>
-                        </ul>
-                    </nav>
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="indexuser.php">Trang Chủ</a>
+                        <li><a href="#">Danh Mục</a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="cart.php">Đặt hàng</a></li>
+                                <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="shop.php">Sản Phẩm</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="#">Chính Sách</a></li>
+                    </ul>
+                </nav>
                 </div>
             </div>
         </div>
@@ -144,7 +138,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <span>COSMETICS</span>
                             <h2>MỸ PHẨM<br>100% An toàn cho da</h2>
                             <p>Có sẵn nhận và giao hàng miễn phí</p>
-                            <a href="#" class="primary-btn">MUA NGAY</a>
+                            <a href="shop.php" class="primary-btn">XEM NGAY</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +151,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>SẢN PHẨM</h2>
+                        <h2>Sản phẩm nổi bật</h2>
                     </div>
                 </div>
             </div>
@@ -165,8 +159,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <?php
                 include_once("view/vProduct.php");
                 $p = new VProduct();
-                if (isset($_REQUEST["tim"])) {
-                    $p->viewSearchProduct($_REQUEST["tim"]);
+                if (isset($_REQUEST["search"])) {
+                    $p->viewSearchProduct($_REQUEST["search"]);
                 } else {
                     $p->viewAllProducts();
                 }

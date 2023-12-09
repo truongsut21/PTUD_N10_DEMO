@@ -90,7 +90,7 @@
     }
     ?>
 
-    <div>
+    <div> 
         <div id="update_info">
             <a href="./indexAdmin.php?nhan-vien"><i class="fas fa-backward"></i></a>
             <h2>Cập nhật thông tin</h2>
@@ -100,31 +100,36 @@
         echo "<h4>Mã nhân viên: NV" . $MaNhanVien . "</h4>";
         ?>
     </div>
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateFormNV();">
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Họ tên</label>
-                <input type="text" name="hoten" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hoten ?>" required>
+                <input type="text" name="hoten" id="hoTen" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hoten ?>" >
+                <small id="hoTen-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label>Mật khẩu</label>
-                <input type="text" name="matkhau" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $matkhau ?>" required>
+                <input type="text" name="matkhau"  id="matkhau" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $matkhau ?>" >
+                <small id="matkhau-mess"></small>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Email</label>
-                <input type="text" name="Email" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $email ?>" required>
+                <input type="text" name="Email"  id="Email" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $email ?>" >
+                <small id="Email-mess"></small>
             </div>
             <div class="form-group col-md-5">
                 <label>SDT</label>
-                <input type="text" name="SDT" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $sdt ?>" required>
+                <input type="text" name="SDT" id="SDT" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $sdt ?>" >
+                <small id="SDT-mess"></small>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Địa chỉ</label>
-                <input type="text" name="DiaChi" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $diachi ?>" required>
+                <input type="text" name="DiaChi" id="DiaChi"  class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $diachi ?>" >
+                <small id="DiaChi-mess"></small>
             </div>
             <div class="form-group col-md-7 formCus2">
                 <label>Loại NV</label>
