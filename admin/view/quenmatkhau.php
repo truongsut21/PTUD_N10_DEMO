@@ -109,7 +109,7 @@ if (isset($_POST['submit'])) {
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="email" name="check" id="check" placeholder="Nhập email của bạn">
+                        <input class="input100" type="text" name="check" id="check" placeholder="Nhập email của bạn">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>

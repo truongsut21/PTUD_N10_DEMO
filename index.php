@@ -37,8 +37,8 @@
                 <div class="col-lg-8 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                            <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
+                            <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                            <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
                         </ul>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             <a href="./view/dangnhap.php"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                         <div class="header__top__right__auth">
-                           <a href="./view/dangnhap.php">Đăng nhập</a>
+                           <a href="./view/dangnhap.php" style="font-family: Cairo, sans-serif; font-size: 15px;">Đăng nhập</a>
                         </div>
                     </div>
                 </div>
