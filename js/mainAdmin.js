@@ -64,6 +64,8 @@ function validateFormSP() {
     var thuongHieu = document.getElementById('thuongHieu').value;
     var SLT = document.getElementById('SLT').value;
     var giaNhap = parseInt(document.getElementById('giaNhap').value)
+    var giaNhapValue = document.getElementById('giaNhap').value
+    var giaBanValue = document.getElementById('giaBan').value
     var giaBan = parseInt(document.getElementById('giaBan').value)
     var HSD = document.getElementById('HSD').value;
 
@@ -90,11 +92,11 @@ function validateFormSP() {
         errorMessages.SLT = 'Số lượng tồn phải lớn hơn 0.';
     }
 
-    if (giaNhap <= 0 || '') {
+    if (giaNhap <= 0 || giaNhapValue ==='') {
         errorMessages.giaNhap = 'Giá nhập phải lớn hơn 0 không được để trống.';
     }
 
-    if (giaBan <= giaNhap || '') {
+    if (giaBan <= giaNhap || giaBanValue === '') {
         errorMessages.giaBan = 'Giá bán phải lớn hơn giá nhập không được để trống.';
     }
 
@@ -128,6 +130,8 @@ function validateFormUpdateSP() {
     var thuongHieuUpdate = document.getElementById('thuongHieuUpdate').value;
     var SLTUpdate = document.getElementById('SLTUpdate').value;
     var giaNhapUpdate = parseInt(document.getElementById('giaNhapUpdate').value)
+    var giaNhapUpdateValue = document.getElementById('giaNhapUpdate').value
+    var giaBanUpdateValue = document.getElementById('giaBanUpdate').value
     var giaBanUpdate = parseInt(document.getElementById('giaBanUpdate').value)
     var HSDUpdate = document.getElementById('HSDUpdate').value;
 
@@ -154,11 +158,11 @@ function validateFormUpdateSP() {
         errorMessages.SLTUpdate = 'Số lượng tồn phải lớn hơn 0.';
     }
 
-    if (giaNhapUpdate <= 0 ||'') {
+    if (giaNhapUpdate <= 0 || giaNhapUpdateValue ==='') {
         errorMessages.giaNhapUpdate = 'Giá nhập phải lớn hơn 0 không được để trống.';
     }
 
-    if (giaBanUpdate <= giaNhapUpdate || '') {
+    if (giaBanUpdate.trim() <= giaNhapUpdate || giaBanUpdateValue === '') {
         errorMessages.giaBanUpdate = 'Giá bán phải lớn hơn giá nhập và không được để trống.';
     }
 
