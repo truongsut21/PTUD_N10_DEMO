@@ -73,7 +73,7 @@
                             echo "<td>".number_format($row["GiaBan"], 0,".", ".")."VNĐ</td>";
                          
                             echo "<td>".$row["ThuongHieu"]."</td>";
-                            echo "<td>"."<img src='Image/".$row["HinhAnh"]."' alt='".$row["HinhAnh"]."' width= '150px' height= '100px'>"."</td>";
+                            echo "<td>"."<img src='img/".$row["HinhAnh"]."' alt='".$row["HinhAnh"]."' width= '150px' height= '100px'>"."</td>";
                             echo "<td>".date("d/m/Y", strtotime($row["HanSuDung"]))."</td>";
                             echo "<td>".$row["LoaiSanPham"]."</td>";
                           

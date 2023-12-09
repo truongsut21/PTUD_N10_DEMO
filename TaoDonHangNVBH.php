@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <!-- <header>
+     <header>
         <div class="row">
             <div class="col-1<2">
                 <ul class="header-menu">
@@ -22,7 +22,7 @@
                 </ul>
             </div>
         </div>
-    </header> -->
+    </header> 
     
 
     

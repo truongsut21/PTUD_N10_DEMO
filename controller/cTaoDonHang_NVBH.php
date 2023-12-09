@@ -92,7 +92,7 @@ function checkQuantityProduct($quantity, $idProduct)
     if ($quantity <= $quantityProductsInStock) {
         return true;
     } else {
-        return $quantityProductsInStock;
+        return false;
     }
 }
 
