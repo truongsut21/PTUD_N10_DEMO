@@ -94,16 +94,16 @@
         $result = $p->editProduct($ma, $ten, $SLT, $moTa, $giaBan, $giaNhap, $thuongHieu, $tenAnh, $hsd, $loaiSP, $nhaCC);
 
         if ($result == 1) {
-            echo "<script>alert('Edit product successfully!')</script>";
+            echo "<script>alert('Cập nhật sản phẩm thành công!')</script>";
             echo header("refresh: 0; url = 'indexAdmin.php?san-pham'");
         } elseif ($result == 0) {
-            echo "<script>alert('Edit product unsuccessfully!')</script>";
+            echo "<script>alert('Cập nhật sản phẩm thất bại!')</script>";
         } elseif ($result == -1) {
-            echo "<script>alert('This file is not image format!')</script>";
+            echo "<script>alert('Ảnh không đúng định dạng!')</script>";
         } elseif ($result == -2) {
-            echo "<script>alert('This file is too lagre to upload!')</script>";
+            echo "<script>alert('Ảnh quá kích cỡ!')</script>";
         } else
-            echo "<script>alert('Can not upload file!')</script>";
+            echo "<script>alert('Không thể tải ảnh!')</script>";
     }
     ?>
 

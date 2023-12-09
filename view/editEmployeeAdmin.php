@@ -82,10 +82,10 @@
         $result = $p->editEmployee($MaNhanVien, $hoten, $matkhau, $email, $sdt, $diachi, $loainv);
 
         if ($result == 1) {
-            echo "<script>alert('Edit Employee successfully!')</script>";
+            echo "<script>alert('Cập nhật nhân viên thành công!')</script>";
             echo header("refresh: 0; url = 'indexAdmin.php?nhan-vien'");
         } else {
-            echo "<script>alert('Edit Employee unsuccessfully!')</script>";
+            echo "<script>alert('Cập nhật nhân viên thất bại!')</script>";
         }
     }
     ?>
