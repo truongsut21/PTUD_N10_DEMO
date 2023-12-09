@@ -10,7 +10,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
     $_SESSION['role'] = 'nvbh';
 }
 
-
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_unset();
+    session_destroy();
+    header('location: ./admin/login.php');
+    exit();
+}
 if (isset($_REQUEST['adminButton'])) {
     if ($_SESSION['role'] !== 'admin') {
         // Nếu không phải admin, chuyển hướng về trang không có quyền truy cập
@@ -24,6 +29,7 @@ if (isset($_REQUEST['adminButton'])) {
         header('Location: indexAdmin.php');
         exit();
     }
+
 }
 ?>
 
