@@ -7,6 +7,12 @@
             return $tbl;
         }
 
+        function getAllAssess(){
+            $p = new MProduct();
+            $tbl = $p -> selectAllAssess();
+            return $tbl;
+        }
+
         function getAllProductBySearch($search){
             $p = new MProduct();
             $tbl = $p -> selectAllProductBySearch($search);
