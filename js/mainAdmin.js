@@ -35,7 +35,7 @@ function validateFormNV() {
     ///^[a-zA-Z\d][a-zA-Z\d\s]*[a-zA-Z]$/
     //!/^[a-zA-Z0-9,/-][a-z0-9,/-\s]*(?:[ 0-9][a-zA-Z0-9,/-][a-z0-9,/-\s]*)*$/gm.test(DiaChi) || !/^\d$/.test(DiaChi)
     ///^\d*\s*[\p{L}0-9,/-]+\s[\p{L}0-9,/-]+,\s*[\p{L}0-9,/-]+\s[\p{L}0-9,/-]+$
-    if (DiaChi.trim() === '' || !/^\d+\s+[\p{L}0-9\s\-,./]+$/gu.test(DiaChi)) {
+    if (DiaChi.trim() === '' || !/^\d*\s*[\p{L}0-9\s\-,./]+$/gu.test(DiaChi)) {
         errorMessages.DiaChi = 'Địa chỉ không hợp lệ.';
     }
 

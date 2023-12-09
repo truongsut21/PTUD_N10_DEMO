@@ -219,8 +219,8 @@
         <div class="form-row">
             <div class="form-group btnUpd">
                 <input type="hidden" value="">
-                <button type="reset" class="btnCus3 btnCus">Reset</button>
-                <button type="submit" name='btnEditSP' class="btnCus3 btnCus">Update</button>
+                <button type="reset" class="btnCus3 btnCus">Đặt lại</button>
+                <button type="submit" name='btnEditSP' class="btnCus3 btnCus">Lưu</button>
             </div>
         </div>
 
