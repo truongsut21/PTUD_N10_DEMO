@@ -5,16 +5,14 @@ class vDetailsProduct
     function viewAllProducts()
     {
         $p = new CProduct();
-        $tbl = $p->getAllProducts();
+        $tbl = $p -> getAllProducts();
         showProduct($tbl);
     }
 
     function viewAllAssess()
     {
         $p = new CProduct();
-        if (isset($_REQUEST['MaDanhGia'])) {
-            $tbl = $p->getAllAssess();
-        }
+        $tbl = $p -> getAllAssess();
         showProduct($tbl);
     }
 }
@@ -47,6 +45,7 @@ function showProduct($tbl)
 
                         <h3>" . $row['TenSanPham'] . "</h3>
                         <div class='product__d'etails__rating'>
+                     
                             <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
                             <i class='fa fa-star'></i>
@@ -85,6 +84,7 @@ function showProduct($tbl)
                         </ul>
                     </div>
                 </div>
+
                 <div class='col-lg-12'>
                     <div class='product__details__tab'>
                         <ul class='nav nav-tabs' role='tablist'>
@@ -98,7 +98,7 @@ function showProduct($tbl)
                             </li>
                             <li class='nav-item'>
                                 <a class='nav-link' data-toggle='tab' href='#tabs-3' role='tab'
-                                    aria-selected='false'>Đánh giá</a>
+                                    aria-selected='true'>Đánh giá</a>
                             </li>
                         </ul>
 
@@ -117,14 +117,19 @@ function showProduct($tbl)
                                     <p><b>Thương hiệu</b> " . $row['ThuongHieu'] . "</p>
                                 </div>
                             </div>
-                    
+                      
+  
+                        
                             <div class='tab-pane active' id='tabs-3' role='tabpanel'>
                               <div class='product__details__tab__desc'>
-                                <p>" . $row['MaDanhGia'] . "</a></p>
+                                <p>" . $row['TenSanPham'] . "</a></p>
                               </div>
                             </div> 
-
+                       
+                        
                         </div>
+
+                        
                           
                         </div>
                     </div>

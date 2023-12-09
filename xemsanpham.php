@@ -24,7 +24,7 @@
 <body>
 
 <?php
-include_once('./layout/header.php');
+include_once('./layout/headerweb.php');
 include_once("controller/cDetailsProduct.php");
 $p = new CDetailsProduct();
 $p->handleAddToCart()

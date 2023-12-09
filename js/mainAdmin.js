@@ -16,7 +16,7 @@ function validateFormNV() {
 
     // Kiểm tra điều kiện và lưu thông báo lỗi
     //^[a-zA-Z\s]
-    if (hoTen.trim() === '' || !/^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$/gm.test(hoTen)) {
+    if (hoTen.trim() === '' || !/^[\p{L}\s]+$/gu.test(hoTen)) {
         errorMessages.hoTen = 'Họ và tên không được để trống và phải là chữ.';
     }
 
@@ -33,7 +33,9 @@ function validateFormNV() {
     }
 
     ///^[a-zA-Z\d][a-zA-Z\d\s]*[a-zA-Z]$/
-    if (DiaChi.trim() === '' || !/^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ0-9,/-][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỸĐ0-9,/-]*(?:[ 0-9][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ0-9,/-][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỸĐ0-9,/-]*)*$/gm.test(DiaChi)) {
+    //!/^[a-zA-Z0-9,/-][a-z0-9,/-\s]*(?:[ 0-9][a-zA-Z0-9,/-][a-z0-9,/-\s]*)*$/gm.test(DiaChi) || !/^\d$/.test(DiaChi)
+    ///^\d*\s*[\p{L}0-9,/-]+\s[\p{L}0-9,/-]+,\s*[\p{L}0-9,/-]+\s[\p{L}0-9,/-]+$
+    if (DiaChi.trim() === '' || !/^\d+\s+[\p{L}0-9\s\-,./]+$/gu.test(DiaChi)) {
         errorMessages.DiaChi = 'Địa chỉ không hợp lệ.';
     }
 
@@ -84,16 +86,16 @@ function validateFormSP() {
         errorMessages.thuongHieu = 'Thương hiệu không được để trống.';
     }
 
-    if (SLT <= 0) {
+    if (SLT <= 0 || '') {
         errorMessages.SLT = 'Số lượng tồn phải lớn hơn 0.';
     }
 
-    if (giaNhap <= 0) {
-        errorMessages.giaNhap = 'Giá nhập phải lớn hơn 0.';
+    if (giaNhap <= 0 || '') {
+        errorMessages.giaNhap = 'Giá nhập phải lớn hơn 0 không được để trống.';
     }
 
-    if (giaBan <= giaNhap) {
-        errorMessages.giaBan = 'Giá bán phải lớn hơn giá nhập.';
+    if (giaBan <= giaNhap || '') {
+        errorMessages.giaBan = 'Giá bán phải lớn hơn giá nhập không được để trống.';
     }
 
     var currentDate = new Date().toISOString().split('T')[0];
@@ -152,12 +154,12 @@ function validateFormUpdateSP() {
         errorMessages.SLTUpdate = 'Số lượng tồn phải lớn hơn 0.';
     }
 
-    if (giaNhapUpdate <= 0) {
-        errorMessages.giaNhapUpdate = 'Giá nhập phải lớn hơn 0.';
+    if (giaNhapUpdate <= 0 ||'') {
+        errorMessages.giaNhapUpdate = 'Giá nhập phải lớn hơn 0 không được để trống.';
     }
 
-    if (giaBanUpdate <= giaNhapUpdate) {
-        errorMessages.giaBanUpdate = 'Giá bán phải lớn hơn giá nhập.';
+    if (giaBanUpdate <= giaNhapUpdate || '') {
+        errorMessages.giaBanUpdate = 'Giá bán phải lớn hơn giá nhập và không được để trống.';
     }
 
     var currentDate = new Date().toISOString().split('T')[0];
