@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 03, 2023 lúc 05:59 PM
+-- Thời gian đã tạo: Th12 09, 2023 lúc 07:58 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Phiên bản PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,10 @@ INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `TongTien`, `MaSanPham`, `MaHoaD
 (133, 1380000, 4, 222, 3),
 (134, 460000, 4, 223, 1),
 (135, 99000, 2, 224, 1),
-(136, 460000, 4, 225, 1);
+(136, 460000, 4, 225, 1),
+(137, 9, 2, 227, 1),
+(138, 198000, 2, 228, 2),
+(139, 99000, 2, 229, 1);
 
 -- --------------------------------------------------------
 
@@ -78,7 +81,7 @@ CREATE TABLE `hoadon` (
   `TongTien` double NOT NULL,
   `NgayLap` date NOT NULL,
   `MaNhanVien` int(11) DEFAULT NULL,
-  `MaKhachHang` int(11) NOT NULL,
+  `MaKhachHang` int(11) DEFAULT NULL,
   `DiaChiGiaoHang` varchar(100) CHARACTER SET utf16 COLLATE utf16_general_ci NOT NULL,
   `HoTen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `SoDienThoai` int(11) NOT NULL,
@@ -93,7 +96,10 @@ INSERT INTO `hoadon` (`MaHoaDon`, `TongTien`, `NgayLap`, `MaNhanVien`, `MaKhachH
 (222, 1578000, '2023-11-30', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
 (223, 460000, '2023-12-01', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
 (224, 99000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
-(225, 460000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com');
+(225, 460000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
+(227, 99000, '2023-12-08', 1, NULL, 'OFFLINE', 'do van truong', 1234567890, 'dotruong@gmail.com'),
+(228, 198000, '2023-12-09', NULL, 6, '20 Dương Quảng Hàm', 'Đỗ Vân Trường', 905371627, 'dotruong0701@gmail.com'),
+(229, 99000, '2023-12-09', NULL, 6, '80 Dương Quảng Hàm', 'Đỗ Vân Trường', 905371627, 'dotruong0701@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -116,8 +122,9 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MaKhachHang`, `HoTen`, `SoDienThoai`, `DiaChi`, `MatKhau`, `Email`, `trangThai`) VALUES
-(1, 'Nguyễn Văn Qúy', '0816977959', '12, Nguyễn Văn Bảo', '11', 'myphamdep@gmail.com', 1),
-(2, 'dỗ truồng', '0905371629', ' 40 Dương Quảng Hàm - p5 - gò vấp', 'Abc12345!', 'dotruong0704@gmail.com', 1);
+(1, 'Nguyễn Văn Qúy', '11', '12, Nguyễn Văn Bảo', '11', 'myphamdep@gmail.com', 1),
+(2, 'dỗ truồng', '22', ' 40 Dương Quảng Hàm - p5 - gò vấp', '22', 'dotruong0704@gmail.com', 1),
+(6, 'Đỗ Vân Trường', '0905371627', ' ', '527daa8571ebda305517f28686c3ad61', 'dotruong0701@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -209,7 +216,7 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`MaNhanVien`, `HoTen`, `MatKhau`, `Email`, `SoDienThoai`, `DiaChi`, `LoaiNhanVien`, `trangThai`) VALUES
-(1, 'Trần Tuấn Anh', '11122288', 'trantuananh@gmail.com', '0987654222', '91 Nguyễn Văn Bảo, Gò Vấp, Hồ Chí Minh', 1, 1),
+(1, 'Trần Tuấn Anh', '1', 'trantuananh@gmail.com', '1', '91 Nguyễn Văn Bảo, Gò Vấp, Hồ Chí Minh', 1, 1),
 (2, 'Trương Ngọc Bình', '12341234', 'truongngocbinh@gmail.com', '0789665431', '200 Phan Xích Long, Phú Nhuận, Hồ Chí Minh', 2, 1),
 (3, 'Lý Hữu Cảnh', '12344444', 'lyhuucanh@gmail.com', '0987666555', '22 Nguyễn Thái Sơn, Gò Vấp, Hồ Chí Minh', 1, 1),
 (4, 'Trần Minh Dự', '33338888', 'tranminhdu@gmail.com', '0788654332', '33 Lê Đức Thọ, Gò Vấp, Hồ Chí Minh', 2, 1),
@@ -248,7 +255,10 @@ INSERT INTO `noidungdanhgia` (`MaDanhGia`, `MaSanPham`, `ThoiGianDanhGia`, `NoiD
 (18, 2, '2023-12-01', 'adasdasdasdsafasfasdfasdfaewttgastgewtaew', '', 3, 1),
 (19, 2, '2023-12-01', '', '', 3, 1),
 (20, 2, '2023-12-01', '', '', 3, 1),
-(21, 4, '2023-12-01', '123', '', 3, 1);
+(21, 4, '2023-12-01', '123', '', 3, 1),
+(22, 2, '2023-12-09', '123', 'Array', 2, 6),
+(23, 2, '2023-12-09', '', '', 3, 6),
+(24, 2, '2023-12-09', '', '', 4, 6);
 
 -- --------------------------------------------------------
 
@@ -356,7 +366,15 @@ CREATE TABLE `phieutrahang` (
 
 INSERT INTO `phieutrahang` (`MaPhieuTraHang`, `MaChiTietDonHang`, `ThoiGianTraHang`, `SoLuong`, `LyDoTraHang`, `HinhAnh`) VALUES
 (1, 1, '2023-12-21', 12, '12313123', '134a'),
-(2, 133, '2023-12-01', 0, 'avcv', 'hinh anh 123');
+(2, 133, '2023-12-01', 0, 'avcv', 'hinh anh 123'),
+(3, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(4, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(5, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(6, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(7, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(8, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(9, 132, '2023-12-09', 0, '', 'hinh anh 123'),
+(10, 132, '2023-12-09', 0, '', 'hinh anh 123');
 
 -- --------------------------------------------------------
 
@@ -415,7 +433,7 @@ CREATE TABLE `sanpham` (
 
 INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `SoLuongTon`, `MoTa`, `GiaBan`, `GiaNhap`, `ThuongHieu`, `HinhAnh`, `HanSuDung`, `LoaiSanPham`, `NhaCungCap`, `trangThai`) VALUES
 (1, 'Mascara GECOMO', 0, 'Mascara làm cong mi mắt.', 179000, 79000, 'GECOMO', 'a1.jpg', '2024-10-23', 1, 1, 1),
-(2, 'Phấn phủ PRAMY', 926, 'Phấn phủ làm mịn da', 99000, 39000, 'PRAMY', 'a2.jpg', '2025-10-15', 2, 2, 1),
+(2, 'Phấn phủ PRAMY', 922, 'Phấn phủ làm mịn da', 99000, 39000, 'PRAMY', 'a2.jpg', '2025-10-15', 2, 2, 1),
 (3, 'Phấn phủ Pramy', 578, 'Phấn phủ làm mịn da', 490000, 290000, 'PRAMY', 'a3.jpg', '2025-10-01', 3, 3, 0),
 (4, 'Sữa rửa mặt Simple', 87, 'Sữa rửa mặt làm mịn da', 89000, 59000, 'Simple', 'a4.jpg', '2025-11-13', 4, 4, 1),
 (5, 'Sữa rửa mặt Hada Labo', 8, 'Sữa rửa mặt làm sáng da', 100000, 90000, 'Hada Labo', 'a5.jpg', '2023-11-29', 5, 5, 1),
@@ -531,25 +549,25 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `MaGioHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `MaGioHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
+  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `loainhanvien`
@@ -579,7 +597,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `noidungdanhgia`
 --
 ALTER TABLE `noidungdanhgia`
-  MODIFY `MaDanhGia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `MaDanhGia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `phieudathang`
@@ -603,7 +621,7 @@ ALTER TABLE `phieunhapkho`
 -- AUTO_INCREMENT cho bảng `phieutrahang`
 --
 ALTER TABLE `phieutrahang`
-  MODIFY `MaPhieuTraHang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaPhieuTraHang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `phieuxuatkho`
@@ -621,4 +639,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
