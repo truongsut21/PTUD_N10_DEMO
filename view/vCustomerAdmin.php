@@ -24,7 +24,8 @@ class VCustomer
         if (isset($_REQUEST["btnCusAct"])) {
             if ($_REQUEST["btnCusAct"] == "delete") {
                 $result = $p->getDelCustomer($_REQUEST["MaKhachHang"]);
-                echo header("refresh:0; url='indexAdmin.php?khach-hang'");
+                echo "<script>alert('Xoá khách hàng thành công!')</script>";
+                header("refresh:0; url='indexAdmin.php?khach-hang'");
                 return $result;
             }
         }

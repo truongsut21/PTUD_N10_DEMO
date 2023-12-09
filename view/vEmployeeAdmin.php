@@ -25,7 +25,8 @@ class VEmployee
         if (isset($_REQUEST["btnEmpAct"])) {
             if ($_REQUEST["btnEmpAct"] == "delete") {
                 $result = $p->getDelEmployee($_REQUEST["MaNhanVien"]);
-                echo header("refresh:0; url='indexAdmin.php?nhan-vien'");
+                echo "<script>alert('Xoá nhân viên thành công!')</script>";
+                header("refresh:0; url='indexAdmin.php?nhan-vien'");
                 return $result;
             }
         }

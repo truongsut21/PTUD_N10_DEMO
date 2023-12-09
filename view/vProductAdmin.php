@@ -24,7 +24,8 @@ class VProductAdmin
         if (isset($_REQUEST["btnProdAct"])) {
             if ($_REQUEST["btnProdAct"] == "delete") {
                 $result = $p->getDelProduct($_REQUEST["MaSanPham"]);
-                echo header("refresh:0; url='indexAdmin.php?san-pham'");
+                echo "<script>alert('Xoá sản phẩm thành công!')</script>";
+                header("refresh:0; url='indexAdmin.php?san-pham'");
                 return $result;
             }
         }
