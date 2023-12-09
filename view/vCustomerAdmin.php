@@ -41,10 +41,10 @@ function showCustomer($tbl)
                 <div class="row timKiem-them">
                 <div class="timKiem input-group mb-3 col-md-5">
                     <form action="#" method="get">
-                             <input type="text" name="txtSearchKH" size="18" placeholder = "Search" value = "';
+                             <input type="text" name="txtSearchKH" size="18" placeholder = "Tìm kiếm" value = "';
             if (isset($_REQUEST["txtSearchKH"])) echo $_REQUEST["txtSearchKH"];
             echo '" >
-                             <input type="submit" name="btnSearchKH" class="btnCus btnCus5" value="Search"> 
+                             <input type="submit" name="btnSearchKH" class="btnCus btnCus5" value="Tìm"> 
                     </form>
                 </div>
 

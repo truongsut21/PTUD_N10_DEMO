@@ -51,10 +51,10 @@ function showEmployee($tbl)
         <div class="row timKiem-them">
             <div class="timKiem input-group mb-3 col-md-5">
                 <form action="indexAdmin.php" method="get">
-                         <input type="text" name="txtSearchNV" size="18" placeholder = "Search" value = "';
+                         <input type="text" name="txtSearchNV" size="18" placeholder = "Tìm kiếm" value = "';
     if (isset($_REQUEST["txtSearchNV"])) echo $_REQUEST["txtSearchNV"];
     echo '" >
-                         <input type="submit" name="btnSearchNV" class="btnCus btnCus5" value="Search"> 
+                         <input type="submit" name="btnSearchNV" class="btnCus btnCus5" value="Tìm"> 
                 </form>
             </div>
 

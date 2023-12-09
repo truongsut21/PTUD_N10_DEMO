@@ -86,9 +86,11 @@ form > button.btnCus.btn2.delete{
 }
 
 .img-admin{
-    border-radius: 400px;
-    margin: 50px 150px;
-    box-shadow: 4px 4px 4px 4px #ccc
+    border-radius: 450px;
+    margin: 50px 200px;
+    box-shadow: 0px 0px 10px #ccc;
+    width: 500px;
+
 }
 
 #adminButton{
