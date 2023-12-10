@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-1<2">
                 <ul class="header-menu">
-                    <li style="margin:10px;"><a href="index.php">Trang chủ</a></li>
+                    <li style="margin:10px;"><a style="color: #fff" href="indexNVBH.php">Trang chủ</a></li>
                 </ul>
             </div>
         </div>

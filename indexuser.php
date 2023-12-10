@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 // include_once("model/connectdb.php");
-$conn = mysqli_connect("localhost","root","","mypham");
+$conn = mysqli_connect("localhost", "root", "", "mypham");
 if (!isset($_SESSION['MaKhachHang']) || empty($_SESSION['MaKhachHang'])) {
     header('location: index.php');
     exit();
@@ -57,14 +57,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
 
                             <div class="header__top__right__auth">
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <?php
                                         if (isset($_SESSION['MaKhachHang'])) {
                                             $tenTaiKhoan = $_SESSION['MaKhachHang'];
@@ -99,28 +98,28 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                 <div class="hero__search">
                     <div class="hero__search__form">
-                    <form action="#">
-                        <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
-                        <button type="submit" class="site-btn">TÌM</button>
-                    </form>
+                        <form action="#">
+                            <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
+                            <button type="submit" class="site-btn">TÌM</button>
+                        </form>
                     </div>
                 </div>
 
                 <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="cart.php">Đặt hàng</a></li>
-                                <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
-                    </ul>
-                </nav>
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="indexuser.php">Trang Chủ</a>
+                            <li><a href="#">Danh Mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="cart.php">Đặt hàng</a></li>
+                                    <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="./contact.php">Liên Hệ</a></li>
+                            <li><a href="./chinhsach.php">Chính Sách</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -172,20 +171,45 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <!-- Footer Begin -->
     <footer class="footer spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text">
-                            <p>
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with
-                                <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>
-                            </p>
+            <div class="row" style="margin: 20px 0 10px">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo" style="line-height: 150px">
+                            <a href="./index.html"><img src="img/img-02logo.png" alt=""></a>
                         </div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h4>Truy cập nhanh</h4>
+                        <ul style="list-style-type: none; color: #333; margin: 10px 0 0 0">
+                            <li><a style="color: #333" href="./index.php">Home</a></li>
+                            <li><a style="color: #333" href="./shop.php">Sản phẩm</a></li>
+                            <li><a style="color: #333" href="./contact.php">Liên hệ</a></li>
+                            <li><a style="color: #333" href="./chinhsach.php">Chính sách</a></li>
+                            <li><a style="color: #333" href="./orderManage.php">Quản lý đơn hàng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h4>Liên hệ</h4>
+                        <div class="footer__widget__social" style="margin: 10px 0 0 0">
+                            <ul style="list-style-type: none; color: #333">
+                                <li>Address: 12 Nguyễn Văn Bảo</li>
+                                <li>Phone: 09.8888.9898</li>
+                                <li>Email: shopmyphamNumberTwo@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
+                    <div class="footer__copyright" ">
+                        <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
+                            <p> Copyright &copy; NumberTwo</p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -65,14 +65,14 @@
     if (mysqli_num_rows($tblEdit) > 0) {
         while ($r = mysqli_fetch_assoc($tblEdit)) {
             $maSP = $r["MaSanPham"];
-            $tenSPUpdate = $r["TenSanPham"];
-            $SLTUpdate = $r["SoLuongTon"];
+            $tenSP = $r["TenSanPham"];
+            $SLT = $r["SoLuongTon"];
             $moTa = $r["MoTa"];
-            $giaBanUpdate = $r["GiaBan"];
-            $giaNhapUpdate = $r["GiaNhap"];
-            $thuongHieuUpdate = $r["ThuongHieu"];
+            $giaBan = $r["GiaBan"];
+            $giaNhap = $r["GiaNhap"];
+            $thuongHieu = $r["ThuongHieu"];
             $tenAnh = $r["HinhAnh"];
-            $hsdUpdate = $r["HanSuDung"];
+            $hsd = $r["HanSuDung"];
             $loaiSP = $r["LoaiSanPham"];
             $nhaCC = $r["NhaCungCap"];
         }
@@ -80,14 +80,14 @@
 
     if (isset($_REQUEST["btnEditSP"])) {
         $ma = $_REQUEST["maSP"];
-        $ten = $_REQUEST["tenSPUpdate"];
-        $SLT = $_REQUEST["SLTUpdate"];
+        $ten = $_REQUEST["tenSP"];
+        $SLT = $_REQUEST["SLT"];
         $moTa = $_REQUEST["mota"];
-        $giaBan = $_REQUEST["giaBanUpdate"];
-        $giaNhap = $_REQUEST["giaNhapUpdate"];
-        $thuongHieu = $_REQUEST["thuongHieuUpdate"];
+        $giaBan = $_REQUEST["giaBan"];
+        $giaNhap = $_REQUEST["giaNhap"];
+        $thuongHieu = $_REQUEST["thuongHieu"];
         $tenAnh = $_FILES["tenAnh"];
-        $hsd = $_REQUEST["HSDUpdate"];
+        $hsd = $_REQUEST["HSD"];
         $loaiSP = $_REQUEST["loaiSP"];
         $nhaCC = $_REQUEST["nhaCC"];
 
@@ -118,7 +118,7 @@
         ?>
     </div>
 
-    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateFormUpdateSP();">
+    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateFormSP();">
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Mã sản phẩm</label>
@@ -126,15 +126,15 @@
             </div>
             <div class="form-group col-md-7">
                 <label>Tên sản phẩm</label>
-                <input type="text" name="tenSPUpdate" id="tenSPUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $tenSPUpdate ?>"  aria-describedby="tenSPUpdate-messs">
-                <small id="tenSPUpdate-mess"></small>
+                <input type="text" name="tenSP" id="tenSP" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $tenSP ?>"  aria-describedby="tenSP-messs">
+                <small id="tenSP-mess"></small>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Số lượng tồn</label>
-                <input type="number" name="SLTUpdate" id="SLTUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $SLTUpdate ?>"  aria-describedby="SLTUpdate-messs">
-                <small id="SLTUpdate-mess"></small>
+                <input type="number" name="SLT" id="SLT" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $SLT ?>"  aria-describedby="SLT-messs">
+                <small id="SLT-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label>Mô tả</label>
@@ -145,20 +145,20 @@
         <div class="form-row">
             <div class="form-group col-md-7">
                 <label>Giá nhập</label>
-                <input type="number" name="giaNhapUpdate" id="giaNhapUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaNhapUpdate ?>" aria-describedby="giaNhapUpdate-messs">
-                <small id="giaNhapUpdate-mess"></small>
+                <input type="number" name="giaNhap" id="giaNhap" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaNhap ?>" aria-describedby="giaNhap-messs">
+                <small id="giaNhap-mess"></small>
             </div>
             <div class="form-group col-md-5">
                 <label>Giá bán</label>
-                <input type="number" name="giaBanUpdate" id="giaBanUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaBanUpdate ?>" aria-describedby="giaBanUpdate-messs">
-                <small id="giaBanUpdate-mess"></small>
+                <input type="number" name="giaBan" id="giaBan" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $giaBan ?>" aria-describedby="giaBan-messs">
+                <small id="giaBan-mess"></small>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Thương hiệu</label>
-                <input type="text" name="thuongHieuUpdate" id="thuongHieuUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $thuongHieuUpdate ?>" aria-describedby="thuongHieuUpdate-messs">
-                <small id="thuongHieuUpdate-mess"></small>
+                <input type="text" name="thuongHieu" id="thuongHieu" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $thuongHieu ?>" aria-describedby="thuongHieu-messs">
+                <small id="thuongHieu-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label>Hình ảnh</label>
@@ -169,8 +169,8 @@
         <div class="form-row">
             <div class="form-group col-md-5">
                 <label>Hạn sử dụng</label>
-                <input type="date" name="HSDUpdate" id="HSDUpdate" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hsdUpdate ?>" aria-describedby="HSDUpdate-messs">
-                <small id="HSDUpdate-mess"></small>
+                <input type="date" name="HSD" id="HSD" class="form-control" style="width: 600px; margin-bottom: 15px" value="<?php echo $hsd ?>" aria-describedby="HSD-messs">
+                <small id="HSD-mess"></small>
             </div>
             <div class="form-group col-md-7">
                 <label for="">Loại sản phẩm</label>
@@ -219,8 +219,8 @@
         <div class="form-row">
             <div class="form-group btnUpd">
                 <input type="hidden" value="">
-                <button type="reset" class="btnCus3 btnCus">Reset</button>
-                <button type="submit" name='btnEditSP' class="btnCus3 btnCus">Update</button>
+                <button type="reset" class="btnCus3 btnCus">Đặt lại</button>
+                <button type="submit" name='btnEditSP' class="btnCus3 btnCus">Lưu</button>
             </div>
         </div>
 

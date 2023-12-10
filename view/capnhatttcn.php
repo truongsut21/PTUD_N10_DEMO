@@ -26,13 +26,13 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
     $patternadd = '/^[a-zA-Z0-9,.#\- ]+$/';
     if(empty($HoTen) || empty($SoDienThoai) ||empty($Email)){
         $txt = "Bạn cần nhập đầy đủ thông tin";
-    }else if (!preg_match($patternname, $HoTen)) {
+    }else if (preg_match($patternname, $HoTen)) {
         $txt = "Họ tên không hợp lệ";
     } else if(!preg_match($pattern, $SoDienThoai)){
         $txt = "Số điện thoại không hợp lệ";
     }else if(!filter_var($Email, FILTER_VALIDATE_EMAIL)){
         $txt = "Email không hợp lệ";
-    }else if (!preg_match($patternadd, $DiaChi)) {
+    }else if (preg_match($patternadd, $DiaChi)) {
         $txt = "Địa chỉ không hợp lệ";
     }else{
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -98,7 +98,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <title>Cập nhật thông tin cá nhân</title>
 </head>
 <body>
-<header class="header">
+<header class="header" >
         <div class="header__top">
             <div class="container">
                 <div class="row">
@@ -115,8 +115,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="#"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
-                                <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="../contact.php"><i class="fa fa-phone"></i></a>
+                                <a href="../cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
 
                             <div class="header__top__right__auth">
@@ -144,6 +144,27 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 </div>
             </div>
         </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="../indexuser.php">Trang Chủ</a>
+                            <li><a href="#">Danh Mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="../cart.php">Đặt hàng</a></li>
+                                    <li><a href="../orderManage.php">Xem lịch sử mua hàng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../shop.php">Sản Phẩm</a></li>
+                            <li><a href="../contact.php">Liên Hệ</a></li>
+                            <li><a href="../chinhsach.php">Chính Sách</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
 </header>
     <div class="limiter">
@@ -200,23 +221,48 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </div>
         </div>
 
-        <!-- Footer Begin -->
-    <footer class="footer spad">
+ <!-- Footer Begin -->
+ <footer class="footer spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text">
-                            <p>
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with
-                                <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>
-                            </p>
+            <div class="row" style="margin: 20px 0 10px">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo" style="line-height: 150px">
+                            <a href="./index.html"><img src="../img/img-02logo.png" alt=""></a>
                         </div>
-                        <div class="footer__copyright__payment"><img src="../img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h4>Truy cập nhanh</h4>
+                        <ul style="list-style-type: none; color: #333; margin: 10px 0 0 0">
+                            <li><a style="color: #333" href="../indexuser.php">Home</a></li>
+                            <li><a style="color: #333" href="../shop.php">Sản phẩm</a></li>
+                            <li><a style="color: #333" href="../contact.php">Liên hệ</a></li>
+                            <li><a style="color: #333" href="../chinhsach.php">Chính sách</a></li>
+                            <li><a style="color: #333" href="../orderManage.php">Quản lý đơn hàng</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h4>Liên hệ</h4>
+                        <div class="footer__widget__social" style="margin: 10px 0 0 0">
+                            <ul style="list-style-type: none; color: #333">
+                                <li>Address: 12 Nguyễn Văn Bảo</li>
+                                <li>Phone: 09.8888.9898</li>
+                                <li>Email: shopmyphamNumberTwo@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
+                            <p> Copyright &copy; NumberTwo</p>
+                        </div>
                     </div>
                 </div>
             </div>
