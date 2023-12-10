@@ -178,7 +178,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
-                    <div class="footer__copyright" ">
+                    <div class="footer__copyright">
                         <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
                             <p> Copyright &copy; NumberTwo</p>
                         </div>

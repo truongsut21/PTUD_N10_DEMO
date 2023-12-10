@@ -43,16 +43,23 @@
                     </div>
                 </div>
 
-              
+                <div class="col-lg-4 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>
+                            <a href="#"><i class="fa fa-phone"></i></a>
+                            <a href="./view/dangnhap.php"><i class="fa fa-shopping-bag"></i></a>
+                        </div>
+                        <div class="header__top__right__auth">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row">
-
-      
-
             <div class="col-lg-12">
                 <nav class="header__menu">
                     <ul>

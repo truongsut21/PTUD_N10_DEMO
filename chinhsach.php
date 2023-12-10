@@ -32,8 +32,8 @@
                     <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển cho đơn hàng từ 399k</li>
                             </ul>
                         </div>
                     </div>
@@ -46,7 +46,6 @@
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="./view/dangnhap.php">Đăng nhập</a>
                             </div>
                         </div>
                     </div>
@@ -55,25 +54,19 @@
         </div>
         <div class="container">
         <div class="row">
-
-
-            <div class="col-lg-12">
+        <div class="col-lg-12">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="#">Danh mục</a>
+                        <li><a href="index.php">Trang Chủ</a>
+                        <li><a href="#">Danh Mục</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="../PTUD_N10_DEMO/shop.php">Xem sản phẩm</a></li>
-                                <li><a href="../PTUD_N10_DEMO/dathang.php">Đặt hàng</a></li>
-                                <li><a href="../PTUD_N10_DEMO/thongtinsanpham.html">Xem thông tin đơn hàng</a></li>
-                                <li><a href="../PTUD_N10_DEMO/huydon.html">Hủy đơn</a></li>
-                                <li><a href="#">Khác</a></li>
+                                <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
+                                <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
                             </ul>
                         </li>
-                        <li><a href="shop.php">Shop</a></li>
-                        <li><a href="#">Tin tức</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                        <li><a href="#">Chính sách</a></li>
-                        <li><a href="#">Quản lý</a></li>
+                        <li><a href="shop.php">Sản Phẩm</a></li>
+                        <li><a href="contact.php">Liên Hệ</a></li>
+                        <li><a href="chinhsach.php">Chính Sách</a></li>
                     </ul>
                 </nav>
             </div>

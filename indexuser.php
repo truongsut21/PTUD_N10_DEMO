@@ -48,7 +48,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__left">
                             <ul>
                                 <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển cho đơn 339k</li>
                             </ul>
                         </div>
                     </div>
@@ -116,8 +116,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 </ul>
                             </li>
                             <li><a href="shop.php">Sản Phẩm</a></li>
-                            <li><a href="#">Liên Hệ</a></li>
-                            <li><a href="#">Chính Sách</a></li>
+                            <li><a href="./contact.php">Liên Hệ</a></li>
+                            <li><a href="./chinhsach.php">Chính Sách</a></li>
                         </ul>
                     </nav>
                 </div>
