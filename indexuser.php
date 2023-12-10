@@ -48,7 +48,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__left">
                             <ul>
                                 <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển cho đơn 339k</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
 

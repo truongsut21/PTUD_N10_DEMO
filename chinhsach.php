@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TRANG CHỦ SHOP MỸ PHẨM</title>
+    <title>Chính sách</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <!-- Css Styles -->
@@ -33,7 +33,7 @@
                         <div class="header__top__left">
                             <ul>
                                 <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển cho đơn hàng từ 399k</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="#"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
                             <div class="header__top__right__auth">
@@ -88,7 +88,7 @@
                             <span>COSMETICS</span>
                             <h2>MỸ PHẨM<br>100% An toàn cho da</h2>
                             <p>Có sẵn nhận và giao hàng miễn phí</p>
-                            <a href="#" class="primary-btn">MUA NGAY</a>
+                            <a href="shop.php" class="primary-btn">XEM NGAY</a>
                         </div>
                     </div>
                 </div>

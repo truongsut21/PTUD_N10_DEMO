@@ -113,8 +113,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             </ul>
                         </li>
                         <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
+                        <li><a href="contact.php">Liên Hệ</a></li>
+                        <li><a href="chinhsach.php">Chính Sách</a></li>
                     </ul>
                 </nav>
                 </div>
