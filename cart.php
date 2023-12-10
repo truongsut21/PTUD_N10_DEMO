@@ -51,7 +51,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
 
@@ -106,8 +106,8 @@
                             </ul>
                         </li>
                         <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
+                        <li><a href="contact.php">Liên Hệ</a></li>
+                        <li><a href="chinhsach.php">Chính Sách</a></li>
                     </ul>
                 </nav>
                 </div>

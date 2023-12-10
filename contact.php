@@ -47,7 +47,7 @@
                     <div class="header__top__right">
                         <div class="header__top__right__social">
                             <a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>
-                            <a href="#"><i class="fa fa-phone"></i></a>
+                            <a href="contact.php"><i class="fa fa-phone"></i></a>
                             <a href="./view/dangnhap.php"><i class="fa fa-shopping-bag"></i></a>
                         </div>
                         <div class="header__top__right__auth">
