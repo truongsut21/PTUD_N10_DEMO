@@ -89,7 +89,7 @@
                         </li>
                         <li><a href="shop.php">Sản Phẩm</a></li>
                         <li><a href="#">Liên Hệ</a></li>
-                        <li><a href="#">Chính Sách</a></li>
+                        <li><a href="chinhsach.php">Chính Sách</a></li>
                     </ul>
                 </nav>
             </div>
@@ -145,13 +145,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="footer__copyright">
+                    <div class="footer__copyright" style="text-align: center;">
                         <div class="footer__copyright__text">
+                            <p>Liên hệ:</p>
                             <p>
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with
-                                <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                Copyright &copy; Number Two
                             </p>
                         </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
