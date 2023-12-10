@@ -63,7 +63,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                             <div class="header__top__right__auth">
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <?php
                                         if (isset($_SESSION['MaKhachHang'])) {
                                             $tenTaiKhoan = $_SESSION['MaKhachHang'];
