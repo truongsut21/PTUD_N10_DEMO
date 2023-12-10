@@ -20,8 +20,8 @@ function validateFormNV() {
         errorMessages.hoTen = 'Họ và tên không được để trống và phải là chữ.';
     }
 
-    if (matkhau.trim() === '') {
-        errorMessages.matkhau = 'Mật khẩu không được để trống.';
+    if (matkhau.trim() === '' || !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(matkhau)) {
+        errorMessages.matkhau = 'Mật khẩu không được để trống và ít nhất 8 ký tự trong đó ít nhất một ký tự đặc biệt như @$!%*?&, ký tự chữ thường, hoa từ "a" đến "z" và số từ 0 – 9.';
     }
 
     if (Email.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
