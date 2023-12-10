@@ -43,34 +43,38 @@ class CPay
                 }
             };
 
-            if ($checkQuantity) {
-                // tạo hoá đơn 
-                $idOrder = createOrder($tongTienDonHang, $maNhanVien, $DiaChi, $HoTen, $SoDienThoai, $Email);
-                foreach ($maSanPham as $index => $item) {
-                    // nếu các thành phần kiểm tra đều đáp ứng đủ số lượng thì vào điều kiện này
+            if ($soLuong > 0) {
+                if ($checkQuantity) {
+                    // tạo hoá đơn 
+                    $idOrder = createOrder($tongTienDonHang, $maNhanVien, $DiaChi, $HoTen, $SoDienThoai, $Email);
+                    foreach ($maSanPham as $index => $item) {
+                        // nếu các thành phần kiểm tra đều đáp ứng đủ số lượng thì vào điều kiện này
 
 
-                    // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
-                    if ($idOrder) {
-                        echo "<script>alert('ma hoa don $idOrder')</script>";
+                        // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
+                        if ($idOrder) {
+                            echo "<script>alert('ma hoa don $idOrder')</script>";
 
-                        $result_createDetailsOrder = createDetailsOrder(
-                            $tongTien[$index],
-                            $maSanPham[$index],
-                            $soLuong[$index],
-                            $idOrder
-                        );
+                            $result_createDetailsOrder = createDetailsOrder(
+                                $tongTien[$index],
+                                $maSanPham[$index],
+                                $soLuong[$index],
+                                $idOrder
+                            );
 
-                        // nếu thêm sản phẩm vào chi tiết sản phẩm thành công thì trừ đi số lượng đã thêm vào chi tiết
-                        if ($result_createDetailsOrder) {
-                            $quantityProductsInStock = getQuantityProduct($maSanPham[$index]);
-                            updateProductsStock($maSanPham[$index], $quantityProductsInStock - $soLuong[$index]);
+                            // nếu thêm sản phẩm vào chi tiết sản phẩm thành công thì trừ đi số lượng đã thêm vào chi tiết
+                            if ($result_createDetailsOrder) {
+                                $quantityProductsInStock = getQuantityProduct($maSanPham[$index]);
+                                updateProductsStock($maSanPham[$index], $quantityProductsInStock - $soLuong[$index]);
 
-                            echo "<script> alert('Tạo đơn hàng thành công')</script>";
-                            echo header("refresh: 0; url = './TaoDonHangNVBH.php'");
+                                echo "<script> alert('Tạo đơn hàng thành công')</script>";
+                                echo header("refresh: 0; url = './TaoDonHangNVBH.php'");
+                            }
                         }
                     }
                 }
+            } else {
+                echo "<script>alert('số lượng sản phẩm phải lớn hơn 0')</script>";
             }
         }
     }

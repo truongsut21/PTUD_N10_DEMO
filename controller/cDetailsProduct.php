@@ -22,26 +22,30 @@ class CDetailsProduct
             // kiểm tra sản phẩm đã tổn tại trong giỏ hàng chưa, nếu có trả về số lượng sản phẩm
             $resultCheckProductsAlreadyInCart = checkProductsAlreadyInCart($idProduct, $idCustommer);
 
-            if ($resultCheckQuantityProduct) {
+            if($quantity > 0) {
+                if ($resultCheckQuantityProduct) {
 
-                // nếu sản phẩm đã tồn tại thì cập nhật sản phẩm trong giỏ hàng
-                if ($resultCheckProductsAlreadyInCart) {
-
-                    // cộng số lượng thêm mới và số lượng đã có trong giỏ hàng
-                    $quantity +=  $resultCheckProductsAlreadyInCart;
-                    $responAddToCart = updateProductInCart($quantity, $idProduct, $idCustommer);
+                    // nếu sản phẩm đã tồn tại thì cập nhật sản phẩm trong giỏ hàng
+                    if ($resultCheckProductsAlreadyInCart) {
+    
+                        // cộng số lượng thêm mới và số lượng đã có trong giỏ hàng
+                        $quantity +=  $resultCheckProductsAlreadyInCart;
+                        $responAddToCart = updateProductInCart($quantity, $idProduct, $idCustommer);
+                    } else {
+                        $responAddToCart = addToCart($quantity, $idProduct, $idCustommer);
+                    }
+    
+    
+                    if ($responAddToCart) {
+                        echo "<script> alert('thêm sản phầm vào giỏ hàng thành công') </script>";
+                    } else {
+                        echo "<script> alert('thêm sản phầm vào giỏ hàng thất bại') </script>";
+                    }
                 } else {
-                    $responAddToCart = addToCart($quantity, $idProduct, $idCustommer);
+                    echo "<script>alert('số lượng sản phẩm tồn kho không đủ')</script>";
                 }
-
-
-                if ($responAddToCart) {
-                    echo "<script> alert('thêm sản phầm vào giỏ hàng thành công') </script>";
-                } else {
-                    echo "<script> alert('thêm sản phầm vào giỏ hàng thất bại') </script>";
-                }
-            } else {
-                echo "<script>alert('số lượng sản phẩm tồn kho không đủ')</script>";
+            }else{
+                echo "<script>alert('số lượng sản phẩm phải lớn hơn 0')</script>";
             }
         };
     }

@@ -230,7 +230,8 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Nội dung đánh giá</label>
-                            <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="noidung" class="form-control" rows="3"></textarea>
+                           
                         </div>
 
                 </div>
@@ -274,7 +275,8 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Lý do trả hàng</label>
-                            <textarea name="noidung" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="noidung" class="form-control" id="noidungtrahang" rows="3"></textarea>
+                            <small id="noidungtrahang-mess"></small>
                         </div>
 
                 </div>
@@ -300,6 +302,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script>
+        document.getElementById('soluongtra').value = 1
         function confirmComment() {
             return confirm("Bạn có chắc chắn muốn dánh giá sản phẩm này?");
         }
@@ -316,6 +319,8 @@
             console.log(name)
             document.getElementById("nameProduct2").value = name;
             document.getElementById("maChiTietHoaDon").value = id;
+       
+
             document.getElementById("soluongMua").value = parseInt(soLuong)
             console.log(document.getElementById("soluongMua").value)
 
@@ -324,10 +329,12 @@
         function validateFormReturn() {
             let soluongmua = parseInt(document.getElementById("soluongMua").value)
             let soluongtra = parseInt(document.getElementById('soluongtra').value)
+            let noidungtrahang = document.getElementById('noidungtrahang').value
 
             // Khởi tạo đối tượng chứa thông báo lỗi
             var errorMessages = {
                 soluong: '',
+                noidungtrahang: '',
 
             };
 
@@ -336,8 +343,14 @@
                 errorMessages.soluong = 'Số lượng không hợp lệ';
             }
 
+            if(noidungtrahang.trim() === ''){
+                errorMessages.noidungtrahang = 'lý do trả hàng không được để trống';
+            }
+
             // Hiển thị thông báo lỗi trong thẻ <small>
             document.getElementById('soLuongTra-mess').innerHTML = errorMessages.soluong;
+            document.getElementById('noidungtrahang-mess').innerHTML = errorMessages.noidungtrahang;
+
 
 
             // Kiểm tra xem có thông báo lỗi nào không

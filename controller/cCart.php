@@ -27,16 +27,20 @@ class CCart
 
             $Result_checkQuantityProduct = checkQuantityProduct($soLuong, $idProduct);
 
-            if($Result_checkQuantityProduct){
-                $tbl = $p->updateProduct($soLuong, $maGioHang);
-                if($tbl){
-                    echo "<script> alert('cập nhật số lượng thành công')</script>";    
-                    return $tbl;
+            if($soLuong > 0){
+                if($Result_checkQuantityProduct){
+                    $tbl = $p->updateProduct($soLuong, $maGioHang);
+                    if($tbl){
+                        echo "<script> alert('cập nhật số lượng thành công')</script>";    
+                        return $tbl;
+                    }else{
+                        echo "<script> alert('cập nhật số lượng thất bại')</script>";    
+                    }
                 }else{
-                    echo "<script> alert('cập nhật số lượng thất bại')</script>";    
+                    echo "<script> alert('Số lượng tồn kho không đủ')</script>";   
                 }
             }else{
-                echo "<script> alert('Số lượng tồn kho không đủ')</script>";   
+                echo "<script> alert('Số lượng phải lớn hơn 0')</script>";   
             }
         };
     }
