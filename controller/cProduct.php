@@ -13,6 +13,20 @@
             return $tbl;
         }
 
+
+        function selectAssessByProduct($MaSanPham){
+            $p = new ConnectDB();
+            // $con;
+            if($p -> connect_DB($con)){
+                $str = "SELECT * FROM noidungdanhgia WHERE MaSanPham like N'%$MaSanPham%'";
+                $tbl = mysqli_query($con, $str);
+                $p -> closeDB($con);
+                return $tbl;
+            }else{
+                return false;
+            }
+        }
+
         function getAllProductBySearch($search){
             $p = new MProduct();
             $tbl = $p -> selectAllProductBySearch($search);

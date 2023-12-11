@@ -28,6 +28,8 @@
             }
         }
 
+
+
         function selectAllProductBySearch($search){
             $p = new ConnectDB();
             // $con;
@@ -39,7 +41,10 @@
             }else{
                 return false;
             }
-        }
+        } 
+
+
+        
 
         function selectDelProduct($MaSanPham){
             $p = new ConnectDB();

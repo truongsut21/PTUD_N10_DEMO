@@ -122,7 +122,7 @@ function showProduct($tbl)
                                     //$productId=1;
                                     include_once("view/vDanhgia.php");
                                     $p = new vDanhgia();
-                                    $p->viewAllAssess();
+                                    $p->viewAllAssessByProduct($row["MaSanPham"]);
                                 
                            echo  "</div>
                             </div>

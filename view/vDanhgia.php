@@ -3,10 +3,10 @@ include_once("controller/cProduct.php");
 class vDanhgia
 {
  
-    function viewAllAssess()
+    function viewAllAssessByProduct($MaSanPham)
     {
         $p = new CProduct();
-        $tbl = $p -> getAllAssess();
+        $tbl = $p -> selectAssessByProduct($MaSanPham);
         showAssess($tbl);
     }
 
@@ -18,7 +18,7 @@ if ($tbl) {
     if (mysqli_num_rows($tbl) >= 0) {
         if (true) {
         while ($row = mysqli_fetch_assoc($tbl)) {
-            if ($row["MaDanhGia"]) {
+            if ($row["MaSanPham"] == $_REQUEST["MaSanPham"]) {
 
                 echo "
                 
