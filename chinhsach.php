@@ -58,6 +58,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <?php
                                 // Kiểm tra xem đã đăng nhập hay chưa

@@ -63,8 +63,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i
-                                        class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
                                 <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi
                                     đăng ký thành viên</li>
                             </ul>
@@ -74,6 +73,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <?php
                                 // Kiểm tra xem đã đăng nhập hay chưa
@@ -101,7 +101,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                     $kq = mysqli_fetch_array($name);
                                     echo $kq["HoTen"];
                                     //}
-                                
+
                                     echo '</button>';
                                     echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
@@ -137,7 +137,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             </li>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
+                                    <li>
+                                        <?php
+                                        if (isset($_SESSION['MaKhachHang'])) {
+                                            echo '<a href="payment.php">Đặt hàng</a>';
+                                        } else {
+                                            echo '<a href="./view/dangnhap.php">Đặt hàng</a>';
+                                        }
+                                        ?></li>
                                     <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>
@@ -206,10 +213,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
     <!-- Map Begin -->
     <div class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858169091027!2d106.68427047365611!3d10.822164158351242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1702193485364!5m2!1svi!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858169091027!2d106.68427047365611!3d10.822164158351242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1702193485364!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="map-inside">
             <i class="icon_pin"></i>
             <div class="inside-widget">
@@ -288,8 +292,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12"
-                    style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
+                <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
                             <p> Copyright &copy; NumberTwo</p>

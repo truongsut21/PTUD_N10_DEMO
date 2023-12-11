@@ -154,7 +154,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <li><a href="../indexuser.php">Trang Chủ</a>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="../cart.php">Đặt hàng</a></li>
+                                    <li><a href="../payment.php">Đặt hàng</a></li>
                                     <li><a href="../orderManage.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>

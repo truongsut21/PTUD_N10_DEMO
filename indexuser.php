@@ -109,10 +109,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <div class="col-lg-12">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="indexuser.php">Trang Chủ</a>
+                            <li>    <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<a href="indexuser.php">Trang Chủ</a>';
+                                } else {
+                                    echo '<a href="index.php">Trang Chủ</a>';
+                                }
+                                ?>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="cart.php">Đặt hàng</a></li>
+                                    <li><a href="payment.php">Đặt hàng</a></li>
                                     <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>

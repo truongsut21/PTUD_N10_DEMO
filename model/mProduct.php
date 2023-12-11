@@ -29,7 +29,6 @@
         }
 
 
-
         function selectAllProductBySearch($search){
             $p = new ConnectDB();
             // $con;
@@ -43,8 +42,6 @@
             }
         } 
 
-
-        
 
         function selectDelProduct($MaSanPham){
             $p = new ConnectDB();

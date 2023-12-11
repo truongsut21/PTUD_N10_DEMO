@@ -1,3 +1,14 @@
+<?php
+session_start();
+$conn = mysqli_connect("localhost", "root", "", "mypham");
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_unset(); // Xóa tất cả các biến trong session
+    session_destroy(); // Hủy session
+    header('location: index.php'); // Chuyển hướng về trang login.php
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -37,6 +48,55 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-4 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
+                                <?php
+                                // Kiểm tra xem đã đăng nhập hay chưa
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    // Nếu đã đăng nhập, hiển thị các biểu tượng khác
+                                    echo '<a href="#"><i class="fa fa-shopping-bag"></i></a>';
+                                    // Thêm các biểu tượng khác nếu cần
+                                } else {
+                                    // Nếu chưa đăng nhập, hiển thị biểu tượng đăng nhập
+                                    echo '<a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>';
+                                }
+                                ?>
+                            </div>
+
+                            <div class="header__top__right__auth">
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<div class="dropdown">';
+                                    echo '<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+
+                                    // if (isset($_SESSION['MaKhachHang'])) {
+                                    $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                    $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                    $kq = mysqli_fetch_array($name);
+                                    echo $kq["HoTen"];
+                                    //}
+                                
+                                    echo '</button>';
+                                    echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                    </div>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<a href="./view/dangnhap.php" style="font-family: Cairo, sans-serif; font-size: 15px;">Đăng nhập</a>';
+                                }
+                                ?>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+
 
                 </div>
             </div>
@@ -75,7 +135,7 @@
                             </li>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="cart.php">Đặt hàng</a></li>
+                                    <li><a href="payment.php">Đặt hàng</a></li>
                                     <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>

@@ -53,6 +53,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <?php
                                 // Kiểm tra xem đã đăng nhập hay chưa
@@ -132,8 +133,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             </li>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
-                                    <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
+                                    <li><a href="payment.php">Đặt hàng</a></li>
+                                    <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>
                             <li><a href="shop.php">Sản Phẩm</a></li>
