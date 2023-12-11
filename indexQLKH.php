@@ -368,7 +368,7 @@ if (isset($_REQUEST['adminButton'])) {
                                     </select>
                                     <small id="DiaChi-mess"></small> -->
                             <?php
-                            include_once("Controller/cLoaiSP.php");
+                            include_once("Controller/cLoaiSanPham.php");
                             $cloai = new CLoaiSP();
                             $tbl = $cloai->getAllLoaiSP();
 
