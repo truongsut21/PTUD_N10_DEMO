@@ -75,27 +75,27 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <div class="header__top__right__auth">
                                 <?php
                                 if (isset($_SESSION['MaKhachHang'])) {
-                                echo '<div class="dropdown">';
+                                    echo '<div class="dropdown">';
                                     echo '<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                                        
-                                        // if (isset($_SESSION['MaKhachHang'])) {
-                                            $tenTaiKhoan = $_SESSION['MaKhachHang'];
-                                            $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
-                                            $kq = mysqli_fetch_array($name);
-                                            echo $kq["HoTen"];
-                                        //}
-                                        
+
+                                    // if (isset($_SESSION['MaKhachHang'])) {
+                                    $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                    $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                    $kq = mysqli_fetch_array($name);
+                                    echo $kq["HoTen"];
+                                    //}
+                                
                                     echo '</button>';
                                     echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
                                         <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
                                         <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
                                     </div>';
-                                echo '</div>';
-                                    }else{
+                                    echo '</div>';
+                                } else {
                                     echo '<a href="./view/dangnhap.php" style="font-family: Cairo, sans-serif; font-size: 15px;">Đăng nhập</a>';
-                                    }
+                                }
                                 ?>
                             </div>
 
@@ -110,7 +110,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <div class="col-lg-12">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="index.php">Trang Chủ</a>
+                            <li>
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<a href="indexuser.php">Trang Chủ</a>';
+                                } else {
+                                    echo '<a href="index.php">Trang Chủ</a>';
+                                }
+                                ?>
+                            </li>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
