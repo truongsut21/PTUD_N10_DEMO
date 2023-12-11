@@ -108,7 +108,7 @@
             <div class="form-group col-md-7">
                 <label for="">Loại sản phẩm</label>
                 <?php
-                include_once("Controller/cLoaiSP.php");
+                include_once("Controller/cLoaiSanPham.php");
                 $cloai = new CLoaiSP();
                 $tbl = $cloai->getAllLoaiSP();
 
