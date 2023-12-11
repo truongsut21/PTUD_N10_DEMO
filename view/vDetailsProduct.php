@@ -9,12 +9,7 @@ class vDetailsProduct
         showProduct($tbl);
     }
 
-    function viewAllAssess()
-    {
-        $p = new CProduct();
-        $tbl = $p -> getAllAssess();
-        showProduct($tbl);
-    }
+
 }
 
 function showProduct($tbl)
@@ -23,6 +18,7 @@ function showProduct($tbl)
         if (mysqli_num_rows($tbl) >= 0) {
             if (true) {
                 while ($row = mysqli_fetch_assoc($tbl)) {
+                    //$productId == $_REQUEST["MaSanPham"];
                     if ($row["MaSanPham"] == $_REQUEST["MaSanPham"]) {
                         echo "
                            <div class='product__details__pic__item'>
@@ -121,8 +117,13 @@ function showProduct($tbl)
 
                             <div class='tab-pane' id='tabs-3' role='tabpanel'>
                             <div class='product__details__tab__desc'>
-                                <p></p>
-                            </div>
+                                <p></p>";
+                                    //$productId=1;
+                                    include_once("view/vDanhgia.php");
+                                    $p = new vDanhgia();
+                                    $p->viewAllAssess();
+                                
+                           echo  "</div>
                             </div>
                       
                        
@@ -131,8 +132,6 @@ function showProduct($tbl)
                             </div>
                             </div>
                         </div>
-                                 
-                               
                                     ";
                             }
                         }

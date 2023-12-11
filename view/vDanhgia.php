@@ -9,6 +9,7 @@ class vDanhgia
         $tbl = $p -> getAllAssess();
         showAssess($tbl);
     }
+
 }
 
 function showAssess($tbl)

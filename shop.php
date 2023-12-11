@@ -1,5 +1,17 @@
+<?php
+session_start();
+$conn = mysqli_connect("localhost", "root", "", "mypham");
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_unset(); // Xóa tất cả các biến trong session
+    session_destroy(); // Hủy session
+    header('location: index.php'); // Chuyển hướng về trang login.php
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -30,8 +42,10 @@
                     <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i
+                                        class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi
+                                    đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -39,14 +53,47 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
-                                <a href="contact.php"><i class="fa fa-phone"></i></a>                   
-                                <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
+                                <?php
+                                // Kiểm tra xem đã đăng nhập hay chưa
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    // Nếu đã đăng nhập, hiển thị các biểu tượng khác
+                                    echo '<a href="#"><i class="fa fa-shopping-bag"></i></a>';
+                                    // Thêm các biểu tượng khác nếu cần
+                                } else {
+                                    // Nếu chưa đăng nhập, hiển thị biểu tượng đăng nhập
+                                    echo '<a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>';
+                                }
+                                ?>
                             </div>
-                        
+
                             <div class="header__top__right__auth">
-                                <a href="#"></a>
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<div class="dropdown">';
+                                    echo '<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+
+                                    // if (isset($_SESSION['MaKhachHang'])) {
+                                    $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                    $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                    $kq = mysqli_fetch_array($name);
+                                    echo $kq["HoTen"];
+                                    //}
+                                
+                                    echo '</button>';
+                                    echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                    </div>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<a href="./view/dangnhap.php" style="font-family: Cairo, sans-serif; font-size: 15px;">Đăng nhập</a>';
+                                }
+                                ?>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -63,29 +110,37 @@
                 </div>
 
                 <div class="hero__search">
-                <div class="hero__search__form">
-                    <form action="#">
-                        <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
-                        <button type="submit" class="site-btn">TÌM</button>
-                    </form>
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
+                            <button type="submit" class="site-btn">TÌM</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
                 <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="index.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
-                                <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="contact.php">Liên Hệ</a></li>
-                        <li><a href="chinhsach.php">Chính Sách</a></li>
-                    </ul>
-                </nav>
+                    <nav class="header__menu">
+                        <ul>
+                            <li>
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<a href="indexuser.php">Trang Chủ</a>';
+                                } else {
+                                    echo '<a href="index.php">Trang Chủ</a>';
+                                }
+                                ?>
+                            </li>
+                            <li><a href="#">Danh Mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
+                                    <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="contact.php">Liên Hệ</a></li>
+                            <li><a href="chinhsach.php">Chính Sách</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -113,7 +168,7 @@
                 }
                 ?>
             </div>
-             <!--    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            <!--    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/xem1.jpg">
                             <ul class="featured__item__pic__hover">
@@ -217,7 +272,7 @@
                         </div>
                     </div>
                 </div>-->
-            
+
         </div>
     </section>
 
@@ -258,14 +313,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
+                <div class="col-lg-12"
+                    style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
                     <div class="footer__copyright" ">
-                        <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
-                            <p> Copyright &copy; NumberTwo</p>
-                        </div>
+                        <div class=" footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
+                        <p> Copyright &copy; NumberTwo</p>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </footer>
     <!-- Footer End -->
@@ -281,4 +337,5 @@
     <script src="js/main.js"></script>
 
 </body>
+
 </html>
