@@ -1,6 +1,13 @@
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "mypham");
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_unset(); // Xóa tất cả các biến trong session
+    session_destroy(); // Hủy session
+    header('location: index.php'); // Chuyển hướng về trang login.php
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -23,6 +30,9 @@ $conn = mysqli_connect("localhost", "root", "", "mypham");
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Bạn có thể thêm dòng sau vào phần head của trang web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 </head>
 
@@ -61,37 +71,36 @@ $conn = mysqli_connect("localhost", "root", "", "mypham");
                                 }
                                 ?>
                             </div>
+
                             <div class="header__top__right__auth">
                                 <?php
-                                // Kiểm tra xem đã đăng nhập hay chưa
                                 if (isset($_SESSION['MaKhachHang'])) {
-                                    // Nếu đã đăng nhập, hiển thị thông tin người dùng
-                                    echo '<div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-
-                                    $tenTaiKhoan = $_SESSION['MaKhachHang'];
-                                    $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
-                                    $kq = mysqli_fetch_array($name);
-                                    echo $kq["HoTen"];
-
-                                    echo '</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
-                            <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
-                            <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
-                        </div>
-                    </div>';
-                                } else {
-                                    // Nếu chưa đăng nhập, hiển thị nút đăng nhập
+                                echo '<div class="dropdown">';
+                                    echo '<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                                        
+                                        // if (isset($_SESSION['MaKhachHang'])) {
+                                            $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                            $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                            $kq = mysqli_fetch_array($name);
+                                            echo $kq["HoTen"];
+                                        //}
+                                        
+                                    echo '</button>';
+                                    echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                    </div>';
+                                echo '</div>';
+                                    }else{
                                     echo '<a href="./view/dangnhap.php" style="font-family: Cairo, sans-serif; font-size: 15px;">Đăng nhập</a>';
-                                }
+                                    }
                                 ?>
                             </div>
+
                         </div>
                     </div>
-
-
 
                 </div>
             </div>
@@ -118,7 +127,6 @@ $conn = mysqli_connect("localhost", "root", "", "mypham");
         </div>
     </header>
 
-    </header>
 
     <!-- Header Section End -->
     <br>
@@ -335,11 +343,11 @@ $conn = mysqli_connect("localhost", "root", "", "mypham");
                     style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
                     <div class="footer__copyright">
                         <div class=" footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
-                        <p> Copyright &copy; NumberTwo</p>
+                            <p> Copyright &copy; NumberTwo</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </footer>
     <!-- Footer End -->
@@ -359,5 +367,9 @@ $conn = mysqli_connect("localhost", "root", "", "mypham");
     <script src="./js/main.js"></script>
 
 </body>
+<!-- Bạn có thể thêm dòng sau trước đóng thẻ body -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
 
 </html>
