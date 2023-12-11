@@ -53,16 +53,6 @@ $p->handleAddToCart()
                     <div class="product__details__pic">
 
                         <?php
-                        include_once("view/vDetailsProduct.php");
-                        $p = new vDetailsProduct();
-                        $p->viewAllProducts();
-                        ?>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="product__details__text">
-                            </div>
-                        </div>
-
-                        <?php
                         include_once("view/vDanhgia.php");
                         $p = new vDanhgia();
                         $p->viewAllAssess();
@@ -112,7 +102,7 @@ $p->handleAddToCart()
             </div>
             <div class="row">
                 <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
-                    <div class="footer__copyright">
+                    <div class="footer__copyright" ">
                         <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
                             <p> Copyright &copy; NumberTwo</p>
                         </div>

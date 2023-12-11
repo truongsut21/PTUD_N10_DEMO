@@ -19,9 +19,7 @@
             $p = new ConnectDB();
             // $con;
             if ($p->connect_DB($con)) {
-                $str = "SELECT sp.MaSanPham, nddg.NoiDungDanhGia, nddg.ThoiGianDanhGia,nddg.HinhAnh,nddg.SoSao,nddg.MaKhachHang
-                FROM sanpham sp
-                INNER JOIN noidungdanhgia nddg ON nddg.MaSanPham = sp.MaSanPham";
+                $str = "SELECT * FROM noidungdanhgia";
                 $tbl = mysqli_query($con, $str);
                 $p->closeDB($con);
                 return $tbl;

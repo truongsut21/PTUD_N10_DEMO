@@ -112,36 +112,40 @@ function showProduct($tbl)
 
                             <div class='tab-pane' id='tabs-2' role='tabpanel'>
                                 <div class='product__details__tab__desc'>
-                                    <p><b>Mã sản phẩm</b> " . $row['MaSanPham'] . "</p>
-                                    <p><b>Tên sản phẩm</b> " . $row['TenSanPham'] . "</p>
-                                    <p><b>Thương hiệu</b> " . $row['ThuongHieu'] . "</p>
+                                    <p><b>Mã sản phẩm:</b> " . $row['MaSanPham'] . "</p>
+                                    <p><b>Tên sản phẩm:</b> " . $row['TenSanPham'] . "</p>
+                                    <p><b>Thương hiệu:</b> " . $row['ThuongHieu'] . "</p>
                                 </div>
                             </div>
-                      
-  
-                        
-                            <div class='tab-pane active' id='tabs-3' role='tabpanel'>
-                              <div class='product__details__tab__desc'>
-                                <p>" . $row['TenSanPham'] . "</a></p>
-                              </div>
-                            </div> 
-                       
-                        
-                        </div>
 
-                        
-                          
-                        </div>
-                    </div>
-                </div>
-                         
+
+                            <div class='tab-pane' id='tabs-3' role='tabpanel'>
+                            <div class='product__details__tab__desc'>
+                                <p></p>
+                            </div>
+                            </div>
+                      
                        
-                            ";
+                            </div>  
+                                             
+                            </div>
+                            </div>
+                        </div>
+                                 
+                               
+                                    ";
+                            }
+                        }
                     }
+                } else {
+                    echo 'Vui lòng nhập dữ liệu!';
                 }
             }
-        } else {
-            echo 'Vui lòng nhập dữ liệu!';
         }
-    }
-}
+  
+
+                        
+                
+
+                        
+   
