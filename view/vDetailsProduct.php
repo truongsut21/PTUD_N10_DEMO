@@ -1,6 +1,7 @@
 <?php
 include_once("controller/cProduct.php");
 class vDetailsProduct
+
 {
     function viewAllProducts()
     {
@@ -13,7 +14,7 @@ class vDetailsProduct
     {
         $p = new CProduct();
         $tbl = $p -> getAllAssess();
-        showProduct($tbl);
+        showAssess($tbl);
     }
 }
 
@@ -142,10 +143,8 @@ function showProduct($tbl)
                 }
             }
         }
-  
-
-                        
-                
-
+             
+        
+     
                         
    
