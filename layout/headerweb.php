@@ -1,19 +1,3 @@
-<?php
-session_start();
-ob_start();
-
-// if (!isset($_SESSION['MaKhachHang'])) {
-//     header('location: view/dangnhap.php');
-//     exit();
-// }
-
-if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    session_unset(); // Xóa tất cả các biến trong session
-    session_destroy(); // Hủy session
-    header('location: view/dangnhap.php'); // Chuyển hướng về trang login.php
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -34,6 +18,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../css/xemsanpham.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,33 +37,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
-                                <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                            <div class="dropdown">
-                                    <button  class="btn dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Xem thêm
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="./view/dangnhap.php">Đăng nhập</a>
-                                    <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
-                                    <a class="dropdown-item" href="../view/capnhatttcn.php">Cập nhật thông tin</a>
-                                    <a class="dropdown-item" href="../view/doimatkhau.php">Đổi mật khẩu</a>
-                                    <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
-                                  
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -103,20 +62,28 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 </div>
 
                 <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="indexuser.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="cart.php">Đặt hàng</a></li>
-                                <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="contact.php">Liên Hệ</a></li>
-                        <li><a href="chinhsach.php">Chính Sách</a></li>
-                    </ul>
-                </nav>
+                    <nav class="header__menu">
+                        <ul>
+                            <li>
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<a href="indexuser.php">Trang Chủ</a>';
+                                } else {
+                                    echo '<a href="index.php">Trang Chủ</a>';
+                                }
+                                ?>
+                            </li>
+                            <li><a href="#">Danh Mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="cart.php">Đặt hàng</a></li>
+                                    <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="contact.php">Liên Hệ</a></li>
+                            <li><a href="chinhsach.php">Chính Sách</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -125,6 +92,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <br>
 
 </body>
+<!-- Bạn có thể thêm dòng sau trước đóng thẻ body -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

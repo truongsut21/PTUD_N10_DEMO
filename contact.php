@@ -1,3 +1,14 @@
+<?php
+session_start();
+$conn = mysqli_connect("localhost", "root", "", "mypham");
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_unset(); // Xóa tất cả các biến trong session
+    session_destroy(); // Hủy session
+    header('location: index.php'); // Chuyển hướng về trang login.php
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -21,6 +32,21 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="./css/xemsanpham.css" type="text/css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/owl.carousel.min.css" type="text/css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Bạn có thể thêm dòng sau vào phần head của trang web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -31,109 +57,100 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-6">
-                    <div class="header__top__left">
-                        <ul>
-                            <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                            <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="header__top__right">
-                        <div class="header__top__right__social">
-                            <a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>
-                            <a href="contact.php"><i class="fa fa-phone"></i></a>
-                            <a href="./view/dangnhap.php"><i class="fa fa-shopping-bag"></i></a>
-                        </div>
-                        <div class="header__top__right__auth">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="header__menu">
-                    <ul>
-                        <li><a href="index.php">Trang Chủ</a>
-                        <li><a href="#">Danh Mục</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
-                                <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i
+                                        class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi
+                                    đăng ký thành viên</li>
                             </ul>
-                        </li>
-                        <li><a href="shop.php">Sản Phẩm</a></li>
-                        <li><a href="contact.php">Liên Hệ</a></li>
-                        <li><a href="chinhsach.php">Chính Sách</a></li>
-                    </ul>
-                </nav>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
+                                <?php
+                                // Kiểm tra xem đã đăng nhập hay chưa
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    // Nếu đã đăng nhập, hiển thị các biểu tượng khác
+                                    echo '<a href="#"><i class="fa fa-shopping-bag"></i></a>';
+                                    // Thêm các biểu tượng khác nếu cần
+                                } else {
+                                    // Nếu chưa đăng nhập, hiển thị biểu tượng đăng nhập
+                                    echo '<a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>';
+                                }
+                                ?>
+                            </div>
+
+                            <div class="header__top__right__auth">
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<div class="dropdown">';
+                                    echo '<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+
+                                    // if (isset($_SESSION['MaKhachHang'])) {
+                                    $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                    $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                    $kq = mysqli_fetch_array($name);
+                                    echo $kq["HoTen"];
+                                    //}
+                                
+                                    echo '</button>';
+                                    echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
+                                        <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                    </div>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<a href="./view/dangnhap.php" style="font-family: Cairo, sans-serif; font-size: 15px;">Đăng nhập</a>';
+                                }
+                                ?>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-    <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-   <!--
-    <section class="hero hero-normal">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
+                <div class="col-lg-12">
+                    <nav class="header__menu">
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <li>
+                                <?php
+                                if (isset($_SESSION['MaKhachHang'])) {
+                                    echo '<a href="indexuser.php">Trang Chủ</a>';
+                                } else {
+                                    echo '<a href="index.php">Trang Chủ</a>';
+                                }
+                                ?>
+                            </li>
+                            <li><a href="#">Danh Mục</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./view/dangnhap.php">Đặt hàng</a></li>
+                                    <li><a href="./view/dangnhap.php">Xem lịch sử mua hàng</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="contact.php">Liên Hệ</a></li>
+                            <li><a href="chinhsach.php">Chính Sách</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- Hero Section End -->
+    </header>
+
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
@@ -142,7 +159,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>Liên Hệ</h2>
-                      
+
                     </div>
                 </div>
             </div>
@@ -189,8 +206,9 @@
 
     <!-- Map Begin -->
     <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858169091027!2d106.68427047365611!3d10.822164158351242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1702193485364!5m2!1svi!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.858169091027!2d106.68427047365611!3d10.822164158351242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1702193485364!5m2!1svi!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="map-inside">
             <i class="icon_pin"></i>
@@ -270,8 +288,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
-                    <div class="footer__copyright" ">
+                <div class="col-lg-12"
+                    style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
+                    <div class="footer__copyright">
                         <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
                             <p> Copyright &copy; NumberTwo</p>
                         </div>
@@ -295,5 +314,8 @@
 
 
 </body>
+<!-- Bạn có thể thêm dòng sau trước đóng thẻ body -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 
 </html>
