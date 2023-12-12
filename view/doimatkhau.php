@@ -34,7 +34,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
             $kq = $p->capnhatmatkhau($oldPassword, $hashedPassword,$mkh);
                 if($kq==1){
                     echo "<script> alert('Đổi mật khẩu thành công')</script>";
-                    echo header("refresh: 0; url='../indexuser.php'");
+                    echo header("refresh: 0; url='#'");
                 }
                 else{
                     $txt = "Lỗi";
