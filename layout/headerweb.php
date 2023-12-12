@@ -58,11 +58,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 // Kiểm tra xem đã đăng nhập hay chưa
                                 if (isset($_SESSION['MaKhachHang'])) {
                                     // Nếu đã đăng nhập, hiển thị các biểu tượng khác
-                                    echo '<a href="#"><i class="fa fa-shopping-bag"></i></a>';
+                                    echo '<a href="cart.php"><i class="fa fa-shopping-bag"></i></a>';
                                     // Thêm các biểu tượng khác nếu cần
                                 } else {
                                     // Nếu chưa đăng nhập, hiển thị biểu tượng đăng nhập
-                                    echo '<a href="./view/dangnhap.php"><i class="fa fa-user"></i></a>';
+                                    echo '<a href="./view/dangnhap.php"><i class="fa fa-shopping-bag"></i></a>';
                                 }
                                 ?>
                             </div>
