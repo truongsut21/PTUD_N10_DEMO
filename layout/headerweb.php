@@ -13,23 +13,24 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>XEM SẢN PHẨM</title>
+    <title>Chính sách</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <!-- Css Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/stylee.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/xemsanpham.css" type="text/css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/xemsanpham.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Bạn có thể thêm dòng sau vào phần head của trang web -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -51,6 +52,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="col-lg-4 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
+                                <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
                                 <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <?php
                                 // Kiểm tra xem đã đăng nhập hay chưa
@@ -94,9 +96,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                         </div>
                     </div>
-
-                    
-
 
                 </div>
             </div>
@@ -151,12 +150,22 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <!-- Header Section End -->
     <br>
 
+        <!-- Js Plugins -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.nice-select.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/mixitup.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
-<!-- Bạn có thể thêm dòng sau trước đóng thẻ body -->
+
+    <!-- Bạn có thể thêm dòng sau trước đóng thẻ body -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 </html>

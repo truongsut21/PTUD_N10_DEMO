@@ -13,26 +13,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LIÊN HỆ</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="./css/xemsanpham.css" type="text/css">
-
+    <title>Chính sách</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <!-- Css Styles -->
@@ -40,13 +26,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="./css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="./css/owl.carousel.min.css" type="text/css">
-
+    <link rel="stylesheet" href="./css/xemsanpham.css" type="text/css">
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <!-- Bạn có thể thêm dòng sau vào phần head của trang web -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -101,7 +86,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                     $kq = mysqli_fetch_array($name);
                                     echo $kq["HoTen"];
                                     //}
-
+                                
                                     echo '</button>';
                                     echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
@@ -314,6 +299,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.nice-select.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/jquery.slicknav.js"></script>
+    <script src="./js/mixitup.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
 
 
 </body>
