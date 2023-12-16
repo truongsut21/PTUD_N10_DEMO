@@ -10,7 +10,7 @@
                         </form>
                     </div>
 
-                    <div class="timKiem col-md-4">
+                    <div class="timKiem col-md-6">
                         <h2>DANH SÁCH ĐƠN HÀNG</h2>
                     </div>
                     <div class="timKiem DonHang col-md-2" ><a href="TaoDonHangNVBH.php">
