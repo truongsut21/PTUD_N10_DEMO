@@ -33,18 +33,26 @@ class CPay
             $soLuong = $_REQUEST['selected-quantity']; // mảng 
             $idOrder = false;
 
+            $checkQuantityInStock = true; //
             $checkQuantity = true; //
+
             foreach ($maSanPham as $index => $item) {
                 // kiểm tra số lượng tồn kho có đáp ứng được không
                 $resultProductsInStock =  checkQuantityProduct($soLuong[$index], $maSanPham[$index]);
                 if (!$resultProductsInStock) {
                     echo "<script> alert('số lượng của sản phẩm: $maSanPham[$index] trong kho không đủ') </script>";
+                    $checkQuantityInStock = false;
+                }
+
+                if($soLuong[$index] <= 0){
                     $checkQuantity = false;
                 }
             };
 
-            if ($soLuong > 0) {
-                if ($checkQuantity) {
+
+
+            if ($checkQuantity) {
+                if ($checkQuantityInStock) {
                     // tạo hoá đơn 
                     $idOrder = createOrder($tongTienDonHang, $maNhanVien, $DiaChi, $HoTen, $SoDienThoai, $Email);
                     foreach ($maSanPham as $index => $item) {
@@ -72,6 +80,8 @@ class CPay
                             }
                         }
                     }
+                } else {
+                    echo "<script>alert('số lượng sản phẩm trong kho không đủ')</script>";
                 }
             } else {
                 echo "<script>alert('số lượng sản phẩm phải lớn hơn 0')</script>";
