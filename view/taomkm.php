@@ -9,6 +9,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
             $email = $_SESSION['employee_id_check'];  
             $newPassword=$_REQUEST["newPassword"];
             $renewPassword=$_REQUEST["renewPassword"];
+            $hashedPassword = md5($newPassword);
             $checkpass = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
         if($email){
             if(empty($renewPassword) || empty($newPassword)){
@@ -21,7 +22,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
             else{
                 include_once("../Controller/ckhachhang.php");
                 $p =  new controlProduct();
-                $kq = $p->capnhatmatkhau1($email, $newPassword);
+                $kq = $p->capnhatmatkhau1($email, $hashedPassword);
                 if($kq==1){
                     echo "<script> alert('Tạo mật khẩu mới thành công')</script>";
                     echo header("refresh: 0; url='dangnhap.php'");
@@ -69,7 +70,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text" name="newPassword" value="<?php echo $mkdefa; ?>" placeholder="Nhập mật khẩu mới">
+                        <input class="input100" type="password" name="newPassword" value="<?php echo $mkdefa; ?>" placeholder="Nhập mật khẩu mới">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>

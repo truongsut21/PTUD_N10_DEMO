@@ -86,8 +86,8 @@ class modelProduct{
         $con;
         $p= new clsketnoi();
         if($p->ketnoiDB($con)){
-            $hashedPassword = md5($newPassword);
-            $string = "UPDATE khachhang SET MatKhau = '$hashedPassword' WHERE MaKhachHang = $email";
+            //$hashedPassword = md5($newPassword);
+            $string = "UPDATE khachhang SET MatKhau = '$newPassword' WHERE MaKhachHang = $email";
             $kq = mysqli_query($con,$string);
             $p->dongKetNoi($con);
             return $kq;

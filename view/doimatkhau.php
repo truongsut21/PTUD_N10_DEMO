@@ -160,14 +160,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text" name="oldpass" value="<?php echo $mkc; ?>" placeholder="Nhập mật khẩu cũ">
+                        <input class="input100" type="password" name="oldpass" value="<?php echo $mkc; ?>" placeholder="Nhập mật khẩu cũ">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
                     </div>
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text" name="newpass" value="<?php echo $mkdefa; ?>" placeholder="Nhập mật khẩu mới">
+                        <input class="input100" type="password" name="newpass" value="<?php echo $mkdefa; ?>" placeholder="Nhập mật khẩu mới">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
