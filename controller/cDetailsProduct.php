@@ -62,7 +62,6 @@ class CDetailsProduct
             document.getElementById("redirectForm").submit();
           </script>';
             exit();
-            exit();
         }
     }
 }

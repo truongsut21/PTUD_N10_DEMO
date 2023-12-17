@@ -203,8 +203,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <div class="checkout__order__total">Tổng tiền <span id="total">0</span></div>
                                 <input type="hidden" name="tongTienDonHang" value="0" id="tongTienDonHang">
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
+                                <p>Vui lòng chọn phương thức thanh toán.</p>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
                                         Thanh toán khi nhận hàng
