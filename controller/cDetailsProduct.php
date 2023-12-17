@@ -19,11 +19,14 @@ class CDetailsProduct
             $quantity = $_REQUEST["quantity"];
             $idProduct = $_REQUEST["idProduct"];
             $idCustommer = getIdCustommer();
-            // kiểm tra số lượng sản phầm, nếu không đủ trả về số lượng còn trong kho
-            $resultCheckQuantityProduct = checkQuantityProduct($quantity, $idProduct);
 
             // kiểm tra sản phẩm đã tổn tại trong giỏ hàng chưa, nếu có trả về số lượng sản phẩm
             $resultCheckProductsAlreadyInCart = checkProductsAlreadyInCart($idProduct, $idCustommer);
+
+            // kiểm tra số lượng sản phầm, nếu không đủ trả về số lượng còn trong kho
+            $resultCheckQuantityProduct = checkQuantityProduct($quantity +  $resultCheckProductsAlreadyInCart, $idProduct);
+
+
 
             if ($quantity > 0) {
                 if ($resultCheckQuantityProduct) {
@@ -53,14 +56,28 @@ class CDetailsProduct
         }
 
         if (isset($_REQUEST["orderNow"])) {
-            echo '<form id="redirectForm" method="post" action="payment.php">
-            <input type="hidden" name="orderNow">
-            <input type="hidden" name="quantity" value=' . $_REQUEST["quantity"] . '>
-            <input type="hidden" name="idProduct" value=' . $_REQUEST["idProduct"] . '>
-          </form>
-          <script>
-            document.getElementById("redirectForm").submit();
-          </script>';
+            $quantity = $_REQUEST["quantity"];
+            $idProduct = $_REQUEST["idProduct"];
+
+            // kiểm tra sản phẩm đã tổn tại trong giỏ hàng chưa, nếu có trả về số lượng sản phẩm
+            $resultCheckProductsAlreadyInCart =  checkQuantityProduct($quantity, $idProduct);
+
+            if ($resultCheckProductsAlreadyInCart) {
+                echo '<form id="redirectForm" method="post" action="payment.php">
+                <input type="hidden" name="orderNow">
+                <input type="hidden" name="quantity" value=' . $_REQUEST["quantity"] . '>
+                <input type="hidden" name="idProduct" value=' . $_REQUEST["idProduct"] . '>
+              </form>
+              <script>
+                document.getElementById("redirectForm").submit();
+              </script>';
+            }else{
+                echo ' <script>
+                alert("so luong san pham khong du");
+                window.location.href = "xemsanpham.php?MaSanPham='.$_REQUEST["idProduct"].'";
+              </script>';
+            }
+
             exit();
         }
     }
@@ -121,6 +138,6 @@ function checkProductsAlreadyInCart($idProduct, $idCustommer)
     if ($row) {
         return $row['SoLuong'];
     } else {
-        return false;
+        return 0;
     }
 }
