@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 09, 2023 lúc 07:58 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Thời gian đã tạo: Th12 17, 2023 lúc 03:07 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,7 +68,8 @@ CREATE TABLE `giohang` (
 
 INSERT INTO `giohang` (`MaGioHang`, `SoLuong`, `MaKhachHang`, `MaSanPham`) VALUES
 (116, 4, 1, 2),
-(117, 3, 1, 4);
+(117, 3, 1, 4),
+(120, 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE `hoadon` (
   `MaKhachHang` int(11) DEFAULT NULL,
   `DiaChiGiaoHang` varchar(100) CHARACTER SET utf16 COLLATE utf16_general_ci NOT NULL,
   `HoTen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `SoDienThoai` int(11) NOT NULL,
+  `SoDienThoai` varchar(11) NOT NULL,
   `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -93,13 +94,13 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MaHoaDon`, `TongTien`, `NgayLap`, `MaNhanVien`, `MaKhachHang`, `DiaChiGiaoHang`, `HoTen`, `SoDienThoai`, `Email`) VALUES
-(222, 1578000, '2023-11-30', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
-(223, 460000, '2023-12-01', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
-(224, 99000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
-(225, 460000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', 816977959, 'myphamdep@gmail.com'),
-(227, 99000, '2023-12-08', 1, NULL, 'OFFLINE', 'do van truong', 1234567890, 'dotruong@gmail.com'),
-(228, 198000, '2023-12-09', NULL, 6, '20 Dương Quảng Hàm', 'Đỗ Vân Trường', 905371627, 'dotruong0701@gmail.com'),
-(229, 99000, '2023-12-09', NULL, 6, '80 Dương Quảng Hàm', 'Đỗ Vân Trường', 905371627, 'dotruong0701@gmail.com');
+(222, 1578000, '2023-11-30', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', '0923913789', 'myphamdep@gmail.com'),
+(223, 460000, '2023-12-01', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', '0816977959', 'myphamdep@gmail.com'),
+(224, 99000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', '0816977959', 'myphamdep@gmail.com'),
+(225, 460000, '2023-12-03', NULL, 1, '12, Nguyễn Văn Bảo', 'Nguyễn Văn Qúy', '0816977959', 'myphamdep@gmail.com'),
+(227, 99000, '2023-12-08', 1, NULL, 'OFFLINE', 'do van truong', '0987612345', 'dotruong@gmail.com'),
+(228, 198000, '2023-12-09', NULL, 2, '20 Dương Quảng Hàm', 'Đỗ Vân Trường', '0905371627', 'dotruong0701@gmail.com'),
+(229, 99000, '2023-12-09', NULL, 2, '80 Dương Quảng Hàm', 'Đỗ Vân Trường', '0705371627', 'dotruong0701@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -122,9 +123,8 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MaKhachHang`, `HoTen`, `SoDienThoai`, `DiaChi`, `MatKhau`, `Email`, `trangThai`) VALUES
-(1, 'Nguyễn Văn Qúy', '11', '12, Nguyễn Văn Bảo', '11', 'myphamdep@gmail.com', 1),
-(2, 'dỗ truồng', '22', ' 40 Dương Quảng Hàm - p5 - gò vấp', '22', 'dotruong0704@gmail.com', 1),
-(6, 'Đỗ Vân Trường', '0905371627', ' ', '527daa8571ebda305517f28686c3ad61', 'dotruong0701@gmail.com', 1);
+(1, 'Đỗ Vân Linh', '0923913789', '40 Dương Quảng Hàm - p5 - gò vấp', '', 'dotruong0704@gmail.com', 1),
+(2, 'Lâm Ngọc Long', '0923913691', ' ', '7d046ff5d7dc56da3f0b1e20bec27c12', 'lamngoclong1004@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ CREATE TABLE `loainhanvien` (
 INSERT INTO `loainhanvien` (`MaLoaiNhanVien`, `TenLoaiNhanVien`, `GhiChu`) VALUES
 (1, 'Bán Hàng', 'Bán hàng tại khu vực Gò Vấp'),
 (2, 'Quản lý kho', 'Quản lý kho tại khu vực Gò Vấp'),
-(3, 'Admin', 'chủ của hàng');
+(3, 'Admin', 'Chủ của hàng');
 
 -- --------------------------------------------------------
 
@@ -191,7 +191,7 @@ INSERT INTO `nhacungcap` (`MaNhaCungCap`, `TenNhaCungCap`, `GhiChu`) VALUES
 (1, 'MQ SKIN', 'Cung cấp các sản phẩm mỹ phẩm nghiên về thảo dược.'),
 (2, 'Mascara', 'Làm cong mi mắt'),
 (3, 'Naunau', 'Cung cấp các sản phẩm có mùi hương cuốn hút.'),
-(4, 'Skina', 'Cung cấp các sản phẩm ch?m sóc da từ thảo mộc tự nhiên.'),
+(4, 'Skina', 'Cung cấp các sản phẩm chăm sóc da từ thảo mộc tự nhiên.'),
 (5, 'Titione', 'Cung cấp các sản phẩm thân thiện với người dùng.');
 
 -- --------------------------------------------------------
@@ -216,13 +216,11 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`MaNhanVien`, `HoTen`, `MatKhau`, `Email`, `SoDienThoai`, `DiaChi`, `LoaiNhanVien`, `trangThai`) VALUES
-(1, 'Trần Tuấn Anh', '1', 'trantuananh@gmail.com', '1', '91 Nguyễn Văn Bảo, Gò Vấp, Hồ Chí Minh', 1, 1),
-(2, 'Trương Ngọc Bình', '12341234', 'truongngocbinh@gmail.com', '0789665431', '200 Phan Xích Long, Phú Nhuận, Hồ Chí Minh', 2, 1),
-(3, 'Lý Hữu Cảnh', '12344444', 'lyhuucanh@gmail.com', '0987666555', '22 Nguyễn Thái Sơn, Gò Vấp, Hồ Chí Minh', 1, 1),
-(4, 'Trần Minh Dự', '33338888', 'tranminhdu@gmail.com', '0788654332', '33 Lê Đức Thọ, Gò Vấp, Hồ Chí Minh', 2, 1),
-(5, 'Lê Hoàng Hữu', '66667777', 'lehoanghuu@gmail.com', '0998765443', '1 Phan Xích Long, Phú Nhuận, Hồ Chí Minh', 2, 1),
-(6, 'Diệu Linh', 'lonmay1234A@', 'dotruong0704@gmail.com', '0905371627', 'thon 9', 3, 2),
-(7, 'Nguyễn Thị Diệu Linh', 'A1234', 'linhdieu3001@gmail.com', '0336794265', 'Gò Vấp', 1, 0);
+(1, 'Trần Tuấn Anh', 'Long12345!', 'lamngoclong1004@gmail.com', '0923913691', '91 Nguyễn Văn Bảo, Gò Vấp, Hồ Chí Minh', 1, 1),
+(2, 'Trương Ngọc Bình', 'Le#45skjdc', 'truongngocbinh@gmail.com', '0789665431', '200 Phan Xích Long, Phú Nhuận, Hồ Chí Minh', 2, 1),
+(3, 'Lý Hữu Cảnh', 'cKskl0987!', 'lyhuucanh@gmail.com', '0987666555', '22 Nguyễn Thái Sơn, Gò Vấp, Hồ Chí Minh', 1, 1),
+(4, 'Trần Minh Dự', '1234#Liubs', 'tranminhdu@gmail.com', '0788654332', '33 Lê Đức Thọ, Gò Vấp, Hồ Chí Minh', 2, 1),
+(5, 'Lê Hoàng Hữu', 'sjsxab123#', 'lehoanghuu@gmail.com', '0998765443', '1 Phan Xích Long, Phú Nhuận, Hồ Chí Minh', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -248,17 +246,11 @@ INSERT INTO `noidungdanhgia` (`MaDanhGia`, `MaSanPham`, `ThoiGianDanhGia`, `NoiD
 (1, 1, '2023-10-16', 'Kem rất tốt, sử dụng cảm thấy rất an toàn và hiệu quả.', '', 0, 1),
 (2, 2, '2023-10-22', 'Sản phẩm đúng như mô tả, sẽ ủng hộ shop tiếp.', '', 0, 0),
 (3, 3, '2023-10-23', 'Phấn đẹp, rất lâu phai.', '', 0, 0),
-(14, 1, '2023-12-14', 'qưe', '', 3, 1),
+(14, 1, '2023-12-14', 'Sản phẩm đẹp quá', '', 3, 1),
 (15, 2, '2023-12-01', '', '', 3, 0),
 (16, 2, '2023-12-01', '', '', 3, 0),
-(17, 2, '2023-12-01', 'adasdasdas', '', 3, 0),
-(18, 2, '2023-12-01', 'adasdasdasdsafasfasdfasdfaewttgastgewtaew', '', 3, 1),
-(19, 2, '2023-12-01', '', '', 3, 1),
-(20, 2, '2023-12-01', '', '', 3, 1),
-(21, 4, '2023-12-01', '123', '', 3, 1),
-(22, 2, '2023-12-09', '123', 'Array', 2, 6),
-(23, 2, '2023-12-09', '', '', 3, 6),
-(24, 2, '2023-12-09', '', '', 4, 6);
+(17, 2, '2023-12-01', 'Sản phẩm rất tuyệt', '', 3, 0),
+(18, 2, '2023-12-01', 'Sản phẩm tốt quá', '', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -304,10 +296,10 @@ CREATE TABLE `phieukiemtrakho` (
 
 INSERT INTO `phieukiemtrakho` (`NgayKiemTra`, `MaSanPham`, `MaNhanVien`, `TrangThaiKiemTra`, `MaPhieuKiemTraKho`, `PhieuShow`) VALUES
 ('2023-11-25', 1, 1, 'sản phẩm ổn không hư hỏng', 6, 1),
-('2023-11-22', 2, 2, 'oke', 7, 1),
-('2023-11-22', 3, 3, 'oke', 8, 1),
-('2023-11-22', 4, 4, 'oke', 9, 1),
-('2023-11-22', 3, 4, 'oke', 10, 1),
+('2023-11-22', 2, 2, 'sản phẩm ổn không hư hỏng', 7, 1),
+('2023-11-22', 3, 3, 'sản phẩm ổn không hư hỏng', 8, 1),
+('2023-11-22', 4, 4, 'sản phẩm ổn không hư hỏng', 9, 1),
+('2023-11-22', 3, 4, 'sản phẩm ổn không hư hỏng', 10, 1),
 ('2023-12-06', 5, 2, 'sản phẩm ổn không hư hỏng', 20, 1);
 
 -- --------------------------------------------------------
@@ -334,14 +326,14 @@ INSERT INTO `phieunhapkho` (`MaPhieuNhapKho`, `NgayLapPhieuNhapKho`, `TrangThaiP
 (2, '2023-10-30', 'Chưa duyệt', 2, 2, 1),
 (3, '2023-10-30', 'Được duyệt', 3, 3, 1),
 (4, '2023-10-30', 'Được duyệt', 4, 4, 1),
-(21, '2023-11-14', 'oke', 1, 1, 1),
-(22, '2023-11-14', 'oke', 1, 1, 0),
-(23, '2023-11-16', 'oke', 3, 3, 0),
-(24, '2023-11-16', 'oke', 3, 3, 0),
-(25, '2023-11-16', 'oke', 3, 3, 0),
-(26, '2023-11-16', 'oke', 3, 3, 0),
-(27, '2023-11-28', 'oke', 1, 1, 1),
-(28, '2023-11-28', 'oke', 1, 1, 0),
+(21, '2023-11-14', 'Được duyệt', 1, 1, 1),
+(22, '2023-11-14', 'Được duyệt', 1, 1, 0),
+(23, '2023-11-16', 'Được duyệt', 3, 3, 0),
+(24, '2023-11-16', 'Được duyệt', 3, 3, 0),
+(25, '2023-11-16', 'Được duyệt', 3, 3, 0),
+(26, '2023-11-16', 'Được duyệt', 3, 3, 0),
+(27, '2023-11-28', 'Được duyệt', 1, 1, 1),
+(28, '2023-11-28', 'Được duyệt', 1, 1, 0),
 (29, '2023-11-22', 'Được duyệt', 5, 2, 1),
 (30, '2023-11-22', 'Được duyệt', 5, 2, 0);
 
@@ -365,8 +357,8 @@ CREATE TABLE `phieutrahang` (
 --
 
 INSERT INTO `phieutrahang` (`MaPhieuTraHang`, `MaChiTietDonHang`, `ThoiGianTraHang`, `SoLuong`, `LyDoTraHang`, `HinhAnh`) VALUES
-(1, 1, '2023-12-21', 12, '12313123', '134a'),
-(2, 133, '2023-12-01', 0, 'avcv', 'hinh anh 123'),
+(1, 1, '2023-12-21', 12, 'Hàng bị hỏng', '134a'),
+(2, 133, '2023-12-01', 2, 'Hàng bị vỡ', 'hinh anh 123'),
 (3, 132, '2023-12-09', 0, '', 'hinh anh 123'),
 (4, 132, '2023-12-09', 0, '', 'hinh anh 123'),
 (5, 132, '2023-12-09', 0, '', 'hinh anh 123'),
@@ -398,11 +390,11 @@ CREATE TABLE `phieuxuatkho` (
 INSERT INTO `phieuxuatkho` (`MaPhieuXuatKho`, `NgayLapPhieuXuatKho`, `TrangThaiPhieuXuatKho`, `MaNhanVien`, `MaSanPham`, `PhieuShow`) VALUES
 (1, '2023-11-02', 'Chưa duyệt', 1, 1, 1),
 (2, '2023-11-08', 'Chưa duyệt', 2, 2, 1),
-(5, '2023-11-14', 'oke', 1, 1, 1),
+(5, '2023-11-14', 'Được duyệt', 1, 1, 1),
 (6, '2023-11-15', 'Được duyệt', 3, 3, 1),
-(7, '2023-11-15', 'oke', 3, 3, 0),
-(8, '2023-11-22', 'oke', 1, 1, 1),
-(9, '2023-11-22', 'oke', 1, 1, 1),
+(7, '2023-11-15', 'Được duyệt', 3, 3, 0),
+(8, '2023-11-22', 'Được duyệt', 1, 1, 1),
+(9, '2023-11-22', 'Được duyệt', 1, 1, 1),
 (10, '2023-11-23', 'Được duyệt', 4, 5, 0),
 (11, '2023-11-23', 'Được duyệt', 4, 5, 1);
 
@@ -432,13 +424,10 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MaSanPham`, `TenSanPham`, `SoLuongTon`, `MoTa`, `GiaBan`, `GiaNhap`, `ThuongHieu`, `HinhAnh`, `HanSuDung`, `LoaiSanPham`, `NhaCungCap`, `trangThai`) VALUES
-(1, 'Mascara GECOMO', 0, 'Mascara làm cong mi mắt.', 179000, 79000, 'GECOMO', 'a1.jpg', '2024-10-23', 1, 1, 1),
+(1, 'Mascara GECOMO', 5, 'Mascara làm cong mi mắt.', 179000, 79000, 'GECOMO', 'a1.jpg', '2024-10-23', 1, 1, 1),
 (2, 'Phấn phủ PRAMY', 922, 'Phấn phủ làm mịn da', 99000, 39000, 'PRAMY', 'a2.jpg', '2025-10-15', 2, 2, 1),
-(3, 'Phấn phủ Pramy', 578, 'Phấn phủ làm mịn da', 490000, 290000, 'PRAMY', 'a3.jpg', '2025-10-01', 3, 3, 0),
 (4, 'Sữa rửa mặt Simple', 87, 'Sữa rửa mặt làm mịn da', 89000, 59000, 'Simple', 'a4.jpg', '2025-11-13', 4, 4, 1),
-(5, 'Sữa rửa mặt Hada Labo', 8, 'Sữa rửa mặt làm sáng da', 100000, 90000, 'Hada Labo', 'a5.jpg', '2023-11-29', 5, 5, 1),
-(14, 'Test', 5, 'Rửa mặt sạch 2', 1000000, 100000, 'Loreal', 'Test.jpg', '2023-11-22', 1, 1, 0),
-(15, 'Test', 5, 'Rửa mặt 2', 1000000, 100000, 'Loreal', 'Test.jpg', '2023-11-22', 1, 1, 0);
+(5, 'Sữa rửa mặt Hada Labo', 8, 'Sữa rửa mặt làm sáng da', 100000, 90000, 'Hada Labo', 'a5.jpg', '2023-11-29', 4, 5, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -555,7 +544,7 @@ ALTER TABLE `chitiethoadon`
 -- AUTO_INCREMENT cho bảng `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `MaGioHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `MaGioHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT cho bảng `hoadon`
@@ -567,7 +556,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `MaKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `loainhanvien`

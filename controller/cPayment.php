@@ -16,6 +16,13 @@ class CPay
         return $tbl;
     }
 
+    function getPriceProduct($maSanPham)
+    {
+        $p = new MPay();
+        $tbl = $p->getPriceProduct($maSanPham);
+        return $tbl;
+    }
+
 
     function handlePay()
     {
@@ -51,7 +58,6 @@ class CPay
 
                     // nếu đã tạo đơn hàng thành công thì tạo chi tiết hoá đơn
                     if ($idOrder) {
-                        echo "<script>alert('ma hoa don $idOrder')</script>";
 
                         $result_createDetailsOrder = createDetailsOrder(
                             $tongTien[$index],
@@ -60,12 +66,20 @@ class CPay
                             $idOrder
                         );
 
-                        // nếu thêm sản phẩm vào chi tiết sản phẩm thành công thì trừ đi số lượng đã thêm vào chi tiết
+
                         if ($result_createDetailsOrder) {
+
+                            if (isset($_REQUEST['orderNow'])) {
+                            } else {
+                                // xoả sản phẩm đã thanh toán trong  giỏ hàng
+                                deleteProductInCart($maKhachHang, $maSanPham[$index]);
+                            }
+                            // nếu thêm sản phẩm vào chi tiết sản phẩm thành công thì trừ đi số lượng đã thêm đặt
                             $quantityProductsInStock = getQuantityProduct($maSanPham[$index]);
                             updateProductsStock($maSanPham[$index], $quantityProductsInStock - $soLuong[$index]);
-                            // xoả sản phẩm đã thanh toán trong  giỏ hàng
-                            deleteProductInCart($maKhachHang, $maSanPham[$index]);
+
+
+
                             echo "<script> alert('thanh toán thành công')</script>";
                             echo header("refresh: 0; url = 'indexuser.php?'");
                         }
