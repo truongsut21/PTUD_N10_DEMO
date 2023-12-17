@@ -50,8 +50,20 @@ class CDetailsProduct
             } else {
                 echo "<script>alert('số lượng sản phẩm phải lớn hơn 0')</script>";
             }
-        };
+        }
 
+        if (isset($_REQUEST["orderNow"])) {
+            echo '<form id="redirectForm" method="post" action="payment.php">
+            <input type="hidden" name="orderNow">
+            <input type="hidden" name="quantity" value=' . $_REQUEST["quantity"] . '>
+            <input type="hidden" name="idProduct" value=' . $_REQUEST["idProduct"] . '>
+          </form>
+          <script>
+            document.getElementById("redirectForm").submit();
+          </script>';
+            exit();
+            exit();
+        }
     }
 }
 
