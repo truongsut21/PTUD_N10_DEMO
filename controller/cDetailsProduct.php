@@ -74,7 +74,7 @@ class CDetailsProduct
             }else{
                 echo ' <script>
                 alert("so luong san pham khong du");
-                window.location.href = "https://ptud_n10_demo.vn/xemsanpham.php?MaSanPham='.$_REQUEST["idProduct"].'";
+                window.location.href = "xemsanpham.php?MaSanPham='.$_REQUEST["idProduct"].'";
               </script>';
             }
 
