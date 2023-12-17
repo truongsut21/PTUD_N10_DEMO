@@ -33,6 +33,8 @@ class CPay
             </script>';
             exit();
         }
+       
+
         if (isset($_REQUEST['btnPay'])) {
             $HoTen = $_REQUEST['HoTen'];
             $SoDienThoai = $_REQUEST['SoDienThoai'];
@@ -113,7 +115,7 @@ function checkQuantityProduct($quantity, $idProduct)
     if ($quantity <= $quantityProductsInStock) {
         return true;
     } else {
-        return $quantityProductsInStock;
+        return false;
     }
 }
 
