@@ -35,7 +35,7 @@
                         </form>
                     </div>
 
-                    <div class="timKiem col-md-4">
+                    <div class="timKiem col-md-6">
                         <h2>DANH SÁCH SẢN PHẨM</h2>
                     </div>
                     
