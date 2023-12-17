@@ -65,14 +65,14 @@ if (isset($_REQUEST['adminButton'])) {
         <div class="row">
             <div class="col-md-12 header">
                 <a class="navbar-brand" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i>
-                    <?php
+                <?php
                     if (isset($_SESSION['MaNhanVien'])) {
                         $tenTaiKhoan = $_SESSION['MaNhanVien'];
                         $name = mysqli_query($conn, "SELECT * FROM `nhanvien` WHERE `MaNhanVien`= $tenTaiKhoan");
                         $kq = mysqli_fetch_array($name);
                         echo $kq["HoTen"];
                     }
-                    ?>
+                ?>
                 </a>
                 <form action="" method="post" id="formAdmin">
                     <button type="submit" name="adminButton" id="adminButton">Admin</button>

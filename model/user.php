@@ -15,13 +15,27 @@ function checkuser1($user, $pass)
 function getIdEmployee($user)
 {
     $conn = connectdb();
-    $stmt = $conn->prepare("SELECT `MaNhanVien` FROM `nhanvien` WHERE SoDienThoai = $user");
+    
+    // Sử dụng prepared statement với tham số :user
+    $stmt = $conn->prepare("SELECT `MaNhanVien` FROM `nhanvien` WHERE SoDienThoai = :user");
+    
+    // Gán giá trị cho tham số :user
+    $stmt->bindParam(':user', $user, PDO::PARAM_STR);
+    
+    // Thực thi truy vấn
     $stmt->execute();
+    
+    // Xử lý kết quả
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $kq = $stmt->fetchAll();
-    if (count($kq) > 0) return $kq[0]['MaNhanVien'];
-    else return 0;
+    
+    if (count($kq) > 0) {
+        return $kq[0]['MaNhanVien'];
+    } else {
+        return 0;
+    }
 }
+
 
 class modelProduct
 {
