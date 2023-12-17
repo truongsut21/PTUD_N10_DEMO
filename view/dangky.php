@@ -8,7 +8,7 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     $sodienthoai = $_REQUEST["phone"];
     $email = $_REQUEST["email"];
     $matkhau = $_REQUEST["pass"];
-    $patternname = '/^[a-zA-Z ]+$/';
+    $patternname = '/^[a-zA-ZÀ-Ỹà-ỹ]+(?: [a-zA-ZÀ-Ỹà-ỹ]+)?$/';
     $diachi = '';
     $role = 1;
     $pattern = '/^[0-9]{10}$/';
@@ -16,7 +16,7 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     $hashedPassword = md5($matkhau);
     if (empty($hoten) || empty($sodienthoai) || empty($email) || empty($matkhau)) {
         $txt = "Bạn cần nhập đầy đủ thông tin";
-    }else if (preg_match($patternname, $hoten)) {
+    }else if (!preg_match($patternname, $hoten)) {
         $txt = "Họ tên không hợp lệ";
     } else if (!preg_match($pattern, $sodienthoai)) {
         $txt = "Số điện thoại không hợp lệ";
