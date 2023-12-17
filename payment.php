@@ -131,15 +131,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                     echo '<a href="index.php">Trang Chủ</a>';
                                 }
                                 ?>
-                            <li><a href="#">Danh Mục</a>
+                            
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="./contact.php">Liên Hệ</a></li>
+                            <li><a href="./chinhsach.php">Chính Sách</a></li>
+                            <li><a href="#">Quản lý mua hàng</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="payment.php">Đặt hàng</a></li>
                                     <li><a href="orderManage.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>
-                            <li><a href="shop.php">Sản Phẩm</a></li>
-                            <li><a href="./contact.php">Liên Hệ</a></li>
-                            <li><a href="./chinhsach.php">Chính Sách</a></li>
                         </ul>
                     </nav>
                 </div>

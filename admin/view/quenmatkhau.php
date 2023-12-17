@@ -14,6 +14,7 @@ mysqli_set_charset($con,"UTF8");
 
 $emailDefault = '';
 if (isset($_POST['submit'])) {
+    
     $emailPhone = mysqli_real_escape_string($con, $_POST['check']);
     if(empty($emailPhone)){
         $txt = "Bạn cần nhập email";

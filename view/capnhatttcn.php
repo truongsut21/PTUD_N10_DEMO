@@ -1,22 +1,22 @@
 <?php
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "mypham";
-    $conn = mysqli_connect($server, $username, $password, $database);
-    if (!$conn) {
-        die("Kết nối không thành công: " . mysqli_connect_error());
-    }
-    // Thiết lập bảng mã kết nối
-    mysqli_set_charset($conn, 'utf8');
-    session_start();
-    // Kiểm tra xem người dùng đã đăng nhập hay chưa
-    if (!isset($_SESSION['MaKhachHang']) || empty($_SESSION['MaKhachHang'])) {
-        // Nếu chưa đăng nhập, chuyển hướng về trang login.php
-        header('location: dangnhap.php');
-        exit();
-    }
-if((isset($_POST['submit'])) && ($_POST['submit'])){
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "mypham";
+$conn = mysqli_connect($server, $username, $password, $database);
+if (!$conn) {
+    die("Kết nối không thành công: " . mysqli_connect_error());
+}
+// Thiết lập bảng mã kết nối
+mysqli_set_charset($conn, 'utf8');
+session_start();
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
+if (!isset($_SESSION['MaKhachHang']) || empty($_SESSION['MaKhachHang'])) {
+    // Nếu chưa đăng nhập, chuyển hướng về trang login.php
+    header('location: dangnhap.php');
+    exit();
+}
+if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     $pattern = '/^[0-9]{10}$/';
     $HoTen = $_POST['HoTen'];
     $SoDienThoai = $_POST['SoDienThoai'];
@@ -24,26 +24,26 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
     $Email = $_POST['Email'];
     $patternname = '/^[a-zA-Z ]+$/';
     $patternadd = '/^[a-zA-Z0-9,.#\- ]+$/';
-    if(empty($HoTen) || empty($SoDienThoai) ||empty($Email)){
+    if (empty($HoTen) || empty($SoDienThoai) || empty($Email)) {
         $txt = "Bạn cần nhập đầy đủ thông tin";
-    }else if (preg_match($patternname, $HoTen)) {
+    } else if (preg_match($patternname, $HoTen)) {
         $txt = "Họ tên không hợp lệ";
-    } else if(!preg_match($pattern, $SoDienThoai)){
+    } else if (!preg_match($pattern, $SoDienThoai)) {
         $txt = "Số điện thoại không hợp lệ";
-    }else if(!filter_var($Email, FILTER_VALIDATE_EMAIL)){
+    } else if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
         $txt = "Email không hợp lệ";
-    }else if (preg_match($patternadd, $DiaChi)) {
+    } else if (preg_match($patternadd, $DiaChi)) {
         $txt = "Địa chỉ không hợp lệ";
-    }else{
+    } else {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Xử lý dữ liệu khi form được gửi đi 
-        
+
             $SoDienThoaiSession = $_SESSION['MaKhachHang'];
-        
+
             // Cập nhật thông tin cá nhân trong cơ sở dữ liệu
             $query = "UPDATE khachhang SET HoTen='$HoTen', SoDienThoai='$SoDienThoai', DiaChi='$DiaChi', Email='$Email' WHERE MaKhachHang='$SoDienThoaiSession'";
             $result = mysqli_query($conn, $query);
-        
+
             if ($result) {
                 echo "<script> alert('Cập nhật thông tin thành công')</script>";
                 echo header("refresh: 0; url='#'");
@@ -65,7 +65,7 @@ if (!$result) {
 $row = mysqli_fetch_assoc($result);
 
 // include_once("model/connectdb.php");
-$conn1 = mysqli_connect("localhost","root","","mypham");
+$conn1 = mysqli_connect("localhost", "root", "", "mypham");
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     session_unset(); // Xóa tất cả các biến trong session
     session_destroy(); // Hủy session
@@ -76,6 +76,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,16 +98,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <link rel="stylesheet" href="../css/home.css" type="text/css">
     <title>Cập nhật thông tin cá nhân</title>
 </head>
+
 <body>
-<header class="header" >
+    <header class="header">
         <div class="header__top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i
+                                        class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi
+                                    đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -152,21 +156,22 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <nav class="header__menu">
                         <ul>
                             <li><a href="../indexuser.php">Trang Chủ</a>
-                            <li><a href="#">Danh Mục</a>
+
+                            <li><a href="../shop.php">Sản Phẩm</a></li>
+                            <li><a href="../contact.php">Liên Hệ</a></li>
+                            <li><a href="../chinhsach.php">Chính Sách</a></li>
+                            <li><a href="#">Quản lý mua hàng</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="../payment.php">Đặt hàng</a></li>
                                     <li><a href="../orderManage.php">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>
-                            <li><a href="../shop.php">Sản Phẩm</a></li>
-                            <li><a href="../contact.php">Liên Hệ</a></li>
-                            <li><a href="../chinhsach.php">Chính Sách</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
-</header>
+    </header>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
@@ -174,13 +179,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <img src="../img/img-02.png" alt="IMG">
                 </div>
 
-                <form  action="<?php echo $_SERVER['PHP_SELF'];?>" class="login100-form validate-form" method="post">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="login100-form validate-form" method="post">
                     <span class="login100-form-title">
                         Cập nhập thông tin
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text"  name="HoTen" value="<?php echo $row['HoTen']; ?>">
+                        <input class="input100" type="text" name="HoTen" value="<?php echo $row['HoTen']; ?>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -188,21 +193,22 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     </div>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text" name="SoDienThoai"  value="<?php echo $row['SoDienThoai']; ?>">
+                        <input class="input100" type="text" name="SoDienThoai"
+                            value="<?php echo $row['SoDienThoai']; ?>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                         </span>
                     </div>
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text" name="DiaChi"  value="<?php echo $row['DiaChi']; ?>">
+                        <input class="input100" type="text" name="DiaChi" value="<?php echo $row['DiaChi']; ?>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-address-book-o" aria-hidden="true"></i>
                         </span>
                     </div>
                     <div class="wrap-input100 ">
-                        <input class="input100" type="email" name="Email"  value="<?php echo $row['Email']; ?>">
+                        <input class="input100" type="email" name="Email" value="<?php echo $row['Email']; ?>">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -216,60 +222,61 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="container-login100-form-btn">
                         <input type="submit" class="login100-form-btn" name="submit" value="Cập nhập">
                     </div>
-                    
+
                 </form>
             </div>
         </div>
 
- <!-- Footer Begin -->
- <footer class="footer spad">
-        <div class="container">
-            <div class="row" style="margin: 20px 0 10px">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo" style="line-height: 150px">
-                            <a href="./index.html"><img src="../img/img-02logo.png" alt=""></a>
+        <!-- Footer Begin -->
+        <footer class="footer spad">
+            <div class="container">
+                <div class="row" style="margin: 20px 0 10px">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__about__logo" style="line-height: 150px">
+                                <a href="./index.html"><img src="../img/img-02logo.png" alt=""></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h4>Truy cập nhanh</h4>
-                        <ul style="list-style-type: none; color: #333; margin: 10px 0 0 0">
-                            <li><a style="color: #333" href="../indexuser.php">Home</a></li>
-                            <li><a style="color: #333" href="../shop.php">Sản phẩm</a></li>
-                            <li><a style="color: #333" href="../contact.php">Liên hệ</a></li>
-                            <li><a style="color: #333" href="../chinhsach.php">Chính sách</a></li>
-                            <li><a style="color: #333" href="../orderManage.php">Quản lý đơn hàng</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h4>Liên hệ</h4>
-                        <div class="footer__widget__social" style="margin: 10px 0 0 0">
-                            <ul style="list-style-type: none; color: #333">
-                                <li>Address: 12 Nguyễn Văn Bảo</li>
-                                <li>Phone: 09.8888.9898</li>
-                                <li>Email: shopmyphamNumberTwo@gmail.com</li>
+                    <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                        <div class="footer__widget">
+                            <h4>Truy cập nhanh</h4>
+                            <ul style="list-style-type: none; color: #333; margin: 10px 0 0 0">
+                                <li><a style="color: #333" href="../indexuser.php">Home</a></li>
+                                <li><a style="color: #333" href="../shop.php">Sản phẩm</a></li>
+                                <li><a style="color: #333" href="../contact.php">Liên hệ</a></li>
+                                <li><a style="color: #333" href="../chinhsach.php">Chính sách</a></li>
+                                <li><a style="color: #333" href="../orderManage.php">Quản lý đơn hàng</a></li>
                             </ul>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__widget">
+                            <h4>Liên hệ</h4>
+                            <div class="footer__widget__social" style="margin: 10px 0 0 0">
+                                <ul style="list-style-type: none; color: #333">
+                                    <li>Address: 12 Nguyễn Văn Bảo</li>
+                                    <li>Phone: 09.8888.9898</li>
+                                    <li>Email: shopmyphamNumberTwo@gmail.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12" style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
-                            <p> Copyright &copy; NumberTwo</p>
+                <div class="row">
+                    <div class="col-lg-12"
+                        style="text-align: center !important; border-top: 1px solid #ccc; margin: 15px 0 0 0">
+                        <div class="footer__copyright">
+                            <div class="footer__copyright__text" style="width: 100%; margin: 10px 0px 0 4%">
+                                <p> Copyright &copy; NumberTwo</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Footer End -->
-    </div> 
+        </footer>
+        <!-- Footer End -->
+    </div>
 
     <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="../vendor/bootstrap/js/popper.js"></script>
@@ -283,4 +290,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     </script>
     <script src="../js/mainn.js"></script>
 </body>
+
 </html>

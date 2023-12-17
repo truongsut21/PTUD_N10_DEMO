@@ -129,15 +129,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <nav class="header__menu">
                         <ul>
                             <li><a href="indexuser.php">Trang Chủ</a>
-                            <li><a href="#">Danh Mục</a>
+                            
+                            <li><a href="shop.php">Sản Phẩm</a></li>
+                            <li><a href="#">Liên Hệ</a></li>
+                            <li><a href="#">Chính Sách</a></li>
+                            <li><a href="#">Quản lý mua hàng </a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="#">Đặt hàng</a></li>
                                     <li><a href="#">Xem lịch sử mua hàng</a></li>
                                 </ul>
                             </li>
-                            <li><a href="shop.php">Sản Phẩm</a></li>
-                            <li><a href="#">Liên Hệ</a></li>
-                            <li><a href="#">Chính Sách</a></li>
                         </ul>
                     </nav>
                 </div>

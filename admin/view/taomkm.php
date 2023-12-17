@@ -67,7 +67,7 @@ if((isset($_POST['submit'])) && ($_POST['submit'])){
                     </span>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="text" name="newPassword" value="<?php echo $mkdefa; ?>" placeholder="Nhập mật khẩu mới">
+                        <input class="input100" type="password" name="newPassword" value="<?php echo $mkdefa; ?>" placeholder="Nhập mật khẩu mới">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
