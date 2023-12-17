@@ -76,7 +76,6 @@
                                 <th>Số lượng tồn</th>
                                 <th>Thương hiệu</th>
                                 <th>Loại sản phẩm</th>
-                                <th>Tên loại</th>
                                 <th>Tính Năng</th>
                             </tr>
                         </thead>
@@ -94,7 +93,6 @@
                                     echo "<td>". $row['SoLuongTon'] ."</td>";
                                     echo "<td>". $row['ThuongHieu'] ."</td>";
                                     echo "<td>"."L". $row['LoaiSanPham'] ."</td>";
-                                    echo "<td>". $row['TenLoai'] ."</td>"; 
                                 echo "<td>
                                         <form action='#' method='get'>
                                         <input type='hidden' name='MaPhieuXuatKho' value='" . $row["MaPhieuXuatKho"] . "'>
