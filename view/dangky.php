@@ -16,7 +16,7 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     $hashedPassword = md5($matkhau);
     if (empty($hoten) || empty($sodienthoai) || empty($email) || empty($matkhau)) {
         $txt = "Bạn cần nhập đầy đủ thông tin";
-    }else if (!preg_match($patternname, $hoten)) {
+    }else if (preg_match($patternname, $hoten)) {
         $txt = "Họ tên không hợp lệ";
     } else if (!preg_match($pattern, $sodienthoai)) {
         $txt = "Số điện thoại không hợp lệ";
@@ -99,7 +99,7 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
                     </div>
 
                     <div class="wrap-input100 ">
-                        <input class="input100" type="email" name="email" value="<?php echo $emailDefault; ?>"
+                        <input class="input100" type="text" name="email" value="<?php echo $emailDefault; ?>"
                             placeholder="Email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">

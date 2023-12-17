@@ -26,7 +26,7 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     $patternadd = '/^[a-zA-Z0-9,.#\- ]+$/';
     if (empty($HoTen) || empty($SoDienThoai) || empty($Email)) {
         $txt = "Bạn cần nhập đầy đủ thông tin";
-    } else if (!preg_match($patternname, $HoTen)) {
+    } else if (preg_match($patternname, $HoTen)) {
         $txt = "Họ tên không hợp lệ";
     } else if (!preg_match($pattern, $SoDienThoai)) {
         $txt = "Số điện thoại không hợp lệ";
