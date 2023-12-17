@@ -26,10 +26,11 @@
             if ($p->moKetNoi($con)) {
                 $string = "SELECT pxk.MaPhieuXuatKho, pxk.TrangThaiPhieuXuatKho, pxk.PhieuShow, 
                 pxk.NgayLapPhieuXuatKho, nvk.MaNhanVien, nvk.HoTen,
-                sp.MaSanPham, sp.TenSanPham, sp.SoLuongTon, sp.ThuongHieu, sp.LoaiSanPham
+                sp.MaSanPham, sp.TenSanPham, sp.SoLuongTon, sp.ThuongHieu, sp.LoaiSanPham, lsp.TenLoai
                 FROM phieuxuatkho pxk
                 INNER JOIN nhanvien nvk ON nvk.MaNhanVien = pxk.MaNhanVien
                 INNER JOIN sanpham sp ON sp.MaSanPham = pxk.MaSanPham
+                INNER JOIN loaisanpham lsp ON lsp.MaLoai = sp.LoaiSanPham
                 where TrangThaiPhieuXuatKho like N'%".$search."%' order by MaPhieuXuatKho Desc";
                 $table=mysqli_query($con,$string);
                 $p->dongketnoi($con);
