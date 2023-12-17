@@ -26,6 +26,13 @@ class CPay
 
     function handlePay()
     {
+        if (!isset($_SESSION['MaKhachHang'])) {
+            // echo "";
+            echo '<script>
+            window.location.href = "view/dangnhap.php";
+            </script>';
+            exit();
+        }
         if (isset($_REQUEST['btnPay'])) {
             $HoTen = $_REQUEST['HoTen'];
             $SoDienThoai = $_REQUEST['SoDienThoai'];
