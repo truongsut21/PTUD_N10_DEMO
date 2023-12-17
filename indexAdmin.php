@@ -32,8 +32,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <title>Document</title>
     <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./css/styleAdmin.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -64,8 +63,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     }
                     ?>
                 </a>
-                <a href="?action=logout" data-toggle="tooltip" data-placement="bottom" title="ĐĂNG XUẤT"><b>Đăng xuất <i
-                            class="fas fa-sign-out-alt"></i></b></a>
+                <a href="?action=logout" data-toggle="tooltip" data-placement="bottom" title="ĐĂNG XUẤT"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a>
             </div>
         </div>
     </div>
@@ -74,24 +72,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item menu">
-                <a class="nav-link <?php echo isset($_REQUEST['nhan-vien']) ? "active" : ""; ?>"
-                    href="indexAdmin.php?nhan-vien">NHÂN VIÊN</a>
+                <a class="nav-link <?php echo isset($_REQUEST['nhan-vien']) ? "active" : ""; ?>" href="indexAdmin.php?nhan-vien">NHÂN VIÊN</a>
             </li>
             <li class="nav-item menu">
-                <a class="nav-link <?php echo isset($_REQUEST['san-pham']) ? "active" : ""; ?>"
-                    href="indexAdmin.php?san-pham">SẢN PHẨM</a>
+                <a class="nav-link <?php echo isset($_REQUEST['san-pham']) ? "active" : ""; ?>" href="indexAdmin.php?san-pham">SẢN PHẨM</a>
             </li>
             <li class="nav-item menu">
-                <a class="nav-link <?php echo isset($_REQUEST['khach-hang']) ? "active" : ""; ?>"
-                    href="indexAdmin.php?khach-hang">KHÁCH HÀNG</a>
+                <a class="nav-link <?php echo isset($_REQUEST['khach-hang']) ? "active" : ""; ?>" href="indexAdmin.php?khach-hang">KHÁCH HÀNG</a>
             </li>
             <li class="nav-item menu">
-                <a class="nav-link <?php echo isset($_REQUEST['thong-ke']) ? "active" : ""; ?>"
-                    href="indexAdmin.php?thong-ke">THỐNG KÊ</a>
+                <a class="nav-link <?php echo isset($_REQUEST['thong-ke']) ? "active" : ""; ?>" href="indexAdmin.php?thong-ke">THỐNG KÊ</a>
             </li>
             <li class="nav-item menu">
-                <a class="nav-link <?php echo isset($_REQUEST['ban-hang']) ? "active" : ""; ?>"
-                    href="indexNVBH.php">QUẢN LÝ BÁN HÀNG</a>
+                <a class="nav-link <?php echo isset($_REQUEST['ban-hang']) ? "active" : ""; ?>" href="indexNVBH.php">QUẢN LÝ BÁN HÀNG</a>
             </li>
             <li class="nav-item menu">
                 <a class="nav-link <?php echo isset($_REQUEST['kho']) ? "active" : ""; ?>" href="indexQLKH.php">QUẢN LÝ
@@ -210,8 +203,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">Tên sản phẩm</label>
-                            <input type="text" name="tenSP" id="tenSP" class="form-control"
-                                aria-describedby="tenSP-messs">
+                            <input type="text" name="tenSP" id="tenSP" class="form-control" aria-describedby="tenSP-messs">
                             <small id="tenSP-mess"></small>
                         </div>
 
@@ -229,22 +221,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                         <div class="form-group">
                             <label for="">Giá nhập</label>
-                            <input type="number" name="giaNhap" id="giaNhap" class="form-control"
-                                aria-describedby="giaNhap-messs">
+                            <input type="number" name="giaNhap" id="giaNhap" class="form-control" aria-describedby="giaNhap-messs">
                             <small id="giaNhap-mess"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="">Giá bán</label>
-                            <input type="number" name="giaBan" id="giaBan" class="form-control"
-                                aria-describedby="giaBan-messs">
+                            <input type="number" name="giaBan" id="giaBan" class="form-control" aria-describedby="giaBan-messs">
                             <small id="giaBan-mess"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="">Thương hiệu</label>
-                            <input type="text" name="thuongHieu" id="thuongHieu" class="form-control"
-                                aria-describedby="thuongHieu-messs">
+                            <input type="text" name="thuongHieu" id="thuongHieu" class="form-control" aria-describedby="thuongHieu-messs">
                             <small id="thuongHieu-mess"></small>
                         </div>
 
@@ -324,22 +313,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="">Họ và tên</label>
-                            <input type="text" name="hoTen" id="hoTen" class="form-control"
-                                aria-describedby="hoTen-messs">
+                            <input type="text" name="hoTen" id="hoTen" class="form-control" aria-describedby="hoTen-messs">
                             <small id="hoTen-mess"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="">Mật khẩu</label>
-                            <input type="text" name="matkhau" id="matkhau" class="form-control"
-                                aria-describedby="matkhau-messs">
+                            <input type="text" name="matkhau" id="matkhau" class="form-control" aria-describedby="matkhau-messs">
                             <small id="matkhau-mess"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="text" name="Email" id="Email" class="form-control"
-                                aria-describedby="Email-messs">
+                            <input type="text" name="Email" id="Email" class="form-control" aria-describedby="Email-messs">
                             <small id="Email-mess"></small>
                         </div>
 
@@ -351,8 +337,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                         <div class="form-group">
                             <label for="">Địa chỉ</label>
-                            <input type="text" name="DiaChi" id="DiaChi" class="form-control"
-                                aria-describedby="DiaChi-messs">
+                            <input type="text" name="DiaChi" id="DiaChi" class="form-control" aria-describedby="DiaChi-messs">
                             <small id="DiaChi-mess"></small>
                         </div>
 
@@ -371,7 +356,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             if (mysqli_num_rows($tbl) > 0) {
                                 echo '<select name="LoaiNV" class="form-control">';
                                 while ($r = mysqli_fetch_assoc($tbl)) {
-                                    echo '<option value="' . $r["MaLoaiNhanVien"] . '">' . $r["GhiChu"] . '</option>';
+                                    if ($r["MaLoaiNhanVien"] != 3) {
+                                        echo '<option value="' . $r["MaLoaiNhanVien"] . '">' . $r["GhiChu"] . '</option>';
+                                    }
                                 }
                                 echo '</select>';
                             }
