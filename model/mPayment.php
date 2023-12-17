@@ -20,6 +20,21 @@ class MPay
         }
     }
 
+    function getPriceProduct($maSanPham)
+    {
+       
+        $p = new ConnectDB();
+        $con = null;
+        if ($p->connect_DB($con)) {
+            $str = "SELECT `GiaBan` FROM `sanpham` WHERE MaSanPham = $maSanPham";
+            $tbl = mysqli_query($con, $str);
+            $p->closeDB($con);
+            return $tbl;
+        } else {
+            return false;
+        }
+    }
+
     function createOrder($tongTienDonHang, $maKhachHang, $DiaChi, $HoTen, $SoDienThoai, $Email)
     {
         $p = new ConnectDB();

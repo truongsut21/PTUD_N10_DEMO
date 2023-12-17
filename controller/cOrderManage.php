@@ -10,7 +10,7 @@ class COrderManager
 {
     function getAllOrder()
     {
-        $maKhachHang = 1;
+        $maKhachHang = $_SESSION['MaKhachHang'];
         $p = new MOrderManager();
         $tbl = $p->getAllOrder($maKhachHang);
         return $tbl;
