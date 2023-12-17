@@ -83,16 +83,27 @@ function showProductOrderNow()
     echo '<input type="hidden" name="MaSanPham[]" value=' . $_REQUEST['idProduct'] . '>';
     echo '<input type="hidden" name="SoLuong[]" value=' . $_REQUEST['quantity'] . '>';
 
-    echo '<li>1 <span>1</span></li>';
+    echo '<li>'.getNameProduct($_REQUEST['idProduct']).'<span>'.getPriceProduct($_REQUEST['idProduct']) * $_REQUEST['quantity'].'</span></li>';
 }
 
 function getPriceProduct($maSanPham)
 {
 
     $p = new CPay();
-    $tbl = $p->getPriceProduct($maSanPham);
+    $tbl = $p->getNamePriceProduct($maSanPham);
 
     $row = mysqli_fetch_assoc($tbl);
 
     return $row['GiaBan'];
+}
+
+function getNameProduct($maSanPham)
+{
+
+    $p = new CPay();
+    $tbl = $p->getNamePriceProduct($maSanPham);
+
+    $row = mysqli_fetch_assoc($tbl);
+
+    return $row['TenSanPham'];
 }

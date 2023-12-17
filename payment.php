@@ -56,14 +56,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top">
+        <div class="header__top" style="background: #FFE0ED;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
-                                <li>Miễn phí vận chuyển khi đăng ký thành viên</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;"><i class="fa fa-envelope"></i> shopmyphamNumberTwo@gmail.com</li>
+                                <li style="font-family: Cairo, sans-serif; font-size: 15px;">Miễn phí vận chuyển khi đăng ký thành viên</li>
                             </ul>
                         </div>
                     </div>
@@ -106,31 +106,31 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         <div class="container">
             <div class="row">
 
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="../PTUD_N10_DEMO/indexuser.php"><img src="../PTUD_N10_DEMO/img/logo.png" alt=""></a>
+                    </div>
+                </div>
 
-
-                <!--    <div class="hero__search">
+                <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#" method="get">
-                            <input type="text" name="tim" placeholder="Nhập sản phẩm cần tìm.">
-                            <button class="site-btn" type="submit" name="timkiem">
-                                <i class="fa fa-search" value="Tìm kiếm"></i>
-                            </button>
+                        <form action="#">
+                            <input type="text" name="search" placeholder="Nhập sản phẩm cần tìm.">
+                            <button type="submit" class="site-btn">TÌM</button>
                         </form>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="col-lg-12">
                     <nav class="header__menu">
                         <ul>
-                            <li>
-                                <?php
+                            <li>    <?php
                                 if (isset($_SESSION['MaKhachHang'])) {
                                     echo '<a href="indexuser.php">Trang Chủ</a>';
                                 } else {
                                     echo '<a href="index.php">Trang Chủ</a>';
                                 }
                                 ?>
-                            </li>
                             <li><a href="#">Danh Mục</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="payment.php">Đặt hàng</a></li>
@@ -138,8 +138,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 </ul>
                             </li>
                             <li><a href="shop.php">Sản Phẩm</a></li>
-                            <li><a href="contact.php">Liên Hệ</a></li>
-                            <li><a href="chinhsach.php">Chính Sách</a></li>
+                            <li><a href="./contact.php">Liên Hệ</a></li>
+                            <li><a href="./chinhsach.php">Chính Sách</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -147,6 +147,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         </div>
     </header>
     <!-- Header Section End -->
+    <br>
     <br>
 
     <!-- Breadcrumb Section Begin -->
@@ -230,7 +231,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer spad">
+    <footer class="footer spad" style="background: #FFE0ED;">
         <div class="container">
             <div class="row" style="margin: 20px 0 10px">
                 <div class="col-lg-3 col-md-6 col-sm-6">

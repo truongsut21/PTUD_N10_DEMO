@@ -13,7 +13,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <html lang="zxx">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,7 +86,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                     $kq = mysqli_fetch_array($name);
                                     echo $kq["HoTen"];
                                     //}
-                                
+
                                     echo '</button>';
                                     echo '<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>

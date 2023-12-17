@@ -20,13 +20,13 @@ class MPay
         }
     }
 
-    function getPriceProduct($maSanPham)
+    function getNamePriceProduct($maSanPham)
     {
        
         $p = new ConnectDB();
         $con = null;
         if ($p->connect_DB($con)) {
-            $str = "SELECT `GiaBan` FROM `sanpham` WHERE MaSanPham = $maSanPham";
+            $str = "SELECT `GiaBan`,`TenSanPham` FROM `sanpham` WHERE MaSanPham = $maSanPham";
             $tbl = mysqli_query($con, $str);
             $p->closeDB($con);
             return $tbl;

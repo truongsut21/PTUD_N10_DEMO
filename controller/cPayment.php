@@ -16,10 +16,10 @@ class CPay
         return $tbl;
     }
 
-    function getPriceProduct($maSanPham)
+    function getNamePriceProduct($maSanPham)
     {
         $p = new MPay();
-        $tbl = $p->getPriceProduct($maSanPham);
+        $tbl = $p->getNamePriceProduct($maSanPham);
         return $tbl;
     }
 
