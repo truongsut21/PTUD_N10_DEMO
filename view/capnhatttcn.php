@@ -35,11 +35,64 @@ if ((isset($_POST['submit'])) && ($_POST['submit'])) {
     } else if (preg_match($patternadd, $DiaChi)) {
         $txt = "Địa chỉ không hợp lệ";
     } else {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Xử lý dữ liệu khi form được gửi đi 
 
+        $SoDienThoaiSession = $_SESSION['MaKhachHang'];
+        $query = "SELECT Email FROM khachhang WHERE MaKhachHang = '$SoDienThoaiSession'";
+        $result = $conn->query($query);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $emailss = $row['Email'];
+        }
+
+        $query1 = "SELECT SoDienThoai FROM khachhang WHERE MaKhachHang = '$SoDienThoaiSession'";
+        $result1 = $conn->query($query1);
+        if ($result1->num_rows > 0) {
+            $row = $result1->fetch_assoc();
+            $sdtss = $row['SoDienThoai'];
+        }
+        //echo "<script> alert('$emailss.$sdtss')</script>";
+
+        if ($_POST['Email'] != $emailss) {
+            include_once("../Controller/ckhachhang.php");
+            $p = new controlProduct();
+            $re = $p->ktradky($Email);
+            if ($re == 0) {
+                $txt = "Email đã tồn tại";
+            }
+            else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Xử lý dữ liệu khi form được gửi đi 
+                $SoDienThoaiSession = $_SESSION['MaKhachHang'];
+                // Cập nhật thông tin cá nhân trong cơ sở dữ liệu
+                $query = "UPDATE khachhang SET HoTen='$HoTen', SoDienThoai='$SoDienThoai', DiaChi='$DiaChi', Email='$Email' WHERE MaKhachHang='$SoDienThoaiSession'";
+                $result = mysqli_query($conn, $query);
+                if ($result) {
+                    echo "<script> alert('Cập nhật thông tin thành công')</script>";
+                    echo header("refresh: 0; url='#'");
+                } else {
+                    echo "Lỗi cập nhật thông tin: " . mysqli_error($conn);
+                }
+            }
+        } else if ($_POST['SoDienThoai'] != $sdtss) {
+            include_once("../Controller/ckhachhang.php");
+            $p = new controlProduct();
+            $ra = $p->ktradkysdt($SoDienThoai);
+            if ($ra == 0) {
+                $txt = "Số điện thoại đã tồn tại";
+            } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // Xử lý dữ liệu khi form được gửi đi 
+                $SoDienThoaiSession = $_SESSION['MaKhachHang'];
+                // Cập nhật thông tin cá nhân trong cơ sở dữ liệu
+                $query = "UPDATE khachhang SET HoTen='$HoTen', SoDienThoai='$SoDienThoai', DiaChi='$DiaChi', Email='$Email' WHERE MaKhachHang='$SoDienThoaiSession'";
+                $result = mysqli_query($conn, $query);
+                if ($result) {
+                    echo "<script> alert('Cập nhật thông tin thành công')</script>";
+                    echo header("refresh: 0; url='#'");
+                } else {
+                    echo "Lỗi cập nhật thông tin: " . mysqli_error($conn);
+                }
+            }
+        } else {
             $SoDienThoaiSession = $_SESSION['MaKhachHang'];
-
             // Cập nhật thông tin cá nhân trong cơ sở dữ liệu
             $query = "UPDATE khachhang SET HoTen='$HoTen', SoDienThoai='$SoDienThoai', DiaChi='$DiaChi', Email='$Email' WHERE MaKhachHang='$SoDienThoaiSession'";
             $result = mysqli_query($conn, $query);
