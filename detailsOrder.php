@@ -1,3 +1,15 @@
+<?php
+ob_start();
+// include_once("model/connectdb.php");
+$conn = mysqli_connect("localhost", "root", "", "mypham");
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_unset(); // Xóa tất cả các biến trong session
+    session_destroy(); // Hủy session
+    header('location: index.php'); // Chuyển hướng về trang login.php
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -62,17 +74,24 @@
                         <div class="header__top__right">
                             <div class="header__top__right__social">
                                 <a href="./view/capnhatttcn.php"><i class="fa fa-user"></i></a>
-                                <a href="#"><i class="fa fa-phone"></i></a>
+                                <a href="contact.php"><i class="fa fa-phone"></i></a>
                                 <a href="cart.php"><i class="fa fa-shopping-bag"></i></a>
                             </div>
 
                             <div class="header__top__right__auth">
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Tài khoản của bạn
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php
+                                        if (isset($_SESSION['MaKhachHang'])) {
+                                            $tenTaiKhoan = $_SESSION['MaKhachHang'];
+                                            $name = mysqli_query($conn, "SELECT * FROM `khachhang` WHERE `MaKhachHang`= $tenTaiKhoan");
+                                            $kq = mysqli_fetch_array($name);
+                                            echo $kq["HoTen"];
+                                        }
+                                        ?>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="orderManage.php">Quản lý đơn hàng</a>
                                         <a class="dropdown-item" href="view/capnhatttcn.php">Cập nhật thông tin</a>
                                         <a class="dropdown-item" href="view/doimatkhau.php">Đổi mật khẩu</a>
                                         <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
@@ -403,5 +422,7 @@
 
 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </html>
