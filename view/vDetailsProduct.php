@@ -56,7 +56,7 @@ function showProduct($tbl)
                         <h5>" . number_format($row['GiaBan'], 0, ',', '.') . "đ</h5></div>
                         
                 
-                        <form action='payment.php' method='get'>
+                        <form action='#' method='post'>
                         <div class='product__details__quantity'>
                             <div class='quantity'><h6>Số lượng</h6>
                                 <div class='pro-qty'>
